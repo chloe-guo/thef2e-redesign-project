@@ -1,4 +1,4 @@
-# my-first-vue
+# first-vue-project
 
 ## Project setup
 ```
