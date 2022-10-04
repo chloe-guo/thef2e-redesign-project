@@ -5,7 +5,7 @@ const ghpages = require('gh-pages');
 
 const options = {
     branch: 'gh-pages',
-    repo: 'https://github.com/Chloe-Guo/first-vue-project.git' // project github repo
+    repo: 'https://github.com/chloe-guo/first-vue-project.git' // project github repo
 };
 
 const callback = err => {
