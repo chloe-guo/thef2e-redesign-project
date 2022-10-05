@@ -4,7 +4,7 @@ const path = require('path');
 const ghpages = require('gh-pages');
 
 const options = {
-    branch: 'master',
+    branch: 'gh-pages',
     repo: 'https://github.com/chloe-guo/first-vue-project.git' // project github repo
 };
 
