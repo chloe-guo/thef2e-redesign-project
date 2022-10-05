@@ -17,8 +17,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  @include flex;
-  background: $c-content-bg;
-}
 </style>
