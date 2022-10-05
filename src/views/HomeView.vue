@@ -1,8 +1,7 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+<template lang="pug">
+.home
+  img(src="@/assets/images/logo.png" alt="Vue logo")
+  HelloWorld(msg="Welcome to Your Vue.js App")
 </template>
 
 <script>
@@ -16,3 +15,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  @include flex;
+  background: $c-content-bg;
+}
+</style>

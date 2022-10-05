@@ -1,0 +1,19 @@
+$max-width: 600px;
+$min-height: 980px;
+$height-navbar: 96px;
+$height-footer: 106px;
+$min-height-footer: calc($min-height - $height-footer);
+$min-height-navbar: calc($min-height - $height-navbar);
+$min-height-navbar-footer: calc($min-height - $height-navbar - $height-footer);
+
+$fz-primary: 26px;
+
+$fw-primary: 500;
+$fw-bold: 700;
+
+$c-bg: #246700;
+$c-content-bg: #f8f8e2;
+$c-footer: white;
+$c-footer-text: #225d03;
+$c-navtoggle: #3b7b08;
+$c-text: #663300;
