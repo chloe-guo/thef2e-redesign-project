@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode=development --watch",
+    "build": "vue-cli-service build --mode=development --watch",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "prod": "vue-cli-service build --mode=production && node ./deploy/ghpages.js",
     "deploy": "npm run build && node ./deploy/ghpages.js"
   },
   "dependencies": {
