@@ -1,0 +1,440 @@
+@mixin flex($fd:row, $jc:center, $ai:center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin poa($l:0, $t:0, $r:0, $b:0) {
+  position: absolute;
+  margin: auto;
+
+  @if $l !=l {
+    left: $l;
+  }
+
+  @else {
+    left: auto;
+  }
+
+  @if $t !=t {
+    top: $t;
+  }
+
+  @else {
+    top: auto;
+  }
+
+  @if $r !=r {
+    right: $r;
+  }
+
+  @else {
+    right: auto;
+  }
+
+  @if $b !=b {
+    bottom: $b;
+  }
+
+  @else {
+    bottom: auto;
+  }
+}
+
+@mixin fixed($l:0, $t:0, $r:0, $b:0) {
+  position: fixed;
+  margin: auto;
+
+  @if $l !=l {
+    left: $l;
+  }
+
+  @else {
+    left: auto;
+  }
+
+  @if $t !=t {
+    top: $t;
+  }
+
+  @else {
+    top: auto;
+  }
+
+  @if $r !=r {
+    right: $r;
+  }
+
+  @else {
+    right: auto;
+  }
+
+  @if $b !=b {
+    bottom: $b;
+  }
+
+  @else {
+    bottom: auto;
+  }
+}
+
+@mixin rect($w:calc(100% + 1px), $h:calc(100% + 1px), $bdrs:0) {
+  width: $w;
+  height: $h;
+  border-radius: $bdrs;
+}
+
+@mixin circle($r) {
+  width: $r;
+  height: $r;
+  border-radius: 50%;
+}
+
+@mixin font($fz:$fz-primary, $lh:1.5, $fw:$fw-primary, $ls:.5px) {
+  $calcfz: calc($fz / $fz-primary) + rem;
+  font-size: $calcfz;
+  line-height: $lh;
+  letter-spacing: $ls;
+  font-weight: $fw;
+}
+
+@mixin border($bc:$c-border, $bw:1px, $bs:solid) {
+  border-color: $bc;
+  border-width: $bw;
+  border-style: $bs;
+}
+
+@mixin beaf {
+  content: "";
+  display: block;
+}
+
+@mixin bg($bgsz:contain, $bgr:no-repeat, $bgposh:center, $bgposs:center) {
+  background-size: $bgsz;
+  background-repeat: $bgr;
+  background-position: $bgposh $bgposs;
+}
+
+@mixin img($w:auto, $h:auto) {
+  @include rect($w, $h);
+  @include flex;
+
+  @if $w==auto {
+
+    picture,
+    img {
+      @include rect(auto, calc(100% + 1px));
+    }
+  }
+
+  @else if $h==auto {
+
+    picture,
+    img {
+      @include rect(calc(100% + 1px), auto);
+    }
+  }
+
+  @else {
+
+    picture,
+    img {
+      @include rect(calc(100% + 1px), calc(100% + 1px));
+    }
+  }
+}
+
+@mixin highlightTitle($fz:29px, $fw:$fw-primary, $y:13%, $x:115%, $w:62px, $h:40px) {
+  @include flex(column);
+
+  span {
+    @include font($fz, 1.3, $fw, 0);
+
+    &::before {
+      @include beaf;
+      @include rect($w, $h);
+      background: url("/themes/custom/cha_campaign/images/common/title-leaf-left.png");
+      @include bg(contain, no-repeat, left, center);
+      @include poa(0, t, r, 0);
+      transform: translate(calc($x * -1), $y);
+    }
+
+    &::after {
+      @include beaf;
+      @include rect($w, $h);
+      background: url("/themes/custom/cha_campaign/images/common/title-leaf-right.png");
+      @include bg(contain, no-repeat, left, center);
+      @include poa(l, t, 0, 0);
+      transform: translate($x, $y);
+    }
+  }
+}
+
+@mixin btn($w:337px, $h: 72px, $fz:32px, $border:6px, $bdrs:12px) {
+  @include rect(calc($w + $border * 2), calc($h + $border * 2), $bdrs);
+  display: block;
+  @include flex;
+  background-color: #fff8dc;
+  border: $border solid #fff8dc;
+  box-shadow: 0 8px 16px rgba(#402000, .3);
+  @include font($fz, 1.5, $fw-bold);
+  color: white;
+  text-shadow: -1.5px 1.5px 0 #ab4300;
+}
+
+@mixin popup($size, $y:0px) {
+  margin: auto;
+  transform: translateX(-.6%);
+
+  filter: drop-shadow(-6px 12px 8px rgba(#402000, .3));
+
+  @if $size==x {
+    width: calc(100% + 1px);
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-x.png");
+    min-height: 441px;
+    height: 441px;
+    top: calc((100vh - $height-navbar - 441px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 441px) / 2 + $y);
+  } @else if $size==xx {
+    width: 440px;
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-xx.png");
+    min-height: 355px;
+    height: 355px;
+    top: calc((100vh - $height-navbar - 355px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 355px) / 2 + $y);
+  } @else {
+    width: calc(100% + 1px);
+    &::before {
+      @include beaf;
+      @include rect(144px, 129px);
+      background: url("/themes/custom/cha_campaign/images/common/popup-corner.png");
+      @include bg(contain);
+      @include poa(l, -1px, 0px, b);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  @if $size==xs {
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-xs.png");
+    min-height: 441px;
+    height: 441px;
+    top: calc((100vh - $height-navbar - 441px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 441px) / 2 + $y);
+  }
+
+  @if $size==s {
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-s.png");
+    min-height: 692px;
+    height: 692px;
+    top: calc((100vh - $height-navbar - 692px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 692px) / 2 + $y);
+  }
+
+  @else if $size==m {
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-m.png");
+    min-height: 735px;
+    height: 735px;
+    top: calc((100vh - $height-navbar - 735px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 735px) / 2 + $y);
+  }
+
+  @else if $size==l {
+    background: url("/themes/custom/cha_campaign/images/common/popup-bg-l.png");
+    min-height: 812px;
+    height: 812px;
+    top: calc((100vh - $height-navbar - 812px) / 2 + $y);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 812px) / 2 + $y);
+  }
+  @include bg(calc(100% + 1px) auto, no-repeat, center, top);
+}
+
+@mixin textstroke($w, $color, $fz:$fz-primary, $lh:1.5, $fw:$fw-primary, $ls:.5px) {
+  @include font($fz, $lh, $fw, $ls);
+  @include flex;
+  &::before {
+    content: attr(data-stroke);
+    display: block;
+    white-space: pre;
+    @include poa;
+    @include flex;
+    @include font($fz, $lh, $fw, $ls);
+    color: $color;
+    -webkit-text-stroke: $w $color;
+    text-stroke: $w $color;
+    z-index: -1;
+  }
+}
+
+@mixin btnshine($path:"index/kv-", $w:304px, $h: 72px, $fz:32px, $border:6px, $bdrs:12px) {
+  display: block;
+  @include rect(calc($w + $border * 2), calc($h + $border * 2), $bdrs);
+  @include flex;
+  background-color: #fff8dc;
+  background-image: url("/themes/custom/cha_campaign/images/#{$path}btn-bg.png");
+  @include bg;
+  border: $border solid #fff8dc;
+  box-shadow: 0 8px 16px rgba(#402000, .3);
+
+  span {
+    @include font($fz, 1.5, $fw-bold);
+    color: white;
+    text-shadow: -2px 2px 0 #ab4300;
+    animation: bounce-btn-text 1.8s linear infinite;
+    z-index: 1;
+
+    @keyframes bounce-btn-text {
+
+      0%,
+      65%,
+      80%,
+      100% {
+        transform: scale(1);
+      }
+
+      73% {
+        transform: scale(1.08);
+      }
+
+      90% {
+        transform: scale(1.12);
+      }
+    }
+  }
+
+  &::after {
+    @include beaf;
+    @include rect;
+    background: url("/themes/custom/cha_campaign/images/#{$path}btn-border-mask.png");
+    @include bg;
+    @include poa;
+    -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+    mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+    animation: shine-btn-border-#{$w}-#{$h} 1.8s linear infinite;
+
+    @keyframes shine-btn-border-#{$w}-#{$h} {
+      0% {
+        -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+        mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+      }
+
+      35% {
+        -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left calc(-60px + $w) top -60px;
+        mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left calc(-60px + $w) top -60px;
+      }
+
+      50% {
+        -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left calc(-60px + $w) top calc(-60px + $h);
+        mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left calc(-60px + $w) top calc(-60px + $h);
+      }
+
+      85% {
+        -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top calc(-60px + $h);
+        mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top calc(-60px + $h);
+      }
+
+      100% {
+        -webkit-mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+        mask: url("/themes/custom/cha_campaign/images/common/btn-shine.png") no-repeat left -60px top -60px;
+      }
+    }
+  }
+}
+
+@mixin singPopup($size) {
+  @if $size==m {
+    min-height: 801px;
+    height: 801px;
+    top: calc((100vh - $height-navbar - 801px) / 2 - 25px);
+    top: calc((var(--vh, 1vh) * 100 - $height-navbar - 801px) / 2 - 25px);
+  }
+
+  @if $size==full-1 {
+    height: 100%;
+    top: 0 !important;
+    &::after {
+      @include beaf;
+      @include rect;
+      background: url("/themes/custom/cha_campaign/images/sing/common/grass.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-left.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-right.png");
+      background-size: 100% auto, auto 79px, auto 79px;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: center bottom -30px, left top, right top;
+      @include poa(0, 0, 0, b);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  @if $size==full-2 {
+    height: 100%;
+    top: 0 !important;
+    &::before {
+      @include beaf;
+      @include rect(100%,  242px);
+      background: url("/themes/custom/cha_campaign/images/sing/common/floor.png"), url("/themes/custom/cha_campaign/images/sing/common/grass-more.png");
+      background-size: 100% auto, 100% auto;
+      background-repeat: no-repeat, no-repeat;
+      background-position: center bottom -30px, center top;
+      @include poa(0, t, 0, 0);
+      pointer-events: none;
+    }
+    &::after {
+      @include beaf;
+      @include rect;
+      background: url("/themes/custom/cha_campaign/images/sing/common/grass-more.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-left.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-right.png");
+      background-size: 100% auto, auto 79px, auto 79px;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: center bottom -38px, left top, right top;
+      @include poa(0, 0, 0, b);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  @if $size==full-3 {
+    height: 100%;
+    top: 0 !important;
+    &::after {
+      @include beaf;
+      @include rect;
+      background: url("/themes/custom/cha_campaign/images/sing/common/leaf-left.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-right.png");
+      background-size: auto 79px, auto 79px;
+      background-repeat: no-repeat, no-repeat;
+      background-position: left top, right top;
+      @include poa(0, 0, 0, b);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  @if $size==full-4 {
+    height: 100%;
+    top: 0 !important;
+    &::before {
+      @include beaf;
+      @include rect(100%,  272px);
+      background: url("/themes/custom/cha_campaign/images/sing/common/floor.png"), url("/themes/custom/cha_campaign/images/sing/common/grass-more.png");
+      background-size: 100% auto, 100% auto;
+      background-repeat: no-repeat, no-repeat;
+      background-position: center bottom, center top;
+      @include poa(0, t, 0, 0);
+      pointer-events: none;
+    }
+    &::after {
+      @include beaf;
+      @include rect;
+      background: url("/themes/custom/cha_campaign/images/sing/common/grass-more.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-left.png"), url("/themes/custom/cha_campaign/images/sing/common/leaf-right.png");
+      background-size: 100% auto, auto 79px, auto 79px;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: center bottom -30px, left top, right top;
+      @include poa(0, 0, 0, b);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+  background: url("/themes/custom/cha_campaign/images/sing/common/bg.jpg");
+  @include bg(600px auto, repeat-y, center, top);
+  width: calc(100% + 1px);
+  transform: translateX(-.5px);
+}
