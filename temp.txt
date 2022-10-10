@@ -1,0 +1,38 @@
+import ScrambleText from "scramble-text";
+export default {
+  mounted: function () {
+    let scrambleList = [];
+    let elementList = document.querySelectorAll(".is-shuffleText");
+    let chars = [
+      "我",
+      "要",
+      "報",
+      "名",
+      "關",
+      "卡",
+      "資",
+      "訊",
+      "求",
+      "職",
+      "專",
+      "區",
+    ];
+
+    elementList.forEach((item, i) => {
+      let element = elementList[i];
+      element.dataset.index = i;
+      scrambleList[i] = new ScrambleText(element, {
+        timeOffset: 150,
+        chars: chars,
+        callback: function () {},
+      });
+      element.addEventListener("mouseenter", function () {
+        scrambleList[+this.dataset.index].play().start();
+      });
+      // element.addEventListener("mouseleave", function () {
+      //   scrambleList[+this.dataset.index].stop();
+      // });
+      scrambleList[i].play().start();
+    });
+  },
+};
