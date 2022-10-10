@@ -1,7 +1,7 @@
 const { defineConfig } = require("@vue/cli-service");
 
 module.exports = defineConfig({
-  publicPath: "/first-vue-project/",
+  publicPath: "/my-vue-template/",
   css: {
     loaderOptions: {
       sass: {
