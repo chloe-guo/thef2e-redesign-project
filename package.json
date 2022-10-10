@@ -39,6 +39,7 @@
     "sass-loader": "^10.3.1",
     "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.7.10",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "webpack-px-to-rem": "^0.1.1"
   }
 }
