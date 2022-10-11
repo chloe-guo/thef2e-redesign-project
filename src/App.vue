@@ -4,7 +4,7 @@ router-view
 </template>
 
 <script>
-import navComponent from "@/components/headerNav.vue";
+import navComponent from "@/components/header_nav.vue";
 export default {
   name: "App",
   components: {
