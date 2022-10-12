@@ -49,6 +49,7 @@
     - 鈦坦科技
     - 凱鈿科技
     - 版塊設計
+  section_7_sponsor
   //- 網頁區塊 8：各界大神接力分享（選做）
   section_8_share(msg="Welcome to Your Vue.js App")
   //- 網頁區塊 9：常見問答（選做）
@@ -56,11 +57,13 @@
 
 <script>
 // @ is an alias to /src
+import section_7_sponsor from "@/components/section_7_sponsor.vue";
 import section_8_share from "@/components/section_8_share.vue";
 
 export default {
   name: "HomeView",
   components: {
+    section_7_sponsor,
     section_8_share,
   },
 };

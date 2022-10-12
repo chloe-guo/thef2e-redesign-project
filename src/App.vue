@@ -9,16 +9,9 @@ router-view
 <script>
 import navComponent from "@/components/header_nav.vue";
 import $ from "jquery";
-import {
-  gsap,
-  ScrollTrigger,
-  Draggable,
-  Flip,
-  MotionPathPlugin,
-  TweenMax,
-} from "gsap/all";
+import { gsap, TweenMax } from "gsap/all";
 // don't forget to register plugins
-gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
+gsap.registerPlugin(TweenMax);
 
 export default {
   name: "App",
@@ -113,6 +106,7 @@ body {
   @include font;
   color: $c-text-primary;
   background: $c-bg;
+  transform-style: preserve-3d;
   .is-cubicFont {
     font-family: "Cubic", sans-serif;
   }
@@ -130,6 +124,7 @@ html {
     padding: 0px;
     vertical-align: baseline;
     outline: none;
+    transform-style: preserve-3d;
     &:focus {
       outline: none;
       box-shadow: none;

@@ -9,4 +9,8 @@
       2. 個人企業獎 共六位NTD 3,000/位
       3. 團體企業獎 共三組NTD 10,000/組
       4. 以上皆提供完賽數位獎狀
+
+//- 使用 textualizer or textillate
+    - http://krisk.github.io/textualizer/#demo
+    - http://textillate.js.org/
 </template>

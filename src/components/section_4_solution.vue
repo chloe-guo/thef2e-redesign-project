@@ -11,4 +11,7 @@
     3. Week3： Scrum 新手村
         - 標籤：JS *draggable*
         - 贊助商：鈦坦科技
+
+//- 使用 parallax hover effect
+    - tilt.js
 </template>

@@ -1,5 +1,9 @@
 <template lang="pug">
 //- 網頁區塊 8：各界大神接力分享（選做）
+
+//- 使用 parallax hover effect
+    - tilt.js
+    - https://www.curtainsjs.com/
 h1 {{ msg }}
 </template>
 
