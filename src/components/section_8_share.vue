@@ -1,7 +1,6 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
+<template lang="pug">
+//- 網頁區塊 8：各界大神接力分享（選做）
+h1 {{ msg }}
 </template>
 
 <script>
