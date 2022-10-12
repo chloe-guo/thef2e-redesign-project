@@ -1,10 +1,10 @@
 <template lang="pug">
 li.sponsor__item
   .sponsor__link
-      a.link-top(:href="cubeLink" target="_blank")
-      a.link-bottom(:href="cubeLink" target="_blank")
-      a.link-left(:href="cubeLink" target="_blank")
-      a.link-right(:href="cubeLink" target="_blank")
+      a.link-top.is-cursorHover(:href="cubeLink" target="_blank")
+      a.link-bottom.is-cursorHover(:href="cubeLink" target="_blank")
+      a.link-left.is-cursorHover(:href="cubeLink" target="_blank")
+      a.link-right.is-cursorHover(:href="cubeLink" target="_blank")
       .sponsor__cube.cube(:data-type="cubeEnTitle")
           .cube-top
           .cube-bottom
@@ -30,35 +30,22 @@ export default {
 $c-blockstudio: #40587c;
 $c-titansoft: #3a3a3a;
 $c-kdanmobile: #00a89b;
-$s-p: 12px;
+
 .sponsor {
-  &__lists {
-    @include flex;
-    margin: 0;
-    padding: $s-p;
-    perspective: 1000px;
-    transform: translateZ(#{$s-p * 8});
-  }
   &__item {
-    padding: $s-p;
+    padding: #{$s-padding * 2};
   }
   &__link {
-    position: relative;
-    width: $s-p * 8;
-    height: $s-p * 8;
+    @include rect($s-padding * 8, $s-padding * 8);
     a[class^="link-"] {
-      transform-origin: $s-p * 4 $s-p * 4 -#{$s-p * 4};
       display: block;
-      position: absolute;
+      transform: translateZ(#{$s-padding * 2});
+      transform-origin: $s-padding * 4 $s-padding * 4 -#{$s-padding * 4};
       z-index: 1;
-      transform: translateZ(#{$s-p * 2});
-      width: 100%;
-      height: 100%;
       &.link {
         &-top {
-          top: 0;
-          left: 0;
-          height: 50%;
+          @include rect(100%, 50%);
+          @include poa(0, 0, r, b);
           clip-path: polygon(50% 100%, 0 0, 100% 0);
           @-moz-document url-prefix() {
             clip-path: url(#clip-top);
@@ -67,16 +54,15 @@ $s-p: 12px;
           &:focus {
             ~ .cube {
               transform: rotateX(-0.5turn);
-              div:nth-child(6) {
-                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-p * 8);
+              &-back {
+                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-padding * 8);
               }
             }
           }
         }
         &-bottom {
-          top: 0;
-          right: 0;
-          width: 50%;
+          @include rect(50%, 100%);
+          @include poa(l, 0, 0, b);
           clip-path: polygon(100% 100%, 0 50%, 100% 0);
           @-moz-document url-prefix() {
             clip-path: url(#clip-right);
@@ -89,9 +75,8 @@ $s-p: 12px;
           }
         }
         &-left {
-          bottom: 0;
-          right: 0;
-          height: 50%;
+          @include rect(100%, 50%);
+          @include poa(l, t, 0, 0);
           clip-path: polygon(0 100%, 50% 0, 100% 100%);
           @-moz-document url-prefix() {
             clip-path: url(#clip-bottom);
@@ -99,17 +84,16 @@ $s-p: 12px;
           &:hover,
           &:focus {
             ~ .cube {
-              transform: rotateX(0.5turn);
-              div:nth-child(6) {
-                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-p * 8);
+              // transform: rotateX(0.5turn);
+              &-back {
+                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-padding * 8);
               }
             }
           }
         }
         &-right {
-          bottom: 0;
-          left: 0;
-          width: 50%;
+          @include rect(50%, 100%);
+          @include poa(0, t, r, 0);
           clip-path: polygon(0 100%, 0 0, 100% 50%);
           @-moz-document url-prefix() {
             clip-path: url(#clip-left);
@@ -124,10 +108,9 @@ $s-p: 12px;
       }
       &:hover,
       &:focus {
+        @include rect(100% !important, 100% !important);
         z-index: 2;
-        transform: translateZ(#{$s-p * 3});
-        width: 100% !important;
-        height: 100% !important;
+        transform: translateZ(#{$s-padding * 3});
         -webkit-clip-path: none !important;
         clip-path: none !important;
         transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1) 0.8s;
@@ -135,7 +118,7 @@ $s-p: 12px;
     }
   }
   &__cube {
-    transform-origin: $s-p * 4 $s-p * 4 -#{$s-p * 4};
+    transform-origin: $s-padding * 4 $s-padding * 4 -#{$s-padding * 4};
     position: relative;
     z-index: 0;
     display: block;
@@ -155,34 +138,35 @@ $s-p: 12px;
       color: white;
       // border-radius: 3px;
       img {
-        width: $s-p * 5;
-        height: $s-p * 5;
+        width: $s-padding * 5;
+        height: $s-padding * 5;
         object-fit: contain;
       }
       &.cube {
         &-top {
           transform-origin: center top;
-          transform: rotateX(90deg) translateY(#{- ($s-p * 8)});
+          transform: rotateX(90deg) translateY(#{- ($s-padding * 8)});
         }
         &-bottom {
           transform-origin: center bottom;
-          transform: rotateX(-90deg) translateY($s-p * 8);
+          transform: rotateX(-90deg) translateY($s-padding * 8);
         }
         &-left {
           transform-origin: left center;
-          transform: rotateY(-90deg) translateX(#{- ($s-p * 8)});
+          transform: rotateY(-90deg) translateX(#{- ($s-padding * 8)});
         }
         &-right {
           transform-origin: right center;
-          transform: rotateY(90deg) translateX($s-p * 8);
+          transform: rotateY(90deg) translateX($s-padding * 8);
         }
         &-front {
           transform-origin: center center;
           transform: rotateX(0);
         }
         &-back {
+          @include font(#{$fz-primary * 1.5}, 1.2, $fw-primary, 1px);
           transform-origin: center center;
-          transform: rotateY(180deg) translateZ($s-p * 8);
+          transform: rotateY(180deg) translateZ($s-padding * 8);
         }
       }
     }

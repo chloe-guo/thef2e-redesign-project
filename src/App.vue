@@ -192,7 +192,8 @@ html {
   background-color: rgba(white, 0.8);
   user-select: none;
   pointer-events: none;
-  z-index: 10001;
+  z-index: 100001;
+  transform: translateZ(10000px);
   transition: 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
     opacity: 0;
@@ -205,13 +206,13 @@ html {
   mix-blend-mode: difference;
   user-select: none;
   pointer-events: none;
-  z-index: 10000;
-  transform: translate(5px, 5px);
+  z-index: 100000;
+  transform: translate(5px, 5px, 10000px);
   transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
     opacity: 0.7;
-    transform: scale(3);
+    transform: scale(3) translateZ(10000px);
   }
 }
 </style>

@@ -29,6 +29,13 @@ export default {
 
 <style lang="scss" scoped>
 .sponsor {
+  &__lists {
+    @include flex;
+    margin: 0;
+    padding: $s-padding;
+    perspective: 1000px;
+    transform: translateZ(#{$s-padding * 8});
+  }
   &__clip {
     @include poa;
     opacity: 0;
