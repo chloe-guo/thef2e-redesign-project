@@ -1,6 +1,5 @@
 <template lang="pug">
 .homeVue
-  HelloWorld(msg="Welcome to Your Vue.js App")
   //- 網頁區塊 1 ：Banner
     ## 意境以「互動式網頁設計」為主
     - 主標：The F2E 4th
@@ -51,17 +50,18 @@
     - 凱鈿科技
     - 版塊設計
   //- 網頁區塊 8：各界大神接力分享（選做）
+  section_8_share(msg="Welcome to Your Vue.js App")
   //- 網頁區塊 9：常見問答（選做）
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import section_8_share from "@/components/section_8_share.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    section_8_share,
   },
 };
 </script>

@@ -5,17 +5,17 @@ header
       img(src="@/assets/images/logo.png")
     ul.navbar__menu
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont(to="/")
+        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="我要報名") 我要報名
           span.btn__line
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont(to="/")
+        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="關卡資訊") 關卡資訊
           span.btn__line
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont(to="/")
+        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="求職專區") 求職專區
           span.btn__line
@@ -23,7 +23,7 @@ header
 
 <style lang="scss" scoped>
 .navbar {
-  height: 80px;
+  height: 86px;
   padding: 20px 32px;
   @include flex(row, space-between);
   &__brand {
@@ -39,6 +39,7 @@ header
     }
   }
   &__link {
+    @include rect(auto, 46px);
     display: block;
     padding: 12px 24px;
     @include font(18px, 1.2);
