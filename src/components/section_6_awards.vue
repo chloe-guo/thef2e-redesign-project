@@ -36,22 +36,22 @@ import textillate from "textillate";
 
 export default {
   mounted: function () {
-    $(".is-tlt").each(function(i, item) {
+    $(".is-tlt").each(function (i) {
       $(this).textillate({
         minDisplayTime: 2000,
         autoStart: true,
         in: {
           effect: "fadeIn",
-          delayScale: .5 * i,
-          delay: 50,
+          delayScale: 0.4 * i,
+          delay: 40,
         },
         out: {
           effect: "hinge",
-          delayScale: .5 * i,
-          delay: 50,
+          delayScale: 0.4 * i,
+          delay: 40,
           shuffle: true,
         },
-        type: 'char'
+        type: "char",
       });
     });
   },
