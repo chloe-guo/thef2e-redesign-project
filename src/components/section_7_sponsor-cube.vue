@@ -61,20 +61,6 @@ $c-kdanmobile: #00a89b;
           }
         }
         &-bottom {
-          @include rect(50%, 100%);
-          @include poa(l, 0, 0, b);
-          clip-path: polygon(100% 100%, 0 50%, 100% 0);
-          @-moz-document url-prefix() {
-            clip-path: url(#clip-right);
-          }
-          &:hover,
-          &:focus {
-            ~ .cube {
-              transform: rotateY(-0.5turn);
-            }
-          }
-        }
-        &-left {
           @include rect(100%, 50%);
           @include poa(l, t, 0, 0);
           clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -84,14 +70,14 @@ $c-kdanmobile: #00a89b;
           &:hover,
           &:focus {
             ~ .cube {
-              // transform: rotateX(0.5turn);
+              transform: rotateX(0.5turn);
               &-back {
                 transform: rotateY(180deg) rotateZ(180deg) translateZ($s-padding * 8);
               }
             }
           }
         }
-        &-right {
+        &-left {
           @include rect(50%, 100%);
           @include poa(0, t, r, 0);
           clip-path: polygon(0 100%, 0 0, 100% 50%);
@@ -102,6 +88,20 @@ $c-kdanmobile: #00a89b;
           &:focus {
             ~ .cube {
               transform: rotateY(0.5turn);
+            }
+          }
+        }
+        &-right {
+          @include rect(50%, 100%);
+          @include poa(l, 0, 0, b);
+          clip-path: polygon(100% 100%, 0 50%, 100% 0);
+          @-moz-document url-prefix() {
+            clip-path: url(#clip-right);
+          }
+          &:hover,
+          &:focus {
+            ~ .cube {
+              transform: rotateY(-0.5turn);
             }
           }
         }
