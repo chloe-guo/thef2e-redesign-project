@@ -11,9 +11,12 @@
     "deploy": "npm run build && node ./deploy/ghpages.js"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "core-js": "^3.8.3",
     "gsap": "^3.11.3",
     "jquery": "^3.6.1",
+    "lettering.js": "^0.8.2",
+    "textillate": "^0.4.1",
     "tilt.js": "^1.2.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

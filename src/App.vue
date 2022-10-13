@@ -200,7 +200,7 @@ html {
   }
 }
 .follow {
-  @include circle(20px);
+  @include circle(25px);
   position: absolute;
   background-color: rgba(#a88244, 0.5);
   mix-blend-mode: difference;

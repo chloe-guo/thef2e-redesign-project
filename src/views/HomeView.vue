@@ -45,6 +45,7 @@
       2. 個人企業獎 共六位NTD 3,000/位
       3. 團體企業獎 共三組NTD 10,000/組
       4. 以上皆提供完賽數位獎狀
+  section_6_awards
   //- 網頁區塊 7：贊助單位（必做）
     - 鈦坦科技
     - 凱鈿科技
@@ -57,12 +58,14 @@
 
 <script>
 // @ is an alias to /src
+import section_6_awards from "@/components/section_6_awards.vue";
 import section_7_sponsor from "@/components/section_7_sponsor.vue";
 import section_8_share from "@/components/section_8_share.vue";
 
 export default {
   name: "HomeView",
   components: {
+    section_6_awards,
     section_7_sponsor,
     section_8_share,
   },
