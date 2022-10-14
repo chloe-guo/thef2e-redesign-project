@@ -168,6 +168,67 @@ export default {
       // update the uniform
       rgbPass.uniforms.scrollEffect.value = scrollEffect;
     });
+
+    const blurFs = `
+      precision mediump float;
+
+      varying vec3 vVertexPosition;
+      varying vec2 vTextureCoord;
+
+      uniform sampler2D uRenderTexture;
+
+      uniform float uScrollEffect;
+      uniform vec2 uResolution;
+
+
+      // taken from https://github.com/Jam3/glsl-fast-gaussian-blur
+      vec4 blur5(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
+          vec4 color = vec4(0.0);
+          vec2 off1 = vec2(1.3333333333333333) * direction;
+          color += texture2D(image, uv) * 0.29411764705882354;
+          color += texture2D(image, uv + (off1 / resolution)) * 0.35294117647058826;
+          color += texture2D(image, uv - (off1 / resolution)) * 0.35294117647058826;
+          return color;
+      }
+
+      void main() {
+          vec4 original = texture2D(uRenderTexture, vTextureCoord);
+          vec4 blur = blur5(uRenderTexture, vTextureCoord, uResolution, vec2(0.0, 1.0));
+
+          gl_FragColor = mix(original, blur, min(1.0, abs(uScrollEffect) / 5.0));
+      }
+    `;
+
+    let curtainsBBox = curtains.getBoundingRect();
+
+    const blurPass = new ShaderPass(curtains, {
+      fragmentShader: blurFs,
+      uniforms: {
+        scrollEffect: {
+          name: "uScrollEffect",
+          type: "1f",
+          value: 0,
+        },
+        resolution: {
+          name: "uResolution",
+          type: "2f",
+          value: [curtainsBBox.width, curtainsBBox.height],
+        },
+      },
+    });
+
+    blurPass
+      .onRender(() => {
+        // update the uniform
+        blurPass.uniforms.scrollEffect.value = scrollEffect;
+      })
+      .onAfterResize(() => {
+        curtainsBBox = curtains.getBoundingRect();
+        blurPass.uniforms.resolution.value = [
+          curtainsBBox.width,
+          curtainsBBox.height,
+        ];
+      });
   },
 };
 </script>
@@ -184,7 +245,7 @@ export default {
     }
   }
   &__tag {
-
+    background: #666;
   }
   &__info {
     background: #999;
