@@ -1,27 +1,27 @@
 <template lang="pug">
 li.sponsor__item
   .sponsor__link
-      a.link-top.is-cursorHover(:href="cubeLink" target="_blank")
-      a.link-bottom.is-cursorHover(:href="cubeLink" target="_blank")
-      a.link-left.is-cursorHover(:href="cubeLink" target="_blank")
-      a.link-right.is-cursorHover(:href="cubeLink" target="_blank")
-      .sponsor__cube.cube(:data-type="cubeEnTitle")
+      a.link-top.is-cursorHover(:href="link" target="_blank")
+      a.link-bottom.is-cursorHover(:href="link" target="_blank")
+      a.link-left.is-cursorHover(:href="link" target="_blank")
+      a.link-right.is-cursorHover(:href="link" target="_blank")
+      .sponsor__cube.cube(:data-type="enTitle")
           .cube-top
           .cube-bottom
           .cube-left
           .cube-right
           .cube-front
-              img(:src="require(`@/assets/images/${cubeEnTitle}_logo.png`)")
-          .cube-back {{ cubeTitle }}
+              img(:src="require(`@/assets/images/${enTitle}_logo.jpg`)")
+          .cube-back {{ title }}
 </template>
 
 <script>
 export default {
   name: "section_7_sponsor_cube",
   props: {
-    cubeTitle: String,
-    cubeEnTitle: String,
-    cubeLink: String,
+    title: String,
+    enTitle: String,
+    link: String,
   },
 };
 </script>
@@ -33,7 +33,11 @@ $c-kdanmobile: #00a89b;
 
 .sponsor {
   &__item {
+    transform-style: preserve-3d;
     padding: #{$s-padding * 2};
+    * {
+      transform-style: preserve-3d;
+    }
   }
   &__link {
     @include rect($s-padding * 8, $s-padding * 8);
@@ -55,7 +59,8 @@ $c-kdanmobile: #00a89b;
             ~ .cube {
               transform: rotateX(-0.5turn);
               &-back {
-                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-padding * 8);
+                transform: rotateY(180deg) rotateZ(180deg)
+                  translateZ($s-padding * 8);
               }
             }
           }
@@ -72,7 +77,8 @@ $c-kdanmobile: #00a89b;
             ~ .cube {
               transform: rotateX(0.5turn);
               &-back {
-                transform: rotateY(180deg) rotateZ(180deg) translateZ($s-padding * 8);
+                transform: rotateY(180deg) rotateZ(180deg)
+                  translateZ($s-padding * 8);
               }
             }
           }
@@ -113,7 +119,7 @@ $c-kdanmobile: #00a89b;
         transform: translateZ(#{$s-padding * 3});
         -webkit-clip-path: none !important;
         clip-path: none !important;
-        transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1) 0.8s;
+        transition: all 0.2s cubic-bezier(0.37, 0, 0.63, 1) 0.3s;
       }
     }
   }

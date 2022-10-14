@@ -74,11 +74,11 @@ export default {
         mouseY = e.pageY;
       });
 
-      $(".is-cursorHover").on("mouseenter", function () {
+      $(document).on("mouseenter", ".is-cursorHover", function () {
         cursor.addClass("is-active");
         follower.addClass("is-active");
       });
-      $(".is-cursorHover").on("mouseleave", function () {
+      $(document).on("mouseleave", ".is-cursorHover", function () {
         cursor.removeClass("is-active");
         follower.removeClass("is-active");
       });
@@ -106,7 +106,6 @@ body {
   @include font;
   color: $c-text-primary;
   background: $c-bg;
-  transform-style: preserve-3d;
   .is-cubicFont {
     font-family: "Cubic", sans-serif;
   }
@@ -124,7 +123,6 @@ html {
     padding: 0px;
     vertical-align: baseline;
     outline: none;
-    transform-style: preserve-3d;
     &:focus {
       outline: none;
       box-shadow: none;
