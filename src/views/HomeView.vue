@@ -26,6 +26,7 @@
     3. Week3： Scrum 新手村
         - 標籤：JS *draggable*
         - 贊助商：鈦坦科技
+  section_4_solution
   //- 網頁區塊 5： 活動說明（必做加分項目）
     1. 報名時間：10/13~10/30
       - 截止前可修改報名組別
@@ -58,6 +59,7 @@
 
 <script>
 // @ is an alias to /src
+import section_4_solution from "@/components/section_4_solution.vue";
 import section_6_awards from "@/components/section_6_awards.vue";
 import section_7_sponsor from "@/components/section_7_sponsor.vue";
 import section_8_share from "@/components/section_8_share.vue";
@@ -65,6 +67,7 @@ import section_8_share from "@/components/section_8_share.vue";
 export default {
   name: "HomeView",
   components: {
+    section_4_solution,
     section_6_awards,
     section_7_sponsor,
     section_8_share,

@@ -79,7 +79,7 @@
   }
 }
 
-@mixin rect($w:calc(100% + 1px), $h:calc(100% + 1px), $bdrs:0) {
+@mixin rect($w:100%, $h:100%, $bdrs:0) {
   width: $w;
   height: $h;
   border-radius: $bdrs;
@@ -123,7 +123,7 @@
 
     picture,
     img {
-      @include rect(auto, calc(100% + 1px));
+      @include rect(auto, 100%);
     }
   }
 
@@ -131,7 +131,7 @@
 
     picture,
     img {
-      @include rect(calc(100% + 1px), auto);
+      @include rect(100%, auto);
     }
   }
 
@@ -139,7 +139,7 @@
 
     picture,
     img {
-      @include rect(calc(100% + 1px), calc(100% + 1px));
+      @include rect(100%, 100%);
     }
   }
 }

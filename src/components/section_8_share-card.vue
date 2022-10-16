@@ -1,10 +1,10 @@
 <template lang="pug">
-li.share__item.plane-wrapper.is-cursorHover
+li.share__item.plane-wrapper
   .share__card.plane-inner
-    .share__image.plane
+    .share__image.plane.is-cursorHover
       img(:src="require(`@/assets/images/${image}`)" data-sampler="planeTexture")
-    p.share__tag 免費公開場
-    .share__info
+    p.share__ta.is-cursorHover 免費公開場
+    .share__info.is-cursorHover
       h6.share__title {{ title }}
       p.share__date {{ date }}
       p.share__author {{ author }}
@@ -15,7 +15,7 @@ li.share__item.plane-wrapper.is-cursorHover
 import { Curtains, RenderTarget, Plane, ShaderPass } from "curtainsjs";
 
 export default {
-  name: "section_8_share_info",
+  name: "section_8_share-card",
   props: {
     image: String,
     title: String,
