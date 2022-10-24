@@ -20,13 +20,35 @@ export default {
   },
   mounted: function () {
     //-------- webfont --------//
-    let WebFont = require("webfontloader");
-
-    WebFont.load({
-      google: {
-        families: ["Noto Sans TC:300,500,700&display=swap"],
-      },
-    });
+    (function (d) {
+      var config = {
+          kitId: "qec1yzt",
+          scriptTimeout: 3000,
+          async: true,
+        },
+        h = d.documentElement,
+        t = setTimeout(function () {
+          h.className =
+            h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+        }, config.scriptTimeout),
+        tk = d.createElement("script"),
+        f = false,
+        s = d.getElementsByTagName("script")[0],
+        a;
+      h.className += " wf-loading";
+      tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+      tk.async = true;
+      tk.onload = tk.onreadystatechange = function () {
+        a = this.readyState;
+        if (f || (a && a != "complete" && a != "loaded")) return;
+        f = true;
+        clearTimeout(t);
+        try {
+          Typekit.load(config);
+        } catch (e) {}
+      };
+      s.parentNode.insertBefore(tk, s);
+    })(document);
 
     //-------- 100vh --------//
     let windowsVH = window.innerHeight / 100;
@@ -89,12 +111,6 @@ export default {
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: "Cubic";
-  src: url("@/assets/fonts/web/Cubic_11_1.013_R.woff") format("woff"),
-    url("@/assets/fonts/web/Cubic_11_1.013_R.woff2") format("woff"),
-    url("@/assets/fonts/ttf/Cubic_11_1.013_R.ttf") format("opentype");
-}
 //-------- reset.scss --------//
 html,
 body {
@@ -102,12 +118,13 @@ body {
   padding: 0px;
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
-  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: "source-han-sans-traditional", "PingFang TC",
+    "Microsoft JhengHei", sans-serif;
   @include font;
   color: $c-text-primary;
   background: $c-bg;
   .is-cubicFont {
-    font-family: "Cubic", sans-serif;
+    font-family: "dotgothic16", sans-serif;
   }
 }
 

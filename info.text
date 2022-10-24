@@ -1,0 +1,21 @@
+## font
+    DotGothic16 Regular
+    font-family: dotgothic16, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    Source Han Sans TW Bold
+    font-family: source-han-sans-traditional, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+    Source Han Sans TW ExtraLight
+    font-family: source-han-sans-traditional, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+
+
+    Source Han Sans TW Regular
+    font-family: source-han-sans-traditional, sans-serif;
+    font-weight: 400;
+    font-style: normal;
