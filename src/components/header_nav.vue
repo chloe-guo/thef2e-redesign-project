@@ -5,17 +5,17 @@ header
       img(src="@/assets/images/logo.png")
     ul.navbar__menu
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
+        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="我要報名") 我要報名
           span.btn__line
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
+        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="關卡資訊") 關卡資訊
           span.btn__line
       li.navbar__item
-        router-link.navbar__link.btn.is-cubicFont.is-cursorHover(to="/")
+        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
           span.btn__line
           span.btn__text(data-text="求職專區") 求職專區
           span.btn__line

@@ -112,6 +112,12 @@ export default {
 
 <style lang="scss">
 //-------- reset.scss --------//
+@font-face {
+  font-family: "fusion-pixel";
+  src: url("@/assets/fonts/fusion-pixel.woff2") format("woff"),
+    url("@/assets/fonts/fusion-pixel.otf") format("opentype"),
+    url("@/assets/fonts/fusion-pixel.ttf") format("opentype");
+}
 html,
 body {
   margin: 0px;
@@ -123,8 +129,8 @@ body {
   @include font;
   color: $c-text-primary;
   background: $c-bg;
-  .is-cubicFont {
-    font-family: "dotgothic16", sans-serif;
+  .is-pixelFont {
+    font-family: "fusion-pixel", sans-serif;
   }
 }
 

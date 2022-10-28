@@ -58,7 +58,7 @@ $c-kdanmobile: #00a89b;
           &:focus {
             ~ .cube {
               transform: rotateX(-0.5turn);
-              &-back {
+              .cube-back {
                 transform: rotateY(180deg) rotateZ(180deg)
                   translateZ($s-padding * 8);
               }
@@ -76,7 +76,8 @@ $c-kdanmobile: #00a89b;
           &:focus {
             ~ .cube {
               transform: rotateX(0.5turn);
-              &-back {
+              .cube-back {
+                transform: rotateZ(180deg);
                 transform: rotateY(180deg) rotateZ(180deg)
                   translateZ($s-padding * 8);
               }
