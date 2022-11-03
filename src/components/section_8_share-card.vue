@@ -1,10 +1,10 @@
 <template lang="pug">
 li.share__item.plane-wrapper
   .share__card.plane-inner
-    .share__image.plane.is-cursorHover
+    .share__image.plane.js-cursorHover
       img(:src="require(`@/assets/images/${image}`)" data-sampler="planeTexture")
-    p.share__ta.is-cursorHover 免費公開場
-    .share__info.is-cursorHover
+    p.share__ta.js-cursorHover 免費公開場
+    .share__info.js-cursorHover
       h6.share__title {{ title }}
       p.share__date {{ date }}
       p.share__author {{ author }}

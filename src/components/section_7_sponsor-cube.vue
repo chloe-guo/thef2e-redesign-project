@@ -1,10 +1,10 @@
 <template lang="pug">
 li.sponsor__item
   .sponsor__link
-      a.link-top.is-cursorHover(:href="link" target="_blank")
-      a.link-bottom.is-cursorHover(:href="link" target="_blank")
-      a.link-left.is-cursorHover(:href="link" target="_blank")
-      a.link-right.is-cursorHover(:href="link" target="_blank")
+      a.link-top.js-cursorHover(:href="link" target="_blank")
+      a.link-bottom.js-cursorHover(:href="link" target="_blank")
+      a.link-left.js-cursorHover(:href="link" target="_blank")
+      a.link-right.js-cursorHover(:href="link" target="_blank")
       .sponsor__cube.cube(:data-type="enTitle")
           .cube-top
           .cube-bottom
@@ -34,17 +34,17 @@ $c-kdanmobile: #00a89b;
 .sponsor {
   &__item {
     transform-style: preserve-3d;
-    padding: #{$s-padding * 2};
+    padding: #{$m-padding * 2};
     * {
       transform-style: preserve-3d;
     }
   }
   &__link {
-    @include rect($s-padding * 8, $s-padding * 8);
+    @include rect($m-padding * 8, $m-padding * 8);
     a[class^="link-"] {
       display: block;
-      transform: translateZ(#{$s-padding * 2});
-      transform-origin: $s-padding * 4 $s-padding * 4 -#{$s-padding * 4};
+      transform: translateZ(#{$m-padding * 2});
+      transform-origin: $m-padding * 4 $m-padding * 4 -#{$m-padding * 4};
       z-index: 1;
       &.link {
         &-top {
@@ -60,7 +60,7 @@ $c-kdanmobile: #00a89b;
               transform: rotateX(-0.5turn);
               .cube-back {
                 transform: rotateY(180deg) rotateZ(180deg)
-                  translateZ($s-padding * 8);
+                  translateZ($m-padding * 8);
               }
             }
           }
@@ -79,7 +79,7 @@ $c-kdanmobile: #00a89b;
               .cube-back {
                 transform: rotateZ(180deg);
                 transform: rotateY(180deg) rotateZ(180deg)
-                  translateZ($s-padding * 8);
+                  translateZ($m-padding * 8);
               }
             }
           }
@@ -117,7 +117,7 @@ $c-kdanmobile: #00a89b;
       &:focus {
         @include rect(100% !important, 100% !important);
         z-index: 2;
-        transform: translateZ(#{$s-padding * 3});
+        transform: translateZ(#{$m-padding * 3});
         -webkit-clip-path: none !important;
         clip-path: none !important;
         transition: all 0.2s cubic-bezier(0.37, 0, 0.63, 1) 0.3s;
@@ -125,7 +125,7 @@ $c-kdanmobile: #00a89b;
     }
   }
   &__cube {
-    transform-origin: $s-padding * 4 $s-padding * 4 -#{$s-padding * 4};
+    transform-origin: $m-padding * 4 $m-padding * 4 -#{$m-padding * 4};
     position: relative;
     z-index: 0;
     display: block;
@@ -145,26 +145,26 @@ $c-kdanmobile: #00a89b;
       color: white;
       // border-radius: 3px;
       img {
-        width: $s-padding * 5;
-        height: $s-padding * 5;
+        width: $m-padding * 5;
+        height: $m-padding * 5;
         object-fit: contain;
       }
       &.cube {
         &-top {
           transform-origin: center top;
-          transform: rotateX(90deg) translateY(#{- ($s-padding * 8)});
+          transform: rotateX(90deg) translateY(#{- ($m-padding * 8)});
         }
         &-bottom {
           transform-origin: center bottom;
-          transform: rotateX(-90deg) translateY($s-padding * 8);
+          transform: rotateX(-90deg) translateY($m-padding * 8);
         }
         &-left {
           transform-origin: left center;
-          transform: rotateY(-90deg) translateX(#{- ($s-padding * 8)});
+          transform: rotateY(-90deg) translateX(#{- ($m-padding * 8)});
         }
         &-right {
           transform-origin: right center;
-          transform: rotateY(90deg) translateX($s-padding * 8);
+          transform: rotateY(90deg) translateX($m-padding * 8);
         }
         &-front {
           transform-origin: center center;
@@ -173,7 +173,7 @@ $c-kdanmobile: #00a89b;
         &-back {
           @include font(#{$fz-primary * 1.5}, 1.2, $fw-primary, 1px);
           transform-origin: center center;
-          transform: rotateY(180deg) translateZ($s-padding * 8);
+          transform: rotateY(180deg) translateZ($m-padding * 8);
         }
       }
     }

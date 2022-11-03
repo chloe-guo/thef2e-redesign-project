@@ -1,33 +1,40 @@
 <template lang="pug">
 header
   nav.navbar
-    router-link.navbar__brand(to="/")
-      img(src="@/assets/images/logo.png")
+    router-link.navbar__brand.navbar__text(to="/").is-pixelFont TheF2E 4th
+    p.navbar__info.navbar__text.is-pixelFont total - 001238
     ul.navbar__menu
       li.navbar__item
-        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
+        router-link.navbar__link.btn.is-pixelFont.js-cursorHover(to="/")
           span.btn__line
-          span.btn__text(data-text="我要報名") 我要報名
-          span.btn__line
-      li.navbar__item
-        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
-          span.btn__line
-          span.btn__text(data-text="關卡資訊") 關卡資訊
+          span.btn__text.navbar__text(data-text="關卡資訊") 關卡資訊
           span.btn__line
       li.navbar__item
-        router-link.navbar__link.btn.is-pixelFont.is-cursorHover(to="/")
+        a.navbar__link.btn.is-pixelFont.js-cursorHover(href="https://2022.thef2e.com/works" target="_blank")
           span.btn__line
-          span.btn__text(data-text="求職專區") 求職專區
+          span.btn__text.navbar__text(data-text="作品列表") 作品列表
+          span.btn__line
+      li.navbar__item
+        a.navbar__link.btn.is-pixelFont.js-cursorHover(href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w" target="_blank")
+          span.btn__line
+          span.btn__text.navbar__text(data-text="攻略資源") 攻略資源
           span.btn__line
 </template>
 
 <style lang="scss" scoped>
 .navbar {
   height: 86px;
-  padding: 20px 32px;
+  padding: $m-padding $l-padding;
   @include flex(row, space-between);
-  &__brand {
-    @include img(auto, 100%);
+  &__text {
+    @include font(22px);
+    color: $c-text-primary;
+    &::before,
+    &::after {
+      @include font(20px, 1.2);
+      color: $c-text-primary;
+      text-align: center;
+    }
   }
   &__menu {
     @include flex(row, flex-end);
@@ -35,14 +42,13 @@ header
   &__item {
     & + .navbar__item {
       display: block;
-      margin-left: 28px;
+      margin-left: $m-padding;
     }
   }
   &__link {
-    @include rect(auto, 46px);
+    @include rect(auto, calc(20px * 1.2 + $xs-padding * 2));
     display: block;
-    padding: 12px 24px;
-    @include font(18px, 1.2);
+    padding: $xs-padding $s-padding;
     color: $c-text-primary;
   }
   .btn {
@@ -56,12 +62,10 @@ header
         content: attr(data-text);
         display: block;
         @include poa;
-        @include font(18px, 1.2);
-        color: $c-text-primary;
         transition: all 0.25s cubic-bezier(0.76, 0, 0.24, 1);
       }
       &::after {
-        transform: translateY(calc(100% + 32px * 2));
+        transform: translateY(calc(100% + $l-padding * 2));
       }
     }
     &__line {
@@ -105,9 +109,11 @@ header
         &__text {
           &::before {
             transform: translateY(calc(-100% - 32px * 2));
+            text-shadow: 0 0 5px $c-brand2;
           }
           &::after {
             transform: translateY(0);
+            text-shadow: 0 0 5px $c-brand2;
           }
         }
         &__line {

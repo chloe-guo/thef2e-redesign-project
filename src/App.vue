@@ -72,13 +72,13 @@ export default {
       TweenMax.to({}, 0.016, {
         repeat: -1,
         onRepeat: function () {
-          posX += (mouseX - posX) / 9;
-          posY += (mouseY - posY) / 9;
+          posX += (mouseX - posX) / 6;
+          posY += (mouseY - posY) / 6;
 
           TweenMax.set(follower, {
             css: {
-              left: posX - 12,
-              top: posY - 12,
+              left: posX - 9,
+              top: posY - 9,
             },
           });
 
@@ -96,11 +96,11 @@ export default {
         mouseY = e.pageY;
       });
 
-      $(document).on("mouseenter", ".is-cursorHover", function () {
+      $(document).on("mouseenter", ".js-cursorHover", function () {
         cursor.addClass("is-active");
         follower.addClass("is-active");
       });
-      $(document).on("mouseleave", ".is-cursorHover", function () {
+      $(document).on("mouseleave", ".js-cursorHover", function () {
         cursor.removeClass("is-active");
         follower.removeClass("is-active");
       });
@@ -146,6 +146,7 @@ html {
     padding: 0px;
     vertical-align: baseline;
     outline: none;
+    color: $c-text-primary;
     &:focus {
       outline: none;
       box-shadow: none;
@@ -223,13 +224,13 @@ html {
 .follow {
   @include circle(25px);
   position: absolute;
-  background-color: rgba(#a88244, 0.5);
+  background-color: rgba($c-brand2, 0.3);
   mix-blend-mode: difference;
   user-select: none;
   pointer-events: none;
   z-index: 100000;
   transform: translate(5px, 5px, 10000px);
-  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+  transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
     opacity: 0.7;

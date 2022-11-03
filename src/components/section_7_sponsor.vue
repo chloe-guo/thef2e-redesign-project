@@ -33,9 +33,9 @@ export default {
   &__lists {
     @include flex;
     margin: 0;
-    padding: $s-padding;
+    padding: $m-padding;
     perspective: 1000px;
-    transform: translateZ(#{$s-padding * 8});
+    transform: translateZ(#{$m-padding * 8});
     transform-style: preserve-3d;
     * {
       transform-style: preserve-3d;

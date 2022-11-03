@@ -1,8 +1,8 @@
 <template lang="pug">
 li.solution__item.is-tilt
-    .solution__image-bg.is-cursorHover
+    .solution__image-bg.js-cursorHover
         img(:src="image_bg")
-    .solution__content.is-cursorHover
+    .solution__content.js-cursorHover
         .solution__image-object
             img(:src="require(`@/assets/images/${image_object}`)")
         .solution__info

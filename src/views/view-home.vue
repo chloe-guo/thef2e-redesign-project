@@ -1,9 +1,6 @@
 <template lang="pug">
-.homeVue
-  //- 網頁區塊 1 ：Banner
-    ## 意境以「互動式網頁設計」為主
-    - 主標：The F2E 4th
-    - 副標：「互動式網頁設計」
+#view__home
+  section_1_banner
   //- 網頁區塊 2：提出問題
     ## 你是否也有以下困擾？
     1. 羨慕別人的酷酷網頁動畫？
@@ -26,7 +23,7 @@
     3. Week3： Scrum 新手村
         - 標籤：JS *draggable*
         - 贊助商：鈦坦科技
-  section_4_solution
+  //- section_4_solution
   //- 網頁區塊 5： 活動說明（必做加分項目）
     1. 報名時間：10/13~10/30
       - 截止前可修改報名組別
@@ -46,31 +43,33 @@
       2. 個人企業獎 共六位NTD 3,000/位
       3. 團體企業獎 共三組NTD 10,000/組
       4. 以上皆提供完賽數位獎狀
-  section_6_awards
+  //- section_6_awards
   //- 網頁區塊 7：贊助單位（必做）
     - 鈦坦科技
     - 凱鈿科技
     - 版塊設計
-  section_7_sponsor
+  //- section_7_sponsor
   //- 網頁區塊 8：各界大神接力分享（選做）
-  section_8_share(msg="Welcome to Your Vue.js App")
+  //- section_8_share(msg="Welcome to Your Vue.js App")
   //- 網頁區塊 9：常見問答（選做）
 </template>
 
 <script>
 // @ is an alias to /src
-import section_4_solution from "@/components/section_4_solution.vue";
-import section_6_awards from "@/components/section_6_awards.vue";
-import section_7_sponsor from "@/components/section_7_sponsor.vue";
-import section_8_share from "@/components/section_8_share.vue";
+import section_1_banner from "@/components/section_1_banner.vue";
+// import section_4_solution from "@/components/section_4_solution.vue";
+// import section_6_awards from "@/components/section_6_awards.vue";
+// import section_7_sponsor from "@/components/section_7_sponsor.vue";
+// import section_8_share from "@/components/section_8_share.vue";
 
 export default {
-  name: "HomeView",
+  name: "view_home",
   components: {
-    section_4_solution,
-    section_6_awards,
-    section_7_sponsor,
-    section_8_share,
+    section_1_banner,
+    // section_4_solution,
+    // section_6_awards,
+    // section_7_sponsor,
+    // section_8_share,
   },
 };
 </script>
