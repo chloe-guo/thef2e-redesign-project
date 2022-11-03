@@ -48,7 +48,7 @@ header
   &__link {
     @include rect(auto, calc(30px * 1.2 + $space-xs * 2));
     display: block;
-    padding: $space-xs $space-s;
+    padding: $space-xs $space-m;
     color: $c-text-primary;
   }
   .btn {

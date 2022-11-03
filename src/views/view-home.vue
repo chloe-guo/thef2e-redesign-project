@@ -1,11 +1,7 @@
 <template lang="pug">
 #view__home
   section_1_banner
-  //- 網頁區塊 2：提出問題
-    ## 你是否也有以下困擾？
-    1. 羨慕別人的酷酷網頁動畫？
-    2. 滿足不了同事的許願？
-    3. 動畫技能樹太雜無從下手？
+  section_2_issue
   //- 網頁區塊 3：破題
     ## 本屆主題：互動式網頁設計
     以下兩個角色進行攜手合作
@@ -57,6 +53,7 @@
 <script>
 // @ is an alias to /src
 import section_1_banner from "@/components/section_1_banner.vue";
+import section_2_issue from "@/components/section_2_issue.vue";
 // import section_4_solution from "@/components/section_4_solution.vue";
 // import section_6_awards from "@/components/section_6_awards.vue";
 // import section_7_sponsor from "@/components/section_7_sponsor.vue";
@@ -66,6 +63,7 @@ export default {
   name: "view_home",
   components: {
     section_1_banner,
+    section_2_issue,
     // section_4_solution,
     // section_6_awards,
     // section_7_sponsor,

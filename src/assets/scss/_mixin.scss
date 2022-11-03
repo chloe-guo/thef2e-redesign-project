@@ -143,3 +143,22 @@
     }
   }
 }
+
+@mixin textstroke($w, $color, $fz:$fz-primary, $lh:1.5, $fw:$fw-primary, $ls:.5px) {
+  @include font($fz, $lh, $fw, $ls);
+  @include flex;
+  z-index: 1;
+
+  &::before {
+    content: attr(data-stroke);
+    display: block;
+    white-space: pre;
+    @include poa;
+    @include flex;
+    @include font($fz, $lh, $fw, $ls);
+    color: $color;
+    -webkit-text-stroke: $w $color;
+    text-stroke: $w $color;
+    z-index: -1;
+  }
+}

@@ -62,12 +62,7 @@ export default {
   &__logo {
     @include img(76.6vw, auto);
     max-width: 1048px;
-    margin: 12vh auto;
-    img {
-      transform: translateX(8%);
-    }
-  }
-  &__menu {
+    margin: 11vh auto;
   }
   &__item {
     @include rect(auto, 53px);
