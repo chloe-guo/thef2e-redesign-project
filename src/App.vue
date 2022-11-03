@@ -118,19 +118,24 @@ export default {
     url("@/assets/fonts/fusion-pixel.otf") format("opentype"),
     url("@/assets/fonts/fusion-pixel.ttf") format("opentype");
 }
+@font-face {
+  font-family: "cube";
+  src: url("@/assets/fonts/Cubic_11_1.013_R.woff") format("woff"),
+    url("@/assets/fonts/Cubic_11_1.013_R.woff2") format("woff"),
+    url("@/assets/fonts/Cubic_11_1.013_R.ttf") format("opentype");
+}
 html,
 body {
   margin: 0px;
   padding: 0px;
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
-  font-family: "source-han-sans-traditional", "PingFang TC",
-    "Microsoft JhengHei", sans-serif;
+  font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
   @include font;
   color: $c-text-primary;
   background: $c-bg;
-  .is-pixelFont {
-    font-family: "fusion-pixel", sans-serif;
+  .is-cubeFont {
+    font-family: "cube", "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
 }
 
