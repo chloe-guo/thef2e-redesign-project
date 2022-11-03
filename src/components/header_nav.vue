@@ -2,7 +2,7 @@
 header
   nav.navbar
     router-link.navbar__brand.navbar__text(to="/") TheF2E 4th
-    p.navbar__info.navbar__text total - 001238
+    p.navbar__info.navbar__text Total - 001238
     ul.navbar__menu
       li.navbar__item
         router-link.navbar__link.btn.js-cursorHover(to="/")
@@ -42,7 +42,7 @@ header
   &__item {
     & + .navbar__item {
       display: block;
-      margin-left: $space-m;
+      margin-left: $space-l;
     }
   }
   &__link {

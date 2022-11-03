@@ -4,9 +4,9 @@
         img(src="@/assets/images/s1-banner-logo.png")
     ul.banner__menu
         li.banner__item.is-cubeFont.js-cursorHover.is-active
-            router-link.banner__link(to="/" target="_blank")  1 SCROLL DOWN
+            router-link.banner__link(to="/" target="_blank")  1 Scroll Down
         li.banner__item.is-cubeFont.js-cursorHover
-            a.banner__link(href="https://2022.thef2e.com/works" target="_blank")  2 SING UP
+            a.banner__link(href="https://2022.thef2e.com/works" target="_blank")  2 Sign Up
     p.banner__info 互動式網頁設計
         span.is-cubeFont Interactive And Responsive Web Design.
     #canvas-wrap
@@ -62,7 +62,7 @@ export default {
   &__logo {
     @include img(76.6vw, auto);
     max-width: 1048px;
-    margin: 11vh auto;
+    margin: 12vh auto;
     img {
       transform: translateX(8%);
     }
@@ -89,17 +89,20 @@ export default {
       }
       .banner__link {
         color: $c-brand1;
+        text-shadow: 0 0 5px $c-brand1;
       }
     }
   }
   &__link {
     @include font(42px);
+    text-transform: uppercase;
   }
   &__info {
-    margin-top: 11vh;
+    margin-top: 9vh;
     @include font(32px, 1.5, $fw-primary, 3px);
     span {
       margin-left: $space-s;
+      text-transform: uppercase;
     }
   }
 }
