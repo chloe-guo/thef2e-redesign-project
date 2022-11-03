@@ -2,11 +2,7 @@
 #view__home
   section_1_banner
   section_2_issue
-  //- 網頁區塊 3：破題
-    ## 本屆主題：互動式網頁設計
-    以下兩個角色進行攜手合作
-    - UI 設計師
-    - 前端工程師
+  section_3_cooperation
   //- 網頁區塊 4：提出解法
     ## 主標：年度最強合作，三大主題來襲
     ## 副標：各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
@@ -54,6 +50,7 @@
 // @ is an alias to /src
 import section_1_banner from "@/components/section_1_banner.vue";
 import section_2_issue from "@/components/section_2_issue.vue";
+import section_3_cooperation from "@/components/section_3_cooperation.vue";
 // import section_4_solution from "@/components/section_4_solution.vue";
 // import section_6_awards from "@/components/section_6_awards.vue";
 // import section_7_sponsor from "@/components/section_7_sponsor.vue";
@@ -64,6 +61,7 @@ export default {
   components: {
     section_1_banner,
     section_2_issue,
+    section_3_cooperation,
     // section_4_solution,
     // section_6_awards,
     // section_7_sponsor,
