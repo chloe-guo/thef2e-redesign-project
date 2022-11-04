@@ -151,7 +151,7 @@ html {
     padding: 0px;
     vertical-align: baseline;
     outline: none;
-    color: $c-text-primary;
+    color: inherit;
     &:focus {
       outline: none;
       box-shadow: none;

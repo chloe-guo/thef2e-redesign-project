@@ -3,18 +3,7 @@
   section_1_banner
   section_2_issue
   section_3_cooperation
-  //- 網頁區塊 4：提出解法
-    ## 主標：年度最強合作，三大主題來襲
-    ## 副標：各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
-    1. Week1： The F2E 活動網站設計
-        - 標籤：視差滾動
-        - 贊助商：版塊設計
-    2. Week2： 今晚，我想來點點簽
-        - 標籤：Canvas
-        - 贊助商：凱鈿行動科技
-    3. Week3： Scrum 新手村
-        - 標籤：JS *draggable*
-        - 贊助商：鈦坦科技
+  section_6_awards
   //- section_4_solution
   //- 網頁區塊 5： 活動說明（必做加分項目）
     1. 報名時間：10/13~10/30
@@ -35,7 +24,6 @@
       2. 個人企業獎 共六位NTD 3,000/位
       3. 團體企業獎 共三組NTD 10,000/組
       4. 以上皆提供完賽數位獎狀
-  //- section_6_awards
   //- 網頁區塊 7：贊助單位（必做）
     - 鈦坦科技
     - 凱鈿科技
@@ -51,8 +39,8 @@
 import section_1_banner from "@/components/section_1_banner.vue";
 import section_2_issue from "@/components/section_2_issue.vue";
 import section_3_cooperation from "@/components/section_3_cooperation.vue";
+import section_6_awards from "@/components/section_6_awards.vue";
 // import section_4_solution from "@/components/section_4_solution.vue";
-// import section_6_awards from "@/components/section_6_awards.vue";
 // import section_7_sponsor from "@/components/section_7_sponsor.vue";
 // import section_8_share from "@/components/section_8_share.vue";
 
@@ -62,8 +50,8 @@ export default {
     section_1_banner,
     section_2_issue,
     section_3_cooperation,
+    section_6_awards,
     // section_4_solution,
-    // section_6_awards,
     // section_7_sponsor,
     // section_8_share,
   },

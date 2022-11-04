@@ -14,6 +14,7 @@
 //- 等設計，使用 parallax scroll
     - gasp ScrollTrigger
 </template>
+
 <style lang="scss" scoped>
 #cooperation {
   @include rect(100vw, 100vh);

@@ -1,10 +1,11 @@
 <template lang="pug">
-h2.solution__title 年度最強合作，三大主題來襲
-h3.solution__subTitle 各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
-ul.solution__lists
-    card(image_bg="https://picsum.photos/id/1019/300/300", image_object="blockstudio_logo.jpg", title="Week1", subTitle="The F2E 活動網站設計", sponsor="版塊設計", tag="#視差滾動")
-    card(image_bg="https://picsum.photos/id/1019/300/300", image_object="blockstudio_logo.jpg", title="Week1", subTitle="The F2E 活動網站設計", sponsor="版塊設計", tag="#視差滾動")
-    card(image_bg="https://picsum.photos/id/1019/300/300", image_object="blockstudio_logo.jpg", title="Week1", subTitle="The F2E 活動網站設計", sponsor="版塊設計", tag="#視差滾動")
+#solution
+  h2.solution__title 年度最強合作，三大主題來襲
+  h3.solution__subTitle 各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
+  ul.solution__lists
+      card(image_bg="s4-solution-bg-1.png", image_object="s4-solution-icon-1.png", title="Week1", subTitle="The F2E 活動網站設計", sponsor="版塊設計", tag="#視差滾動")
+      card(image_bg="s4-solution-bg-2.png", image_object="s4-solution-icon-2.png", title="Week2", subTitle="今晚，我想來點點簽", sponsor="凱鈿行動科技", tag="#canvas")
+      card(image_bg="s4-solution-bg-3.png", image_object="s4-solution-icon-3.png", title="Week3", subTitle="Scrum 新手村", sponsor="鈦坦科技", tag="#JS draggable")
 //- 網頁區塊 4：提出解法
     ## 主標：年度最強合作，三大主題來襲
     ## 副標：各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
@@ -34,8 +35,5 @@ export default {
 
 <style lang="scss" scoped>
 .solution {
-  &__lists {
-    @include flex(row, space-between);
-  }
 }
 </style>

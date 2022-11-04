@@ -1,15 +1,16 @@
 <template lang="pug">
 li.solution__item.is-tilt
     .solution__image-bg.js-cursorHover
-        img(:src="image_bg")
+        img(:src="require(`@/assets/images/${image_bg}`)")
     .solution__content.js-cursorHover
         .solution__image-object
             img(:src="require(`@/assets/images/${image_object}`)")
         .solution__info
-            .solution__title {{title}}
+            .solution__title.is-cubeFont {{title}}
             .solution__subTitle {{subTitle}}
-            .solution__sponsor {{sponsor}}
-            .solution__tag {{tag}}
+            .solution__info-bottom
+              .solution__sponsor {{sponsor}}
+              .solution__tag {{tag}}
 </template>
 
 <script>
@@ -34,16 +35,15 @@ export default {
 <style lang="scss" scoped>
 .solution {
   &__item {
-    width: 300px;
+    @include rect(640px, auto);
   }
   &__image {
     &-bg {
-      @include rect(300px, 300px);
-      object-fit: contain;
+      @include img(100%, auto);
     }
     &-object {
-      @include img(200px, 200px);
-      @include poa;
+      @include img(45%, auto);
+      @include poa(10%, 0, r, 0);
     }
   }
   &__content {
@@ -58,8 +58,26 @@ export default {
     }
   }
   &__info {
-    @include poa(l, t, 0, 0);
-    transform: translateX(60%);
+    @include poa(l, t, 0, 10%);
+    transform: translateX(65%);
+    background: white;
+    padding: $space-s $space-m;
+    @include flex(column);
+    &-bottom {
+      @include flex(row, space-between);
+    }
+  }
+  &__title {
+    @include font(28px);
+  }
+  &__subTitle {
+    @include font(36px);
+  }
+  &__sponsor {
+    @include font(24px);
+  }
+  &__tag {
+    @include font(24px);
   }
 }
 .is-tilt {
