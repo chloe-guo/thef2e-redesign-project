@@ -104,14 +104,14 @@
       img {
         @include rect(1220px, 588px);
         @include poa(0, 0, r, 0);
-        animation: issue-2-soldier 0.8s linear infinite alternate;
+        animation: issue-2-soldier 1.2s linear infinite;
         @keyframes issue-2-soldier {
           0%,
-          100% {
+          49% {
             @include poa(0, 0, r, 0);
           }
-          49%,
-          50% {
+          50%,
+          100% {
             @include poa(l, 0, 0, 0);
           }
         }
@@ -132,8 +132,24 @@
   }
   &-3 {
     &-tree {
-      @include img(72.1%, 116.5%);
+      @include img(67.7%, 116.5%);
       @include poa(l, t, 14%, 0);
+      overflow: hidden;
+      img {
+        @include rect(auto, 100%);
+        @include poa(0, 0, r, 0);
+        animation: issue-3-tree 2s linear infinite;
+        @keyframes issue-3-tree {
+          0%,
+          49% {
+            @include poa(0, 0, r, 0);
+          }
+          50%,
+          100% {
+            @include poa(l, 0, 0, 0);
+          }
+        }
+      }
     }
     &-soldier {
       @include img(26.2%, 41.4%);
