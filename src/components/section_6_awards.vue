@@ -1,6 +1,5 @@
 <template lang="pug">
 #awards
-  .element
   .awards__kv
     .awards__titleGroup
       .js-typed
@@ -32,6 +31,8 @@
         h5.js-fadeText 團體企業獎 共三組
         h5.is-heightLight.js-fadeText NTD 10,000/組
         p.js-fadeText 每週主題各一組
+  .awards__btnGroup
+    a(href="https://2022.thef2e.com" target="_blank").awards__cta 立即註冊報名!
 </template>
 
 <script>
@@ -163,6 +164,24 @@ export default {
         background: $c-text-primary;
       }
     }
+  }
+  &__btnGroup {
+    @include rect(100%, auto);
+    max-width: 1370px;
+    @include flex(column);
+    margin-top: calc($space-m * 10);
+    margin-bottom: calc($space-xl * 5);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__cta {
+    @include rect(100%, auto);
+    display: block;
+    @include font(72px);
+    color: $c-brand1;
+    @include flex;
+    background: white;
+    padding: $space-s;
   }
 }
 </style>

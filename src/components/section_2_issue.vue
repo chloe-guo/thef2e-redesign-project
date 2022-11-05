@@ -1,7 +1,7 @@
 <template lang="pug">
 #issue
     ul.issue__lists
-        li.issue__item.js-tilt
+        li.issue__item
             .issue__background
                 .issue-1-web
                     img(src="@/assets/images/s2-issue-1-web.gif")
@@ -10,14 +10,14 @@
                 .issue-1-dialog.is-cubeFont
                     .dialog__text I'm cool!
             h6.issue__text.issue-1-text(data-stroke="羨慕別人的酷酷網頁動畫...") 羨慕別人的酷酷網頁動畫...
-        li.issue__item.js-tilt
+        li.issue__item
             .issue__background
                 .issue-2-soldier
                     img(src="@/assets/images/s2-issue-2-soldier.png")
                 .issue-2-dialog.is-cubeFont
                     .dialog__text !@#$%...
             h6.issue__text.issue-2-text(data-stroke="滿足不了同事的許願...") 滿足不了同事的許願...
-        li.issue__item.js-tilt
+        li.issue__item
             .issue__background
                 .issue-3-tree
                     img(src="@/assets/images/s2-issue-3-tree.png")
@@ -28,15 +28,10 @@
 
 <script>
 import $ from "jquery";
-import tilt from "tilt.js";
 export default {
   name: "section_2_issue",
   mounted: function () {
-    $(".js-tilt").tilt({
-      maxTilt: 8,
-      perspective: 1000,
-      speed: 600,
-    });
+
   },
 };
 </script>
@@ -54,7 +49,6 @@ export default {
   &__item {
     @include rect(980px, 570px);
     background: $c-brand1;
-    transform-style: preserve-3d;
     & + .issue__item {
       margin-top: calc($space-m * 10);
     }
@@ -62,24 +56,23 @@ export default {
       float: left;
       .issue__text {
         @include poa(l, 0, 0, 0);
-        transform: translateX(50%) translateZ($space-xxl);
+        transform: translateX(50%);
       }
     }
     &:nth-child(2n) {
       float: right;
       .issue__text {
         @include poa(0, 0, r, 0);
-        transform: translateX(-50%) translateZ($space-xxl);
+        transform: translateX(-50%);
       }
     }
   }
   &__text {
     display: block;
-    @include textstroke(6px, $c-brand1-drark, 36px, 1.5, $fz-primary, 2px);
+    @include textstroke(8px, $c-brand1-drark, 36px, 1.5, $fw-primary, 2px);
   }
   &__background {
     @include rect;
-    transform: translateZ(calc($space-m * 2));
   }
   &-1 {
     &-web {
