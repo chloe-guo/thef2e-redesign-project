@@ -30,21 +30,24 @@ export default {
 $c-blockstudio: #40587c;
 $c-titansoft: #3a3a3a;
 $c-kdanmobile: #00a89b;
+$c-jira: #2684ff;
+$c-miro: #ffd02e;
+$c-dottedsign: #586af2;
 
 .sponsor {
   &__item {
     transform-style: preserve-3d;
-    padding: #{$space-m * 2};
+    padding: #{$space-l * 2};
     * {
       transform-style: preserve-3d;
     }
   }
   &__link {
-    @include rect($space-m * 8, $space-m * 8);
+    @include rect($space-xl * 8, $space-xl * 8);
     a[class^="link-"] {
       display: block;
-      transform: translateZ(#{$space-m * 2});
-      transform-origin: $space-m * 4 $space-m * 4 -#{$space-m * 4};
+      transform: translateZ(#{$space-xl * 2});
+      transform-origin: $space-xl * 4 $space-xl * 4 -#{$space-xl * 4};
       z-index: 1;
       &.link {
         &-top {
@@ -60,7 +63,7 @@ $c-kdanmobile: #00a89b;
               transform: rotateX(-0.5turn);
               .cube-back {
                 transform: rotateY(180deg) rotateZ(180deg)
-                  translateZ($space-m * 8);
+                  translateZ($space-xl * 8);
               }
             }
           }
@@ -79,7 +82,7 @@ $c-kdanmobile: #00a89b;
               .cube-back {
                 transform: rotateZ(180deg);
                 transform: rotateY(180deg) rotateZ(180deg)
-                  translateZ($space-m * 8);
+                  translateZ($space-xl * 8);
               }
             }
           }
@@ -117,7 +120,7 @@ $c-kdanmobile: #00a89b;
       &:focus {
         @include rect(100% !important, 100% !important);
         z-index: 2;
-        transform: translateZ(#{$space-m * 3});
+        transform: translateZ(#{$space-xl * 3});
         -webkit-clip-path: none !important;
         clip-path: none !important;
         transition: all 0.2s cubic-bezier(0.37, 0, 0.63, 1) 0.3s;
@@ -125,7 +128,7 @@ $c-kdanmobile: #00a89b;
     }
   }
   &__cube {
-    transform-origin: $space-m * 4 $space-m * 4 -#{$space-m * 4};
+    transform-origin: $space-xl * 4 $space-xl * 4 -#{$space-xl * 4};
     position: relative;
     z-index: 0;
     display: block;
@@ -145,35 +148,35 @@ $c-kdanmobile: #00a89b;
       color: white;
       // border-radius: 3px;
       img {
-        width: $space-m * 5;
-        height: $space-m * 5;
+        width: $space-xl * 5;
+        height: $space-xl * 5;
         object-fit: contain;
       }
       &.cube {
         &-top {
           transform-origin: center top;
-          transform: rotateX(90deg) translateY(#{- ($space-m * 8)});
+          transform: rotateX(90deg) translateY(#{- ($space-xl * 8)});
         }
         &-bottom {
           transform-origin: center bottom;
-          transform: rotateX(-90deg) translateY($space-m * 8);
+          transform: rotateX(-90deg) translateY($space-xl * 8);
         }
         &-left {
           transform-origin: left center;
-          transform: rotateY(-90deg) translateX(#{- ($space-m * 8)});
+          transform: rotateY(-90deg) translateX(#{- ($space-xl * 8)});
         }
         &-right {
           transform-origin: right center;
-          transform: rotateY(90deg) translateX($space-m * 8);
+          transform: rotateY(90deg) translateX($space-xl * 8);
         }
         &-front {
           transform-origin: center center;
           transform: rotateX(0);
         }
         &-back {
-          @include font(#{$fz-primary * 1.5}, 1.2, $fw-primary, 1px);
+          @include font(42px, 1.2, $fw-primary, 5px);
           transform-origin: center center;
-          transform: rotateY(180deg) translateZ($space-m * 8);
+          transform: rotateY(180deg) translateZ($space-xl * 8);
         }
       }
     }
@@ -247,6 +250,87 @@ $c-kdanmobile: #00a89b;
         &-back {
           color: white;
           background: $c-kdanmobile;
+        }
+      }
+    }
+    &[data-type="jira"] {
+      .cube {
+        &-top {
+          background: lighten($c-jira, 30%);
+          filter: grayscale(0.25);
+        }
+        &-bottom {
+          background: lighten($c-jira, 10%);
+          filter: grayscale(0.25);
+        }
+        &-left {
+          background: lighten($c-jira, 15%);
+          filter: grayscale(0.25);
+        }
+        &-right {
+          background: lighten($c-jira, 15%);
+          filter: grayscale(0.25);
+        }
+        &-front {
+          background: white;
+        }
+        &-back {
+          color: white;
+          background: $c-jira;
+        }
+      }
+    }
+    &[data-type="miro"] {
+      .cube {
+        &-top {
+          background: lighten($c-miro, 30%);
+          filter: grayscale(0.25);
+        }
+        &-bottom {
+          background: lighten($c-miro, 10%);
+          filter: grayscale(0.25);
+        }
+        &-left {
+          background: lighten($c-miro, 15%);
+          filter: grayscale(0.25);
+        }
+        &-right {
+          background: lighten($c-miro, 15%);
+          filter: grayscale(0.25);
+        }
+        &-front {
+          background: white;
+        }
+        &-back {
+          color: white;
+          background: $c-miro;
+        }
+      }
+    }
+    &[data-type="dottedsign"] {
+      .cube {
+        &-top {
+          background: lighten($c-dottedsign, 25%);
+          filter: grayscale(0.25);
+        }
+        &-bottom {
+          background: lighten($c-dottedsign, 5%);
+          filter: grayscale(0.25);
+        }
+        &-left {
+          background: lighten($c-dottedsign, 10%);
+          filter: grayscale(0.25);
+        }
+        &-right {
+          background: lighten($c-dottedsign, 10%);
+          filter: grayscale(0.25);
+        }
+        &-front {
+          background: white;
+        }
+        &-back {
+          color: white;
+          background: $c-dottedsign;
         }
       }
     }
