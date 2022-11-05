@@ -2,16 +2,19 @@
 li.share__item.plane-wrapper
   .share__card.plane-inner
     .share__image.plane.js-cursorHover
-      img(:src="require(`@/assets/images/${image}`)" data-sampler="planeTexture")
-    p.share__ta.js-cursorHover 免費公開場
+      img(:src="require(`@/assets/images/${image}.jpg`)" data-sampler="planeTexture")
+      p.share__tag.js-cursorHover 免費公開場
     .share__info.js-cursorHover
-      h6.share__title {{ title }}
-      p.share__date {{ date }}
-      p.share__author {{ author }}
-      p.share__position {{ position }}
+      .info__shadow
+      .info__content
+        h6.share__title {{ title }}
+        p.share__date {{ date }}
+        p.share__author {{ author }}
+        p.share__position {{ position }}
 </template>
 
 <script>
+import $ from "jquery";
 import { Curtains, RenderTarget, Plane, ShaderPass } from "curtainsjs";
 
 export default {
@@ -48,10 +51,10 @@ export default {
         delta.y = -delta.y;
 
         // threshold
-        if (delta.y > 100) {
-          delta.y = 100;
-        } else if (delta.y < -100) {
-          delta.y = -100;
+        if (delta.y > 50) {
+          delta.y = 50;
+        } else if (delta.y < -50) {
+          delta.y = -50;
         }
 
         if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
@@ -229,6 +232,17 @@ export default {
           curtainsBBox.height,
         ];
       });
+
+    let today = new Date();
+    if (today < new Date("2022/11/3 21:30:00")) {
+      $(".share__item:nth-child(1)").addClass("is-actived");
+    } else if (today < new Date("2022/11/10 21:30:00")) {
+      $(".share__item:nth-child(2)").addClass("is-actived");
+    } else if (today < new Date("2022/11/17 21:30:00")) {
+      $(".share__item:nth-child(3)").addClass("is-actived");
+    } else if (today < new Date("2022/11/24 21:30:00")) {
+      $(".share__item:nth-child(4)").addClass("is-actived");
+    }
   },
 };
 </script>
@@ -236,22 +250,90 @@ export default {
 <style lang="scss" scoped>
 .share {
   &__item {
-    flex: 0 0 33.3%;
+    flex: 0 0 600px;
+    margin-bottom: calc($space-xxl * 3);
+    &:nth-child(2n) {
+      transform: translateY(calc($space-xxl * 1.5));
+    }
+    &.is-actived {
+      .share {
+        &__tag {
+          background: $c-brand2;
+        }
+        &__info {
+          .info {
+            &__shadow {
+              background: $c-brand2;
+              &::before,
+              &::after {
+                background: $c-brand2;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   &__image {
-    @include img(300px, 300px);
+    @include img(320px, 310px);
     img {
       display: none;
     }
   }
   &__tag {
-    background: #666;
+    background: $c-brand1;
+    @include poa(l, calc($space-xl * 2.5), 0, b);
+    transform: translateX(25%);
+    @include font(18px);
+    padding: calc($space-xs / 2) $space-s;
   }
   &__info {
-    background: #999;
+    @include rect(360px, auto);
+    color: $c-brand1-dark;
+    @include font(16px);
+    @include poa(l, t, 0, 0);
+    transform: translate(-10%, 50%);
+    .info {
+      &__shadow {
+        @include rect;
+        @include poa;
+        background: $c-brand1-lighter;
+        &::before {
+          @include beaf;
+          @include rect(calc($space-xs + 1px), calc($space-xs + 1px));
+          background: $c-brand1-lighter;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+          @include poa(0, t, r, 0);
+          transform: translate(-5%, 90%);
+        }
+        &::after {
+          @include beaf;
+          @include rect(calc($space-xs + 1px), calc($space-xs + 1px));
+          background: $c-brand1-lighter;
+          clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+          @include poa(l, 0, 0, b);
+          transform: translate(90%, -5%);
+        }
+      }
+      &__content {
+        background: white;
+        @include rect;
+        padding: $space-s $space-m;
+        transform: translate($space-xs, $space-xs);
+      }
+    }
+  }
+  &__title {
+    @include font(20px);
+    color: $c-brand1;
+    margin-bottom: $space-xs;
+  }
+  &__position {
+    opacity: 0.7;
+    @include font(14px);
   }
 }
 .plane {
-  @include img(300px, 300px);
+  @include img(320px, 310px);
 }
 </style>

@@ -5,6 +5,7 @@
   section_3_cooperation
   section_6_awards
   section_7_sponsor
+  section_8_share
   section_9_faq
   //- section_4_solution
   //- 網頁區塊 5： 活動說明（必做加分項目）
@@ -26,8 +27,6 @@
       2. 個人企業獎 共六位NTD 3,000/位
       3. 團體企業獎 共三組NTD 10,000/組
       4. 以上皆提供完賽數位獎狀
-  //- 網頁區塊 8：各界大神接力分享（選做）
-  //- section_8_share(msg="Welcome to Your Vue.js App")
 </template>
 
 <script>
@@ -37,9 +36,9 @@ import section_2_issue from "@/components/section_2_issue.vue";
 import section_3_cooperation from "@/components/section_3_cooperation.vue";
 import section_6_awards from "@/components/section_6_awards.vue";
 import section_7_sponsor from "@/components/section_7_sponsor.vue";
+import section_8_share from "@/components/section_8_share.vue";
 import section_9_faq from "@/components/section_9_faq.vue";
 // import section_4_solution from "@/components/section_4_solution.vue";
-// import section_8_share from "@/components/section_8_share.vue";
 
 export default {
   name: "view_home",
@@ -49,10 +48,9 @@ export default {
     section_3_cooperation,
     section_6_awards,
     section_7_sponsor,
+    section_8_share,
     section_9_faq,
     // section_4_solution,
-    // section_7_sponsor,
-    // section_8_share,
   },
 };
 </script>

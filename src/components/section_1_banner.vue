@@ -10,13 +10,6 @@
     p.banner__info 互動式網頁設計
         span.is-cubeFont Interactive And Responsive Web Design.
     #canvas-wrap
-//- 網頁區塊 1 ：Banner
-    ## 意境以「互動式網頁設計」為主
-    - 主標：The F2E 4th
-    - 副標：「互動式網頁設計」
-
-//- 等設計，使用 parallax scroll
-    - gasp ScrollTrigger
 </template>
 <script>
 import $ from "jquery";
@@ -24,7 +17,6 @@ import p5 from "p5";
 
 export default {
   name: "section_1_banner",
-  data() {},
   mounted: function () {
     $(".banner__link").mouseenter(function () {
       let el = $(this).parent(".banner__item");
