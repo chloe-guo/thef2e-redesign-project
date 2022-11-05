@@ -3,8 +3,8 @@
     .banner__logo.js-cursorHover
         img(src="@/assets/images/s1-banner-logo.png")
     ul.banner__menu
-        li.banner__item.is-cubeFont.js-cursorHover.is-active
-            router-link.banner__link(to="/" target="_blank")  1 Scroll Down
+        li.banner__item.is-cubeFont.js-cursorHover.is-actived
+            a.banner__link(href="javaScript:;" data-action="scrollDown")  1 Scroll Down
         li.banner__item.is-cubeFont.js-cursorHover
             a.banner__link(href="https://2022.thef2e.com/works" target="_blank")  2 Sign Up
     p.banner__info 互動式網頁設計
@@ -20,27 +20,120 @@ export default {
   mounted: function () {
     $(".banner__link").mouseenter(function () {
       let el = $(this).parent(".banner__item");
-      $(".banner__item").not(el).removeClass("is-active");
-      el.addClass("is-active");
+      $(".banner__item").not(el).removeClass("is-actived");
+      el.addClass("is-actived");
     });
+
+    let changeing = false;
+    let offsettop = 1;
+    let scrolling = 0;
+    $(window).on("scroll", function () {
+      offsettop = $(window).scrollTop();
+    });
+
+    document.addEventListener("wheel", (e) => {
+      let isScrollingDown = e.wheelDeltaY;
+      scrolling += isScrollingDown;
+      if (!changeing) {
+        if (isScrollingDown < 5) {
+          if (
+            $("#first-view").hasClass("is-enter") &&
+            !$("#first-view").hasClass("is-hidden") &&
+            !$("#first-view").hasClass("is-ani")
+          ) {
+            changeSence2();
+          }
+        } else if (isScrollingDown > 20) {
+          if (
+            $("#first-view").hasClass("is-enter") &&
+            $("#first-view").hasClass("is-hidden") &&
+            !$("#first-view").hasClass("is-ani") &&
+            offsettop == 0
+          ) {
+            changeSence1();
+          }
+        }
+      }
+    });
+
+    $('.banner__link[data-action="scrollDown"]').on("click", function () {
+      changeSence2();
+    });
+
     const canvas = (cnv) => {
       cnv.setup = () => {
         cnv.createCanvas(0, 0).parent("canvas-wrap");
       };
       cnv.keyPressed = () => {
-        if (cnv.keyCode === cnv.UP_ARROW || cnv.keyCode === cnv.DOWN_ARROW) {
-          console.log(1234);
-          $(".banner__item").each(function () {
-            if ($(this).hasClass("is-active")) {
-              $(this).removeClass("is-active");
-            } else {
-              $(this).addClass("is-active");
+        if (
+          $("#first-view").hasClass("is-enter") &&
+          !$("#first-view").hasClass("is-hidden") &&
+          $("#first-view").innerWidth() - $("#first-view").width() == 0
+        ) {
+          switch (cnv.keyCode) {
+            case cnv.UP_ARROW: {
+              $(".banner__item").each(function () {
+                if ($(this).hasClass("is-actived")) {
+                  $(this).removeClass("is-actived");
+                } else {
+                  $(this).addClass("is-actived");
+                }
+              });
+              break;
             }
-          });
+            case cnv.DOWN_ARROW: {
+              $(".banner__item").each(function () {
+                if ($(this).hasClass("is-actived")) {
+                  $(this).removeClass("is-actived");
+                } else {
+                  $(this).addClass("is-actived");
+                }
+              });
+              break;
+            }
+            case cnv.ENTER: {
+              if ($(".banner__item.is-actived .banner__link").data("action")) {
+                changeSence();
+              } else {
+                window.open(
+                  $(".banner__item.is-actived .banner__link").attr("href")
+                );
+              }
+              break;
+            }
+          }
         }
       };
     };
     const p5canvas = new p5(canvas);
+
+    function changeSence1() {
+      changeing = true;
+      $("#transitions").addClass("is-close");
+      setTimeout(() => {
+        $("#first-view").removeClass("is-hidden");
+        $("#transitions").removeClass("is-close");
+        $("html, body").animate({ scrollTop: 1 }, 100, "swing");
+        setTimeout(() => {
+          $("body").addClass("is-fixed");
+          changeing = false;
+        }, 1200);
+      }, 1200);
+    }
+
+    function changeSence2() {
+      changeing = true;
+      $("#transitions").addClass("is-close");
+      $("html, body").animate({ scrollTop: 1 }, 100, "swing");
+      setTimeout(() => {
+        $("#first-view").addClass("is-hidden");
+        $("#transitions").removeClass("is-close");
+        setTimeout(() => {
+          $("body").removeClass("is-fixed");
+          changeing = false;
+        }, 1200);
+      }, 1200);
+    }
   },
 };
 </script>
@@ -70,7 +163,7 @@ export default {
       transform: translate(-100%, 6%);
       display: none;
     }
-    &.is-active {
+    &.is-actived {
       &::before {
         display: block;
       }

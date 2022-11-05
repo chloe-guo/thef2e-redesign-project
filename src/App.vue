@@ -51,10 +51,14 @@ export default {
           if (imgN == imgID.length) {
             $("#transitions").addClass("is-close");
             setTimeout(() => {
-              $("#loading").hide();
+              $("#loading").addClass("is-hidden");
               $("#transitions").removeClass("is-close");
               setTimeout(() => {
-                $("#first-view").addClass("is-enter");
+                $("#first-view").addClass("is-enter is-ani");
+                $("html, body").animate({ scrollTop: 1 }, 100, "swing");
+                setTimeout(() => {
+                  $("#first-view").removeClass("is-ani");
+                }, 2400);
               }, 800);
             }, 1200);
           }
@@ -86,7 +90,6 @@ export default {
         onRepeat: function () {
           posX += (mouseX - posX) / 6;
           posY += (mouseY - posY) / 6;
-          console.log(mouseY);
 
           TweenMax.set(follower, {
             css: {
@@ -223,7 +226,7 @@ html {
 }
 
 body {
-  &.has-loading {
+  &.is-fixed {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
@@ -244,7 +247,7 @@ body {
   background-color: rgba(white, 0.8);
   user-select: none;
   pointer-events: none;
-  z-index: 98;
+  z-index: 99;
   transform: translate(calc($space-xs / -2), calc($space-xs / -2));
   transition: 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
@@ -258,7 +261,7 @@ body {
   mix-blend-mode: difference;
   user-select: none;
   pointer-events: none;
-  z-index: 99;
+  z-index: 98;
   transform: translate(calc($space-xxl / -2), calc($space-xxl / -2));
   transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;

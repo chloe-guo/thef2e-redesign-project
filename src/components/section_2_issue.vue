@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 #issue {
-  padding: calc($space-m * 20) 0;
+  padding: calc($space-m * 8) 0;
 }
 .issue {
   &__list {
