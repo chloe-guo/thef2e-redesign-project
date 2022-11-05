@@ -1,6 +1,5 @@
 <template lang="pug">
 #view__home
-  section_1_banner
   section_2_issue
   section_3_cooperation
   section_6_awards
@@ -30,8 +29,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import section_1_banner from "@/components/section_1_banner.vue";
 import section_2_issue from "@/components/section_2_issue.vue";
 import section_3_cooperation from "@/components/section_3_cooperation.vue";
 import section_6_awards from "@/components/section_6_awards.vue";
@@ -43,7 +40,6 @@ import section_9_faq from "@/components/section_9_faq.vue";
 export default {
   name: "view_home",
   components: {
-    section_1_banner,
     section_2_issue,
     section_3_cooperation,
     section_6_awards,
@@ -54,6 +50,3 @@ export default {
   },
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-</style> -->

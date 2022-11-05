@@ -1,13 +1,31 @@
 <template lang="pug">
-navComponent
+#first-view
+  navComponent
+  section_1_banner
 router-view
 <!-- The custom cursor elements -->
 .follow
 .cursor
+#loading
+  .loading__text.is-cubeFont
+    span L
+    span o
+    span a
+    span d
+    span i
+    span n
+    span g
+    span .
+    span .
+    span .
+  .loading__image
+    img(src="@/assets/images/card-right.gif")
+#transitions
 </template>
 
 <script>
 import navComponent from "@/components/header_nav.vue";
+import section_1_banner from "@/components/section_1_banner.vue";
 import $ from "jquery";
 import { gsap, TweenMax } from "gsap/all";
 // don't forget to register plugins
@@ -17,38 +35,32 @@ export default {
   name: "App",
   components: {
     navComponent,
+    section_1_banner,
   },
   mounted: function () {
-    //-------- webfont --------//
-    (function (d) {
-      var config = {
-          kitId: "qec1yzt",
-          scriptTimeout: 3000,
-          async: true,
-        },
-        h = d.documentElement,
-        t = setTimeout(function () {
-          h.className =
-            h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-        }, config.scriptTimeout),
-        tk = d.createElement("script"),
-        f = false,
-        s = d.getElementsByTagName("script")[0],
-        a;
-      h.className += " wf-loading";
-      tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-      tk.async = true;
-      tk.onload = tk.onreadystatechange = function () {
-        a = this.readyState;
-        if (f || (a && a != "complete" && a != "loaded")) return;
-        f = true;
-        clearTimeout(t);
-        try {
-          Typekit.load(config);
-        } catch (e) {}
-      };
-      s.parentNode.insertBefore(tk, s);
-    })(document);
+    imageLoading();
+
+    function imageLoading() {
+      let imgN = 0;
+      const imgID = document.querySelectorAll("img");
+      imgID.forEach((item) => {
+        const img = new Image();
+        img.src = item.src;
+        img.addEventListener("load", () => {
+          imgN++;
+          if (imgN == imgID.length) {
+            $("#transitions").addClass("is-close");
+            setTimeout(() => {
+              $("#loading").hide();
+              $("#transitions").removeClass("is-close");
+              setTimeout(() => {
+                $("#first-view").addClass("is-enter");
+              }, 800);
+            }, 1200);
+          }
+        });
+      });
+    }
 
     //-------- 100vh --------//
     let windowsVH = window.innerHeight / 100;
@@ -74,11 +86,12 @@ export default {
         onRepeat: function () {
           posX += (mouseX - posX) / 6;
           posY += (mouseY - posY) / 6;
+          console.log(mouseY);
 
           TweenMax.set(follower, {
             css: {
-              left: posX - 9,
-              top: posY - 9,
+              left: posX,
+              top: posY,
             },
           });
 
@@ -208,6 +221,17 @@ html {
     pointer-events: none !important;
   }
 }
+
+body {
+  &.has-loading {
+    @include rect(100vw, 100vh);
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
 //-------- custom cursor --------//
 *,
 *::before,
@@ -215,32 +239,124 @@ html {
   cursor: none !important;
 }
 .cursor {
-  @include circle(5px);
+  @include circle($space-xs);
   position: absolute;
   background-color: rgba(white, 0.8);
   user-select: none;
   pointer-events: none;
-  z-index: 100001;
-  transform: translateZ(10000px);
+  z-index: 98;
+  transform: translate(calc($space-xs / -2), calc($space-xs / -2));
   transition: 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
     opacity: 0;
   }
 }
 .follow {
-  @include circle(25px);
+  @include circle($space-xxl);
   position: absolute;
   background-color: rgba($c-brand2, 0.3);
   mix-blend-mode: difference;
   user-select: none;
   pointer-events: none;
-  z-index: 100000;
-  transform: translate(5px, 5px, 10000px);
+  z-index: 99;
+  transform: translate(calc($space-xxl / -2), calc($space-xxl / -2));
   transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
     opacity: 0.7;
-    transform: scale(3) translateZ(10000px);
+    transform: translate(calc($space-xxl / -2), calc($space-xxl / -2)) scale(3);
+  }
+}
+#first-view {
+  background: $c-bg;
+  @include fixed;
+  z-index: 97;
+  padding-top: 100vh;
+  padding-top: calc(var(--vh, 1vh) * 100);
+  transition: all 2.4s linear;
+  &.is-enter {
+    padding-top: 0;
+  }
+}
+#loading {
+  @include rect(100vw, 100vh);
+  height: calc(var(--vh, 1vh) * 100);
+  @include flex(column);
+  background: $c-bg;
+  @include fixed;
+  z-index: 100;
+  .loading {
+    &__image {
+      @include img(164px, 66px);
+      animation: loading-image 1.2s linear infinite alternate;
+      @keyframes loading-image {
+        0% {
+          transform: translateX(-4%);
+        }
+        100% {
+          transform: translateX(4%);
+        }
+      }
+    }
+    &__text {
+      @include font(36px);
+      margin-bottom: $space-l;
+      span {
+        display: inline-block;
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation: loading-text
+              2s
+              #{(10 - $i) *
+              -0.3}s
+              linear
+              infinite
+              alternate;
+          }
+        }
+        @keyframes loading-text {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          45%,
+          55% {
+            transform: translateY(-20%);
+          }
+        }
+      }
+    }
+  }
+}
+#transitions {
+  @include rect(100vw, 100vh);
+  height: calc(var(--vh, 1vh) * 100);
+  @include fixed;
+  z-index: 101;
+  pointer-events: none;
+  &::before,
+  &::after {
+    @include beaf;
+    @include rect(100%, 50%);
+    background: $c-bg;
+    transition: all 1.2s linear;
+  }
+  &::before {
+    @include poa(0, 0, 0, b);
+    transform: translateY(-100%);
+  }
+  &::after {
+    @include poa(0, t, 0, 0);
+    transform: translateY(100%);
+  }
+  &.is-close {
+    pointer-events: auto;
+    &::before {
+      transform: translateY(0);
+    }
+    &::after {
+      transform: translateY(0);
+    }
   }
 }
 </style>

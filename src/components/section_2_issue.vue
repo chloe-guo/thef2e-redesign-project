@@ -30,16 +30,13 @@
 import $ from "jquery";
 export default {
   name: "section_2_issue",
-  mounted: function () {
-
-  },
+  mounted: function () {},
 };
 </script>
 
 <style lang="scss" scoped>
 #issue {
-  padding: calc($space-m * 10) 0;
-  margin: calc($space-m * 10) 0;
+  padding: calc($space-m * 20) 0;
 }
 .issue {
   &__list {
