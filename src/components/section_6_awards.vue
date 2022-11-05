@@ -7,32 +7,32 @@
       .js-typed
         h3.awards__subTitle.has-cursor 還有比賽等著你！
   .awards__content
-    h4.js-fadeText 評審機制
-    h6.js-fadeText 初選：
-    p.js-fadeText 將由六角學院前端、UI 評審進行第一波篩選，
-    p.js-fadeText 並於 12/5（五）公布初選佳作名單！
-    h6.js-fadeText 決選：
-    p.js-fadeText 由三大企業針對該企業主題進行入圍獎最後篩選，
-    p.js-fadeText 並於 12/23（五）公布企業得獎名單！
+    h4.js-awards-fadeText 評審機制
+    h6.js-awards-fadeText 初選：
+    p.js-awards-fadeText 將由六角學院前端、UI 評審進行第一波篩選，
+    p.js-awards-fadeText 並於 12/5（五）公布初選佳作名單！
+    h6.js-awards-fadeText 決選：
+    p.js-awards-fadeText 由三大企業針對該企業主題進行入圍獎最後篩選，
+    p.js-awards-fadeText 並於 12/23（五）公布企業得獎名單！
   .awards__content
-    h4.js-fadeText 獎項
+    h4.js-awards-fadeText 獎項
     ul
       li
         div
-          h5.js-fadeText 初選佳作 共六十位
-          h5.is-heightLight.js-fadeText 數位獎狀
-        p.js-fadeText 每週主題個人組十位、團體組十組
+          h5.js-awards-fadeText 初選佳作 共六十位
+          h5.is-heightLight.js-awards-fadeText 數位獎狀
+        p.js-awards-fadeText 每週主題個人組十位、團體組十組
       li
         div
-          h5.js-fadeText 個人企業獎 共六位
-          h5.is-heightLight.js-fadeText NTD 3,000/位
-        p.js-fadeText 每週主題各兩名，設計一位、前端一位
+          h5.js-awards-fadeText 個人企業獎 共六位
+          h5.is-heightLight.js-awards-fadeText NTD 3,000/位
+        p.js-awards-fadeText 每週主題各兩名，設計一位、前端一位
       li
-        h5.js-fadeText 團體企業獎 共三組
-        h5.is-heightLight.js-fadeText NTD 10,000/組
-        p.js-fadeText 每週主題各一組
+        h5.js-awards-fadeText 團體企業獎 共三組
+        h5.is-heightLight.js-awards-fadeText NTD 10,000/組
+        p.js-awards-fadeText 每週主題各一組
   .awards__btnGroup
-    a(href="https://2022.thef2e.com" target="_blank").awards__cta 立即註冊報名!
+    a(href="https://2022.thef2e.com" target="_blank").awards__cta 立即註冊報名！
 </template>
 
 <script>
@@ -60,7 +60,8 @@ export default {
     setTimeout(() => {
       typed.start();
     }, 1000);
-    $(".js-fadeText").each(function () {
+
+    $(".js-awards-fadeText").each(function () {
       let thisEl = $(this);
       let str = thisEl.text().split("");
       $(this).text("");
@@ -71,7 +72,7 @@ export default {
       });
     });
 
-    $(".js-fadeText").each(function (i) {
+    $(".js-awards-fadeText").each(function (i) {
       $(this)
         .children("span")
         .each(function (j) {
@@ -87,10 +88,10 @@ export default {
 <style lang="scss">
 .awards {
   &__content {
-    .js-fadeText {
+    .js-awards-fadeText {
       span {
         opacity: 0;
-        transition: opacity 0.6s linear;
+        transition: opacity 0.6s cubic-bezier(0.11, 0, 0.5, 0);
       }
     }
   }
@@ -177,7 +178,7 @@ export default {
   &__cta {
     @include rect(100%, auto);
     display: block;
-    @include font(72px);
+    @include font(72px, 1.5, $fw-primary, 5px);
     color: $c-brand1;
     @include flex;
     background: white;

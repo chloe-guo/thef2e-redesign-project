@@ -133,6 +133,7 @@ body {
   font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
   @include font;
   color: $c-text-primary;
+  -webkit-font-smoothing: antialiased;
   background: $c-bg;
   .is-cubeFont {
     font-family: "cube", "PingFang TC", "Microsoft JhengHei", sans-serif;

@@ -91,8 +91,9 @@
   border-radius: 50%;
 }
 
-@mixin font($fz:$fz-primary, $lh:1.5, $fw:$fw-primary, $ls:1px) {
+@mixin font($fz:$fz-primary, $lh:1.5, $fw:$fw-primary, $ls:2px) {
   $calcfz: calc($fz / $fz-primary) + rem;
+  $calcls: calc($ls / $fz-primary) + rem;
   font-size: $calcfz;
   line-height: $lh;
   letter-spacing: $ls;

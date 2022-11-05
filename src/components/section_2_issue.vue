@@ -69,7 +69,7 @@ export default {
   }
   &__text {
     display: block;
-    @include textstroke(8px, $c-brand1-drark, 36px, 1.5, $fw-primary, 2px);
+    @include textstroke(5px, $c-brand1-dark, 36px, 1.5, $fw-primary, 2px);
   }
   &__background {
     @include rect;
@@ -99,7 +99,7 @@ export default {
       @include poa(58%, t, r, 86.5%);
       @include flex;
       .dialog__text {
-        color: $c-brand1-drark;
+        color: $c-brand1-dark;
         @include font(32px);
         transform: translateY(-38%);
       }
@@ -134,7 +134,7 @@ export default {
       @include poa(l, t, 72%, 76%);
       @include flex;
       .dialog__text {
-        color: $c-brand1-drark;
+        color: $c-brand1-dark;
         @include font(32px);
         transform: translateY(-6%);
       }
