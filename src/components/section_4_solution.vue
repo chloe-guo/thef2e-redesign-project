@@ -1,8 +1,9 @@
 <template lang="pug">
 #solution
   .solution__titleGroup
-    h2.solution__title 年度最強合作，三大主題來襲
-    h3.solution__SubTitle 各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡
+    h2.solution__title
+      span.solution__title-1 年度最強合作
+      span.solution__title-2 三大主題來襲
   .solution__content
     ul.solution__lists
       li.solution__item.solution__item-1
@@ -62,7 +63,7 @@ export default {
       scrollTrigger: {
         trigger: ".solution__content",
         start: "top top",
-        end: "bottom top",
+        end: "170% top",
         pin: true,
         scrub: true,
         markers: true,
@@ -73,7 +74,7 @@ export default {
     });
     s4TL.to(".solution__content", {
       opacity: 1,
-      duration: 5,
+      duration: 10,
       ease: "power2.out",
     });
     s4TL.to(".solution__flag-1 .flag-img-2", {
@@ -170,21 +171,28 @@ export default {
         duration: 1,
         ease: "power2.out",
       });
-    s4TL.to(".solution__content", {
-      opacity: 0,
-      duration: 5,
-      delay: 10,
-      ease: "power2.out",
-    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .solution {
+  &__titleGroup {
+    @include rect(100vw, 100vh);
+    height: calc(var(--vh, 1vh) * 100);
+    @include flex(column);
+  }
+  &__title {
+    @include rect;
+    @include font(72px, 1.2, $fw-primary, 5px);
+    @include flex(column);
+    span + span {
+      margin-top: calc($space-xxl * 3);
+    }
+  }
   &__content {
-    @include rect(100vw, 200vh);
-    height: calc(var(--vh, 1vh) * 200);
+    @include rect(100vw, 100vh);
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
   }
   &__lists {
@@ -288,7 +296,7 @@ export default {
   }
   &__car {
     @include img(207px, 83px);
-    @include poa(0, t, 0, 127vh);
+    @include poa(0, t, 0, 27vh);
     animation: solution-car 0.5s linear infinite alternate;
     img {
       transform: translateX(18%);

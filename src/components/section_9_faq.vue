@@ -112,6 +112,8 @@ export default {
     $(".tab__link").on("click", function () {
       let target = $(this).data("target");
       changeTab(target);
+      $(".tab__link").not($(this)).removeClass("is-actived");
+      $(this).addClass("is-actived");
     });
 
     function changeTab(target) {

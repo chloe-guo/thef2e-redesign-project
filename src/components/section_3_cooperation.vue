@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger, EasePack } from "gsap/all";
+import { gsap, ScrollTrigger } from "gsap/all";
 
 export default {
   name: "section_2_issue",
@@ -29,35 +29,8 @@ export default {
     s3TL1.to("#cooperation", {
       background: "#f4b6a7",
       duration: 50,
-      delay: 20,
-      ease: "power2.out",
+      delay: 20
     });
-    gsap.set(".cooperation__titleGroup", {
-      opacity: 0,
-      yPercent: "200",
-    });
-    s3TL1.to(
-      ".cooperation__titleGroup",
-      {
-        opacity: 1,
-        yPercent: "80",
-        duration: 30,
-        delay: 20,
-        ease: "power2.out",
-      },
-      "<"
-    );
-    s3TL1.to(
-      ".cooperation__titleGroup",
-      {
-        yPercent: "-20",
-        color: "#ffffff",
-        duration: 30,
-        delay: 20,
-        ease: "power2.out",
-      },
-      "<"
-    );
     gsap.set(".cooperation__layer-4", {
       yPercent: "200",
     });
@@ -66,7 +39,6 @@ export default {
       {
         yPercent: "0",
         duration: 10,
-        ease: "power2.out",
       },
       "<"
     );
@@ -78,7 +50,6 @@ export default {
       {
         yPercent: "0",
         duration: 25,
-        ease: "power2.out",
       },
       "<"
     );
@@ -90,7 +61,6 @@ export default {
       {
         yPercent: "0",
         duration: 30,
-        ease: "power2.out",
       },
       "<"
     );
@@ -102,55 +72,103 @@ export default {
       {
         yPercent: "0",
         duration: 40,
-        ease: "power2.out",
       },
       "<"
     );
-    s3TL1.to(".cooperation__titleGroup", {
-      opacity: 1,
-      duration: 20,
-      delay: 20,
-      ease: "power2.out",
+    gsap.set(".cooperation__titleGroup", {
+      opacity: 0,
+      yPercent: "200",
     });
-    // const s3TL2 = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".awards__kv",
-    //     start: "top bottom",
-    //     end: "120% bottom",
-    //     scrub: true,
-    //     markers: true,
-    //   },
-    // });
-    // s3TL2.to(".cooperation__layer-3", {
-    //   yPercent: "40",
-    //   duration: 35,
-    //   ease: "power2.out",
-    // });
-    // s3TL2.to(
-    //   ".cooperation__layer-2",
-    //   {
-    //     yPercent: "50",
-    //     duration: 45,
-    //     ease: "power2.out",
-    //   },
-    //   "<"
-    // );
-    // s3TL2.to(
-    //   ".cooperation__layer-1",
-    //   {
-    //     yPercent: "60",
-    //     duration: 50,
-    //     ease: "power2.out",
-    //   },
-    //   "<"
-    // );
+    s3TL1.to(
+      ".cooperation__titleGroup",
+      {
+        opacity: 1,
+        yPercent: "-20",
+        duration: 30,
+        delay: 10,
+      },
+      "<"
+    );
+    const s3TL2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".solution__titleGroup",
+        start: "top bottom",
+        end: "140% bottom",
+        scrub: true,
+        markers: true,
+      },
+    });
+    s3TL2.to(".cooperation__layer-3", {
+      yPercent: "45",
+      duration: 65
+    });
+    s3TL2.to(
+      ".cooperation__layer-2",
+      {
+        yPercent: "60",
+        duration: 75,
+      },
+      "<"
+    );
+    s3TL2.to(
+      ".cooperation__layer-1",
+      {
+        yPercent: "80",
+        duration: 80,
+      },
+      "<"
+    );
+    s3TL2.to(
+      ".cooperation__titleGroup",
+      {
+        yPercent: "60",
+        duration: 60,
+      },
+      "<"
+    );
+    gsap.set(".solution__title-1", {
+      opacity: 0,
+      scale: "0",
+    });
+    s3TL2
+      .to(
+        ".solution__title-1",
+        {
+          opacity: 1,
+          scale: "2",
+          duration: 20,
+          delay: 100,
+
+        },
+        "<"
+      )
+      .to(".solution__title-1", {
+        opacity: 0,
+        scale: "4",
+        duration: 20,
+      });
+    gsap.set(".solution__title-2", {
+      opacity: 0,
+      scale: "0",
+    });
+    s3TL2
+      .to(".solution__title-2", {
+        opacity: 1,
+        scale: "2",
+        duration: 20,
+      })
+      .to(".solution__title-2", {
+        opacity: 0,
+        scale: "4",
+        duration: 20,
+      });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 #cooperation {
-  margin-top: -30%;
+  margin-top: -60%;
   @include rect(100vw, 100vh);
   height: calc(var(--vh, 1vh) * 100);
   @include flex(column, flex-start, center);
@@ -159,7 +177,6 @@ export default {
 }
 .cooperation {
   &__titleGroup {
-    color: $c-brand2;
     @include poa;
     @include flex(column);
   }
