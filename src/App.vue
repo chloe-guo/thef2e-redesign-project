@@ -1,31 +1,29 @@
 <template lang="pug">
-#first-view
-  navComponent
-  section_1_banner
-router-view
-<!-- The custom cursor elements -->
-.follow
-.cursor
-#loading
-  .loading__text.is-cubeFont
-    span L
-    span o
-    span a
-    span d
-    span i
-    span n
-    span g
-    span .
-    span .
-    span .
-  .loading__image
-    img(src="@/assets/images/card-right.gif")
-#transitions
+#layout
+  router-view
+  <!-- The custom cursor elements -->
+  .follow
+  .cursor
+  //- #loading
+  //-   .loading__text.is-cubeFont
+  //-     span L
+  //-     span o
+  //-     span a
+  //-     span d
+  //-     span i
+  //-     span n
+  //-     span g
+  //-     span .
+  //-     span .
+  //-     span .
+  //-   .loading__image
+  //-     img(src="@/assets/images/card-right.gif")
+  #transitions
+    .transitions__top
+    .transitions__bottom
 </template>
 
 <script>
-import navComponent from "@/components/header_nav.vue";
-import section_1_banner from "@/components/section_1_banner.vue";
 import $ from "jquery";
 import { gsap, TweenMax } from "gsap/all";
 // don't forget to register plugins
@@ -33,10 +31,6 @@ gsap.registerPlugin(TweenMax);
 
 export default {
   name: "App",
-  components: {
-    navComponent,
-    section_1_banner,
-  },
   mounted: function () {
     imageLoading();
 
@@ -49,18 +43,18 @@ export default {
         img.addEventListener("load", () => {
           imgN++;
           if (imgN == imgID.length) {
-            $("#transitions").addClass("is-close");
-            setTimeout(() => {
-              $("#loading").addClass("is-hidden");
-              $("#transitions").removeClass("is-close");
-              setTimeout(() => {
-                $("#first-view").addClass("is-enter is-ani");
-                $("html, body").animate({ scrollTop: 1 }, 100, "swing");
-                setTimeout(() => {
-                  $("#first-view").removeClass("is-ani");
-                }, 2400);
-              }, 800);
-            }, 1200);
+            // $("#transitions").addClass("is-close");
+            // setTimeout(() => {
+            //   $("#loading").addClass("is-hidden");
+            //   $("#transitions").removeClass("is-close");
+            //   setTimeout(() => {
+            //     $("#first-view").addClass("is-enter is-ani");
+            //     $("html, body").animate({ scrollTop: 1 }, 100, "swing");
+            //     setTimeout(() => {
+            //       $("#first-view").removeClass("is-ani");
+            //     }, 2400);
+            //   }, 800);
+            // }, 1200);
           }
         });
       });
@@ -270,17 +264,6 @@ body {
     transform: translate(calc($space-xxl / -2), calc($space-xxl / -2)) scale(3);
   }
 }
-#first-view {
-  background: $c-bg;
-  @include fixed;
-  z-index: 97;
-  padding-top: 100vh;
-  padding-top: calc(var(--vh, 1vh) * 100);
-  transition: all 2.4s linear;
-  &.is-enter {
-    padding-top: 0;
-  }
-}
 #loading {
   @include rect(100vw, 100vh);
   height: calc(var(--vh, 1vh) * 100);
@@ -337,27 +320,27 @@ body {
   @include fixed;
   z-index: 101;
   pointer-events: none;
-  &::before,
-  &::after {
+  .transitions__top,
+  .transitions__bottom {
     @include beaf;
     @include rect(100%, 50%);
     background: $c-bg;
-    transition: all 1.2s linear;
+    // transition: all 1.2s linear;
   }
-  &::before {
+  .transitions__top {
     @include poa(0, 0, 0, b);
     transform: translateY(-100%);
   }
-  &::after {
+  .transitions__bottom {
     @include poa(0, t, 0, 0);
     transform: translateY(100%);
   }
   &.is-close {
     pointer-events: auto;
-    &::before {
+    .transitions__top {
       transform: translateY(0);
     }
-    &::after {
+    .transitions__bottom {
       transform: translateY(0);
     }
   }

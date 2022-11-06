@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import $ from "jquery";
 import { gsap, ScrollTrigger, EasePack } from "gsap/all";
 
 export default {
@@ -292,6 +291,7 @@ export default {
 <style lang="scss" scoped>
 #issue {
   padding: calc($space-m * 8) 0;
+  z-index: 1;
 }
 .issue {
   &__list {
@@ -317,7 +317,7 @@ export default {
     }
     &-2,
     &-3 {
-      margin-top: -30%;
+      margin-top: -20%;
     }
   }
   &__content {
