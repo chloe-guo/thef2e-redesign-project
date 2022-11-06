@@ -64,7 +64,6 @@ export default {
         start: "20% top",
         end: "bottom top",
         scrub: true,
-
       },
     });
     s6TL.to(".awards__car-img", {
@@ -136,8 +135,7 @@ export default {
             $(".awards__content-1").height() &&
         $(window).scrollTop() <=
           $(".awards__content-2").offset().top +
-            $(".awards__content-2").height() +
-            $(".awards__content-1").height()
+            $(".awards__content-2").height()
       ) {
         if (!$(".awards__content-1").hasClass("js-typed")) {
           $(".awards__content-1").addClass("js-typed");
@@ -323,9 +321,7 @@ export default {
   &__content {
     max-width: 635px;
     margin: auto;
-    & + .awards__content {
-      margin-top: calc($space-xxl * 5);
-    }
+    margin-top: calc($space-xxl * 5);
     h4 {
       @include font(56px);
       color: $c-brand1-lighter;

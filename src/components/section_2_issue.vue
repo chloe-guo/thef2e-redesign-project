@@ -318,10 +318,10 @@ export default {
       }
     }
     &-2 {
-      margin-top: -20%;
+      margin-top: -15%;
     }
     &-3 {
-      margin-top: -40%;
+      margin-top: -30%;
     }
   }
   &__content {

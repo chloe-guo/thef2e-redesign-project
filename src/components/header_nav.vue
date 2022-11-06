@@ -19,6 +19,11 @@ header
           span.btn__line
           span.btn__text.navbar__text(data-text="攻略資源") 攻略資源
           span.btn__line
+      li.navbar__item
+        a.navbar__link.btn.js-cursorHover(href="https://2022.thef2e.com" target="_blank")
+          span.btn__line
+          span.btn__text.navbar__text(data-text="我要報名") 我要報名
+          span.btn__line
 </template>
 
 <style lang="scss" scoped>
