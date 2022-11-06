@@ -1,5 +1,20 @@
 <template lang="pug">
 #sponsor
+  .sponsor__icon
+    img.icon.icon-s.icon-1(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-2(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-3(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-4(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-5(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-6(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-7(src="@/assets/images/diamond.png")
+    img.icon.icon-s.icon-8(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-1(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-2(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-3(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-4(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-5(src="@/assets/images/diamond.png")
+    img.icon.icon-m.icon-6(src="@/assets/images/diamond.png")
   .sponsor__wrap
     h3.sponsor__title 鑽石級
       span 贊助商
@@ -24,6 +39,11 @@
             polygon#left(points="0 0 0 96 48 48")
         clippath#clip-right
             polygon#right(points="48 0 48 96 0 48")
+  .sponsor__icon
+    img.icon.icon-l.icon-1(src="@/assets/images/diamond.png")
+    img.icon.icon-l.icon-2(src="@/assets/images/diamond.png")
+    img.icon.icon-l.icon-3(src="@/assets/images/diamond.png")
+    img.icon.icon-l.icon-4(src="@/assets/images/diamond.png")
 </template>
 
 <script>
@@ -69,6 +89,82 @@ export default {
     @include poa;
     opacity: 0;
     z-index: -100;
+  }
+  &__icon {
+    @include rect(100%, 100%);
+    @include poa;
+    pointer-events: none;
+    .icon {
+      &-s {
+        @include rect(2.7vw, 2vw);
+        &.icon {
+          &-1 {
+            @include poa(2%, 15%, r, b);
+          }
+          &-2 {
+            @include poa(1.5%, t, r, 8%);
+          }
+          &-3 {
+            @include poa(l, 25%, 4%, b);
+          }
+          &-4 {
+            @include poa(l, t, 16%, 4%);
+          }
+          &-5 {
+            @include poa(l, t, 3%, 24%);
+          }
+          &-6 {
+            @include poa(l, t, 8%, 34%);
+          }
+          &-7 {
+            @include poa(l, t, 20%, 54%);
+          }
+          &-8 {
+            @include poa(28%, t, r, 45%);
+          }
+        }
+      }
+      &-m {
+        @include rect(4.8vw, 3.7vw);
+        &.icon {
+          &-1 {
+            @include poa(5%, 10%, r, b);
+          }
+          &-2 {
+            @include poa(5%, t, r, 14%);
+          }
+          &-3 {
+            @include poa(l, 10%, 7%, b);
+          }
+          &-4 {
+            @include poa(l, t, 10%, 6%);
+          }
+          &-5 {
+            @include poa(l, t, 24%, 49%);
+          }
+          &-6 {
+            @include poa(30%, t, r, 2%);
+          }
+        }
+      }
+      &-l {
+        @include rect(8.4vw, 6.2vw);
+        &.icon {
+          &-1 {
+            @include poa(2.5%, t, r, 31%);
+          }
+          &-2 {
+            @include poa(24%, 12%, r, b);
+          }
+          &-3 {
+            @include poa(l, 4%, 24%, b);
+          }
+          &-4 {
+            @include poa(l, t, 36%, 5.4%);
+          }
+        }
+      }
+    }
   }
 }
 </style>

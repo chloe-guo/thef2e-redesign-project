@@ -126,10 +126,7 @@ export default {
             $(this)
               .children("span")
               .each(function (j) {
-                setTimeout(() => {
-                  $(this).css("opacity", "0");
-                }, (i * 12 + j) * 5);
-                removeTime = (i * 12 + j) * 5;
+                $(this).css("opacity", "0");
               });
           });
       });
@@ -254,6 +251,8 @@ export default {
   }
   &__pane {
     @include poa(0, 0, r, b);
+    padding-bottom: calc($space-m * 5);
+    display: none;
     li {
       @include font(24px);
       & + li {
@@ -263,6 +262,9 @@ export default {
         @include font(24px);
         color: $c-brand1-lighter;
       }
+    }
+    &.is-actived {
+      display: block;
     }
   }
 }

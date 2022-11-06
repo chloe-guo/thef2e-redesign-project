@@ -332,15 +332,18 @@ export default {
       }
     }
   }
+  &__card {
+    @include rect(auto, 310px);
+  }
   &__image {
-    @include img(320px, 310px);
+    @include img(320px, 100%);
     img {
       display: none;
     }
   }
   &__tag {
     background: $c-brand1;
-    @include poa(l, calc($space-xl * 2.5), 0, b);
+    @include poa(l, calc($space-xl * 1.5), 0, b);
     transform: translateX(25%);
     @include font(18px);
     padding: calc($space-xs / 2) $space-s;
@@ -350,7 +353,7 @@ export default {
     color: $c-brand1-dark;
     @include font(16px);
     @include poa(l, t, 0, 0);
-    transform: translate(-10%, 50%);
+    transform: translate(-10%, 40%);
     .info {
       &__shadow {
         @include rect;

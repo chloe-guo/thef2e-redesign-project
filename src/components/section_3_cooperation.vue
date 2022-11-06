@@ -29,7 +29,7 @@ export default {
     s3TL1.to("#cooperation", {
       background: "#f4b6a7",
       duration: 50,
-      delay: 20
+      delay: 20,
     });
     gsap.set(".cooperation__layer-4", {
       yPercent: "200",
@@ -95,12 +95,11 @@ export default {
         start: "top bottom",
         end: "140% bottom",
         scrub: true,
-        markers: true,
       },
     });
     s3TL2.to(".cooperation__layer-3", {
       yPercent: "45",
-      duration: 65
+      duration: 65,
     });
     s3TL2.to(
       ".cooperation__layer-2",
@@ -138,7 +137,6 @@ export default {
           scale: "2",
           duration: 20,
           delay: 100,
-
         },
         "<"
       )
@@ -162,6 +160,11 @@ export default {
         scale: "4",
         duration: 20,
       });
+    s3TL2.to("#solution", {
+      background: "#b82a06",
+      duration: 5,
+      delay: 5,
+    });
   },
 };
 </script>

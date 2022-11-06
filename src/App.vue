@@ -17,7 +17,7 @@
   //-     span .
   //-     span .
   //-   .loading__image
-  //-     img(src="@/assets/images/card-right.gif")
+  //-     img(src="@/assets/images/car-right.gif")
   #transitions
     .transitions__top
     .transitions__bottom
@@ -230,11 +230,6 @@ body {
 
 <style lang="scss" scoped>
 //-------- custom cursor --------//
-*,
-*::before,
-*::after {
-  cursor: none !important;
-}
 .cursor {
   @include circle($space-xs);
   position: absolute;

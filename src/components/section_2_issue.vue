@@ -7,7 +7,7 @@
                 .issue-1-web
                     img(src="@/assets/images/s2-issue-1-web.gif")
                 .issue-1-car
-                    img(src="@/assets/images/card-right.gif")
+                    img(src="@/assets/images/car-right.gif")
                 .issue-1-dialog.is-cubeFont
                     .dialog__text
                       span I
@@ -53,6 +53,7 @@ export default {
         end: "bottom top",
         pin: true,
         scrub: true,
+
       },
     });
     gsap.set(".issue__item-1 .issue__content", {
@@ -82,7 +83,6 @@ export default {
       .to(
         ".issue-1-web",
         {
-          opacity: 1,
           scale: 1,
           duration: 10,
           ease: "power4.out",
@@ -155,6 +155,7 @@ export default {
         end: "bottom top",
         pin: true,
         scrub: true,
+
       },
     });
     gsap.set(".issue__item-2 .issue__content", {
@@ -232,6 +233,7 @@ export default {
         end: "bottom top",
         pin: true,
         scrub: true,
+
       },
     });
     gsap.set(".issue__item-3 .issue__content", {
@@ -315,9 +317,11 @@ export default {
         transform: translateX(-50%);
       }
     }
-    &-2,
-    &-3 {
+    &-2 {
       margin-top: -20%;
+    }
+    &-3 {
+      margin-top: -40%;
     }
   }
   &__content {

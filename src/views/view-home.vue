@@ -68,8 +68,7 @@ export default {
         start: "top top",
         end: "bottom top",
         pin: true,
-        scrub: true,
-        markers: true
+        scrub: true
       },
     });
     s1TL.to(".transitions__top", {

@@ -49,7 +49,7 @@
           .link__shadow
           .link__text 查看關卡細節
     .solution__car
-      img(src="@/assets/images/card-right.gif")
+      img(src="@/assets/images/car-right.gif")
 </template>
 
 <script>
@@ -66,7 +66,6 @@ export default {
         end: "170% top",
         pin: true,
         scrub: true,
-        markers: true,
       },
     });
     gsap.set(".solution__content", {
@@ -181,19 +180,24 @@ export default {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     @include flex(column);
+    overflow: hidden;
   }
   &__title {
     @include rect;
     @include font(72px, 1.2, $fw-primary, 5px);
     @include flex(column);
+    span {
+      text-shadow: 0 0 5px $c-brand2, 0 0 5px $c-brand2;
+    }
     span + span {
-      margin-top: calc($space-xxl * 3);
+      margin-top: calc($space-xxl * 2);
     }
   }
   &__content {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
+    margin-top: -30%;
   }
   &__lists {
     @include rect(100%, calc(100% / 2));
