@@ -61,7 +61,7 @@ export default {
         start: "-50% top",
         end: "bottom center",
         scrub: true,
-        markers: true,
+
       },
     });
     s5item1TL.to(".direction__car", {
@@ -232,7 +232,7 @@ export default {
         start: "top center",
         end: "bottom center",
         scrub: true,
-        markers: true,
+
       },
     });
     s5item2TL.to(".direction__car", {
@@ -403,7 +403,7 @@ export default {
         start: "top center",
         end: "bottom center",
         scrub: true,
-        markers: true,
+
       },
     });
     s5item3TL.to(".direction__car", {
@@ -540,11 +540,11 @@ export default {
   &__item {
     @include rect(100%, calc(260px + $space-l * 8));
     padding-left: calc($space-l * 5);
-    @include font(24px);
+    @include font(24);
     padding-bottom: calc($space-l * 8);
   }
   &__title {
-    @include font(72px, 1.5, $fw-primary, 5px);
+    @include font(72, 1.5, $fw-primary, 5);
     color: $c-brand1-lighter;
   }
   &__icons {

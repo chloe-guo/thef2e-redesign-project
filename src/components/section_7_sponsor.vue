@@ -68,7 +68,7 @@ export default {
     }
   }
   &__title {
-    @include font(72px, 1.5, $fw-primary, 5px);
+    @include font(72, 1.5, $fw-primary, 5);
     color: $c-brand2;
     text-align: center;
     span {

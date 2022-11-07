@@ -184,7 +184,7 @@ export default {
   }
   &__title {
     @include rect;
-    @include font(72px, 1.2, $fw-primary, 5px);
+    @include font(72, 1.2, $fw-primary, 5);
     @include flex(column);
     span {
       text-shadow: 0 0 5px $c-brand2, 0 0 5px $c-brand2;
@@ -231,20 +231,20 @@ export default {
     @include flex(column);
   }
   &__infoSubTitle {
-    @include font(52px, 1.2);
+    @include font(52, 1.2);
   }
   &__infoTitle {
-    @include font(72px, 1.2, $fw-primary, 5px);
+    @include font(72, 1.2, $fw-primary, 5);
     margin-bottom: $space-xl;
   }
   &__sponsor {
-    @include font(36px);
+    @include font(36);
   }
   &__tag {
-    @include font(36px);
+    @include font(36);
   }
   &__link {
-    @include font(36px);
+    @include font(36);
     color: $c-brand1;
     .link {
       &__text {

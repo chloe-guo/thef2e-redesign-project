@@ -1,17 +1,26 @@
+$xs: 375px;
+$sm: 768px;
+$md: 1024px;
+$lg: 1280px;
+$xl: 1440px;
+$xxl: 1920px;
+// @media (max-width: $xl) size: X/1600 vw
+
 $height-navbar: 116px;
 
+$size-base: 16;
 $fz-primary: 16px;
 
 $fw-lighter: 300;
 $fw-primary: 500;
 $fw-bold: 700;
 
-$space-xs: 8px;
-$space-s: 16px;
-$space-m: 24px;
-$space-l: 32px;
-$space-xl: 40px;
-$space-xxl: 48px;
+$space-xs: .5rem; // 8px
+$space-s: 1rem; // 16px
+$space-m: 1.5rem; // 24px
+$space-l: 2rem; // 32px
+$space-xl: 2.5rem; // 40px
+$space-xxl: 3rem; // 48px
 
 $c-bg: black;
 $c-text-primary: white;

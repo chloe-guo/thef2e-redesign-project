@@ -34,7 +34,7 @@ export default {
 }
 .share {
   &__title {
-    @include font(72px, 1.5, $fw-primary, 5px);
+    @include font(72, 1.5, $fw-primary, 5);
     text-align: center;
     margin-bottom: $space-s;
     color: $c-brand2;

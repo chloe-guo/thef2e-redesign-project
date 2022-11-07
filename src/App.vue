@@ -148,6 +148,10 @@ body {
   .is-cubeFont {
     font-family: "cube", "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
+  font-size: $fz-primary;
+  @media (max-width: $xl) {
+    font-size: 1vw;
+  }
 }
 
 html {
@@ -280,7 +284,7 @@ body {
       }
     }
     &__text {
-      @include font(36px);
+      @include font(36);
       margin-bottom: $space-l;
       span {
         display: inline-block;

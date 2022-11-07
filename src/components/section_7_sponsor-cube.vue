@@ -174,7 +174,7 @@ $c-dottedsign: #586af2;
           transform: rotateX(0);
         }
         &-back {
-          @include font(42px, 1.2, $fw-primary, 5px);
+          @include font(42, 1.2, $fw-primary, 5);
           transform-origin: center center;
           transform: rotateY(180deg) translateZ($space-xl * 8);
         }

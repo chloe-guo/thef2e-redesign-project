@@ -171,7 +171,6 @@ export default {
 
 <style lang="scss" scoped>
 #cooperation {
-  margin-top: -60%;
   @include rect(100vw, 100vh);
   height: calc(var(--vh, 1vh) * 100);
   @include flex(column, flex-start, center);
@@ -184,12 +183,12 @@ export default {
     @include flex(column);
   }
   &__title {
-    @include font(72px, 1.5, $fw-primary, 5px);
+    @include font(72, 1.5, $fw-primary, 5);
     border: 2px solid $c-text-primary;
     padding: $space-s calc($space-l * 2);
   }
   &__subTitle {
-    @include font(24px);
+    @include font(24);
     padding: $space-s;
   }
   &__layers {

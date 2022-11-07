@@ -28,15 +28,16 @@ header
 
 <style lang="scss" scoped>
 .navbar {
-  height: 116px;
+  @include poa(0, 0, 0, b);
   padding: $space-l calc($space-l * 2);
   @include flex(row, space-between);
+  z-index: 1;
   &__text {
-    @include font(32px);
+    @include font(32);
     color: $c-text-primary;
     &::before,
     &::after {
-      @include font(30px, 1.2);
+      @include font(30, 1.2);
       color: $c-text-primary;
       text-align: center;
     }
@@ -51,7 +52,7 @@ header
     }
   }
   &__link {
-    @include rect(auto, calc(30px * 1.2 + $space-xs * 2));
+    @include rect(auto, calc($space-m * 1.25 * 1.2 + $space-xs * 2));
     display: block;
     padding: $space-xs $space-m;
     color: $c-text-primary;
@@ -113,12 +114,12 @@ header
       .btn {
         &__text {
           &::before {
-            transform: translateY(calc(-100% - 32px * 2));
-            text-shadow: 0 0 5px $c-brand2;
+            transform: translateY(calc(-100% - $space-l * 2));
+            text-shadow: 0 0 calc($space-xs / 2) $c-brand2;
           }
           &::after {
             transform: translateY(0);
-            text-shadow: 0 0 5px $c-brand2;
+            text-shadow: 0 0 calc($space-xs / 2) $c-brand2;
           }
         }
         &__line {

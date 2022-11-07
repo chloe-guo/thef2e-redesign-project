@@ -49,11 +49,10 @@ export default {
     const s2issue1TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".issue__item-1",
-        start: "-25% top",
+        start: "top top",
         end: "bottom top",
         pin: true,
         scrub: true,
-
       },
     });
     gsap.set(".issue__item-1 .issue__content", {
@@ -151,11 +150,10 @@ export default {
     const s2issue2TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".issue__item-2",
-        start: "-25% top",
+        start: "top top",
         end: "bottom top",
         pin: true,
         scrub: true,
-
       },
     });
     gsap.set(".issue__item-2 .issue__content", {
@@ -229,11 +227,10 @@ export default {
     const s2issue3TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".issue__item-3",
-        start: "-25% top",
+        start: "top top",
         end: "bottom top",
         pin: true,
         scrub: true,
-
       },
     });
     gsap.set(".issue__item-3 .issue__content", {
@@ -292,7 +289,6 @@ export default {
 
 <style lang="scss" scoped>
 #issue {
-  padding: calc($space-m * 8) 0;
   z-index: 1;
 }
 .issue {
@@ -301,7 +297,8 @@ export default {
     clear: both;
   }
   &__item {
-    @include rect(100%, auto);
+    @include rect(100%, 100vh);
+    height: calc(var(--vh, 1vh) * 100);
     &-1,
     &-3 {
       @include flex(row, flex-start);
@@ -317,19 +314,15 @@ export default {
         transform: translateX(-50%);
       }
     }
-    &-2 {
-      margin-top: -15%;
-    }
-    &-3 {
-      margin-top: -30%;
-    }
   }
   &__content {
-    @include rect(980px, 570px);
+    @include rect(61.25rem, 46.875rem);
+    max-height: 68vh;
+    max-height: calc(var(--vh, 1vh) * 68);
   }
   &__text {
     display: block;
-    @include textstroke(5px, $c-brand1-dark, 36px, 1.5, $fw-primary, 2px);
+    @include textstroke(6, $c-brand1-dark, 36, 1.5, $fw-primary, 2);
   }
   &__background {
     @include rect;
@@ -362,7 +355,7 @@ export default {
       transform-origin: 10% bottom;
       .dialog__text {
         color: $c-brand1-dark;
-        @include font(32px);
+        @include font(32);
         transform: translateY(-38%);
         span {
           display: inline-block;
@@ -393,12 +386,12 @@ export default {
   }
   &-2 {
     &-soldier {
-      @include rect(calc(1220px / 2), 588px);
+      @include rect(calc(76.25rem / 2), 36.75rem);
       overflow: hidden;
       @include poa(0, t, 0, 0);
       transform: translateX(5%);
       img {
-        @include rect(1220px, 588px);
+        @include rect(76.25rem, 36.75rem);
         @include poa(0, 0, r, 0);
         animation: issue-2-soldier 1.2s linear infinite;
         @keyframes issue-2-soldier {
@@ -426,7 +419,7 @@ export default {
         &:before {
           content: "!@#$%...";
           color: $c-brand1-dark;
-          @include font(32px);
+          @include font(32);
           animation: issue-2-dialog-text 1.2s linear infinite;
           @keyframes issue-2-dialog-text {
             0% {

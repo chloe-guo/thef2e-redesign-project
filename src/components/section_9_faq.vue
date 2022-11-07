@@ -167,7 +167,7 @@ export default {
 <style lang="scss" scoped>
 .faq {
   &__title {
-    @include font(56px, 1.5, $fw-primary, 5px);
+    @include font(56, 1.5, $fw-primary, 5);
     @include flex;
     background: $c-brand1;
     padding: $space-m;
@@ -241,7 +241,7 @@ export default {
         @include rect;
         @include flex;
         background: white;
-        @include font(36px);
+        @include font(36);
         color: $c-brand1;
         transition: all 0.2s linear;
       }
@@ -254,12 +254,12 @@ export default {
     padding-bottom: calc($space-m * 5);
     display: none;
     li {
-      @include font(24px);
+      @include font(24);
       & + li {
         margin-top: calc($space-xl * 2);
       }
       h6 {
-        @include font(24px);
+        @include font(24);
         color: $c-brand1-lighter;
       }
     }

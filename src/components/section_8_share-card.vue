@@ -345,13 +345,13 @@ export default {
     background: $c-brand1;
     @include poa(l, calc($space-xl * 1.5), 0, b);
     transform: translateX(25%);
-    @include font(18px);
+    @include font(18);
     padding: calc($space-xs / 2) $space-s;
   }
   &__info {
     @include rect(360px, auto);
     color: $c-brand1-dark;
-    @include font(16px);
+    @include font(16);
     @include poa(l, t, 0, 0);
     transform: translate(-10%, 40%);
     .info {
@@ -385,13 +385,13 @@ export default {
     }
   }
   &__title {
-    @include font(20px);
+    @include font(20);
     color: $c-brand1;
     margin-bottom: $space-xs;
   }
   &__position {
     opacity: 0.7;
-    @include font(14px);
+    @include font(14);
   }
 }
 .plane {

@@ -73,24 +73,24 @@ export default {
 </script>
 <style lang="scss" scoped>
 #banner {
-  @include rect(100vw, calc(100vh - $height-navbar));
-  height: calc(var(--vh, 1vh) * 100 - $height-navbar);
+  @include rect(100vw, 100vh);
+  height: calc(var(--vh, 1vh) * 100);
   @include flex(column, flex-start, center);
 }
 .banner {
   &__logo {
     @include img(76.6vw, auto);
     max-width: 1048px;
-    margin: 11vh auto;
+    margin: 20vh auto 10vh auto;
   }
   &__item {
-    @include rect(auto, 53px);
+    @include rect(auto, 3.3125rem);
     & + .banner__item {
       margin-top: $space-s;
     }
     &::before {
       @include beaf;
-      @include rect(86px, 100%);
+      @include rect(5.375rem, 100%);
       background: url(@/assets/images/car-top.gif);
       @include bg;
       @include poa(calc($space-s * -1), 0, r, 0);
@@ -103,17 +103,17 @@ export default {
       }
       .banner__link {
         color: $c-brand1;
-        text-shadow: 0 0 5px $c-brand1;
+        text-shadow: 0 0 calc($space-xs / 2) $c-brand1;
       }
     }
   }
   &__link {
-    @include font(42px);
+    @include font(42);
     text-transform: uppercase;
   }
   &__info {
     margin-top: 9vh;
-    @include font(32px, 1.5, $fw-primary, 3px);
+    @include font(32, 1.5, $fw-primary, 3);
     span {
       margin-left: $space-s;
       text-transform: uppercase;

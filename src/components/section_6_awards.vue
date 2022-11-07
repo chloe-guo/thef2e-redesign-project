@@ -288,7 +288,8 @@ export default {
     @include rect(100vw, 120vh);
     height: calc(var(--vh, 1vh) * 120);
     @include flex;
-    @include font(56px);
+    @include font(56);
+    overflow: hidden;
   }
   &__titleGroup {
     @include rect(auto, 84px);
@@ -316,22 +317,22 @@ export default {
   }
   &__title,
   &__subTitle {
-    @include font(56px);
+    @include font(56);
   }
   &__content {
     max-width: 635px;
     margin: auto;
     margin-top: calc($space-xxl * 5);
     h4 {
-      @include font(56px);
+      @include font(56);
       color: $c-brand1-lighter;
     }
     h6 {
       margin-top: $space-xl;
-      @include font(24px);
+      @include font(24);
     }
     h5 {
-      @include font(36px);
+      @include font(36);
       display: inline-block;
       &.is-heightLight {
         color: $c-brand1;
@@ -339,7 +340,7 @@ export default {
       }
     }
     p {
-      @include font(24px);
+      @include font(24);
     }
     ul {
       margin-top: $space-xl;
@@ -372,7 +373,7 @@ export default {
   &__cta {
     @include rect(100%, auto);
     display: block;
-    @include font(72px, 1.5, $fw-primary, 5px);
+    @include font(72, 1.5, $fw-primary, 5);
     color: $c-brand1;
     @include flex;
     background: white;

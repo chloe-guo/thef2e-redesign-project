@@ -50,7 +50,7 @@ export default {
         start: "top top",
         end: "bottom top",
         pin: true,
-        scrub: true
+        scrub: true,
       },
     });
     s1TL.to(".transitions__top", {
@@ -85,7 +85,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.pin-spacer:first-child {
+.pin-spacer {
   height: 100vh !important;
   height: calc(var(--vh, 1vh) * 100) !important;
 }
