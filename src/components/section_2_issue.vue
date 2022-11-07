@@ -50,7 +50,7 @@ export default {
       scrollTrigger: {
         trigger: ".issue__item-1",
         start: "top top",
-        end: "bottom top",
+        end: "200% top",
         pin: true,
         scrub: true,
       },
@@ -330,11 +330,11 @@ export default {
   }
   &-1 {
     &-web {
-      @include img(65%, 75.3%);
+      @include img(39.8125rem, 26.8125rem);
       @include poa;
     }
     &-car {
-      @include img(34.3%, 23.7%);
+      @include img(21rem, 8.4375rem);
       @include poa(35%, t, r, 32%);
       animation: issue-1-car 1.2s linear infinite alternate;
       @keyframes issue-1-car {
@@ -347,7 +347,7 @@ export default {
       }
     }
     &-dialog {
-      @include rect(39.9%, 20.5%);
+      @include rect(26.25rem, 7.3125rem);
       background: url(@/assets/images/s2-issue-1-dialog.png);
       @include bg;
       @include poa(58%, t, r, 86.5%);
@@ -407,7 +407,7 @@ export default {
       }
     }
     &-dialog {
-      @include rect(34.8%, 34.2%);
+      @include rect(22.625rem, 12.6875rem);
       background: url(@/assets/images/s2-issue-2-dialog.png);
       @include bg;
       @include poa(l, t, 72%, 76%);
@@ -441,7 +441,7 @@ export default {
   }
   &-3 {
     &-tree {
-      @include img(67.7%, 116.5%);
+      @include img(41.5rem, 41.5rem);
       @include poa(l, t, 14%, 0);
       overflow: hidden;
       img {
@@ -461,7 +461,7 @@ export default {
       }
     }
     &-soldier {
-      @include img(26.2%, 41.4%);
+      @include img(16.625rem, 14.75rem);
       @include poa(28%, t, r, 0);
     }
   }

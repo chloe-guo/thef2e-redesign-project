@@ -59,29 +59,66 @@ export default {
   name: "section_4_solution",
   mounted: function () {
     gsap.registerPlugin(ScrollTrigger);
-    const s4TL = gsap.timeline({
+    const s4TL1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".solution__titleGroup",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        scrub: true,
+      },
+    });
+    gsap.set(".solution__title-1", {
+      scale: "0",
+    });
+    s4TL1
+      .to(".solution__title-1", {
+        opacity: 1,
+        scale: "2",
+        duration: 20,
+      })
+      .to(".solution__title-1", {
+        opacity: 0,
+        scale: "4",
+        duration: 20,
+        delay: 10,
+      });
+    gsap.set(".solution__title-2", {
+      scale: "0",
+    });
+    s4TL1
+      .to(".solution__title-2", {
+        opacity: 1,
+        scale: "2",
+        duration: 20,
+      })
+      .to(".solution__title-2", {
+        opacity: 0,
+        scale: "4",
+        duration: 20,
+        delay: 10,
+      })
+      .to(".solution__title-2", {
+        opacity: 0,
+        scale: "4",
+        duration: 20,
+      });
+    const s4TL2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".solution__content",
         start: "top top",
         end: "170% top",
         pin: true,
         scrub: true,
+        markers: true,
       },
     });
-    gsap.set(".solution__content", {
-      opacity: 0,
-    });
-    s4TL.to(".solution__content", {
-      opacity: 1,
-      duration: 10,
-      ease: "power2.out",
-    });
-    s4TL.to(".solution__flag-1 .flag-img-2", {
+    s4TL2.to(".solution__flag-1 .flag-img-2", {
       display: "block",
       duration: 1,
       ease: "power2.out",
     });
-    s4TL
+    s4TL2
       .to(".solution__flag-1 .flag-img-2", {
         display: "none",
         duration: 1,
@@ -92,7 +129,7 @@ export default {
         duration: 1,
         ease: "power2.out",
       });
-    s4TL
+    s4TL2
       .to(".solution__flag-1 .flag-img-3", {
         display: "none",
         duration: 1,
@@ -106,17 +143,17 @@ export default {
     gsap.set(".solution__lists", {
       xPercent: "0",
     });
-    s4TL.to(".solution__lists", {
+    s4TL2.to(".solution__lists", {
       xPercent: "-100",
       duration: 50,
       delay: 10,
     });
-    s4TL.to(".solution__flag-2 .flag-img-2", {
+    s4TL2.to(".solution__flag-2 .flag-img-2", {
       display: "block",
       duration: 1,
       ease: "power2.out",
     });
-    s4TL
+    s4TL2
       .to(".solution__flag-2 .flag-img-2", {
         display: "none",
         duration: 1,
@@ -127,7 +164,7 @@ export default {
         duration: 1,
         ease: "power2.out",
       });
-    s4TL
+    s4TL2
       .to(".solution__flag-2 .flag-img-3", {
         display: "none",
         duration: 1,
@@ -138,17 +175,17 @@ export default {
         duration: 1,
         ease: "power2.out",
       });
-    s4TL.to(".solution__lists", {
+    s4TL2.to(".solution__lists", {
       xPercent: "-200",
       duration: 50,
       delay: 10,
     });
-    s4TL.to(".solution__flag-3 .flag-img-2", {
+    s4TL2.to(".solution__flag-3 .flag-img-2", {
       display: "block",
       duration: 1,
       ease: "power2.out",
     });
-    s4TL
+    s4TL2
       .to(".solution__flag-3 .flag-img-2", {
         display: "none",
         duration: 1,
@@ -159,7 +196,7 @@ export default {
         duration: 1,
         ease: "power2.out",
       });
-    s4TL
+    s4TL2
       .to(".solution__flag-3 .flag-img-3", {
         display: "none",
         duration: 1,
@@ -175,29 +212,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#solution {
+  margin-top: -50vh;
+  margin-top: calc(var(--vh, 1vh) * -50);
+  padding-bottom: 50vh;
+  padding-bottom: calc(var(--vh, 1vh) * 50);
+}
 .solution {
   &__titleGroup {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
-    @include flex(column);
+    @include flex;
     overflow: hidden;
+    margin-bottom: 100vh;
+    margin-bottom: calc(var(--vh, 1vh) * 100);
   }
   &__title {
     @include rect;
     @include font(72, 1.2, $fw-primary, 5);
-    @include flex(column);
+    @include poa;
+    @include flex;
     span {
-      text-shadow: 0 0 5px $c-brand2, 0 0 5px $c-brand2;
-    }
-    span + span {
-      margin-top: calc($space-xxl * 2);
+      @include rect;
+      @include poa;
+      @include flex;
+      text-shadow: 0 0 calc($space-xs / 2) $c-brand2;
     }
   }
   &__content {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
-    margin-top: -30%;
   }
   &__lists {
     @include rect(100%, calc(100% / 2));
