@@ -530,7 +530,9 @@ export default {
 
 <style lang="scss" scoped>
 #direction {
-  padding: calc($space-l * 10) 0;
+  margin-top: 100vh;
+  margin-top: calc(var(--vh, 1vh) * 100);
+  padding-top: calc($space-l * 10);
   @include flex;
 }
 .direction {
@@ -542,6 +544,9 @@ export default {
     padding-left: calc($space-l * 5);
     @include font(24);
     padding-bottom: calc($space-l * 8);
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
   &__title {
     @include font(72, 1.5, $fw-primary, 5);

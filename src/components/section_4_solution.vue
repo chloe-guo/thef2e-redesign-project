@@ -12,48 +12,51 @@
           .solution__infoTitle The F2E 活動網站設計
           .solution__sponsor 版塊設計
           .solution__tag #視差滾動
-        .solution__flag.solution__flag-1
-          img.flag-img-1(src="@/assets/images/flag-1.png")
-          img.flag-img-2(src="@/assets/images/flag-2.png")
-          img.flag-img-3(src="@/assets/images/flag-3.png")
-          img.flag-img-4(src="@/assets/images/flag-4.png")
-        a.solution__link(href="https://2022.thef2e.com/news/week1" target="_blank")
-          .link__shadow
-          .link__text 查看關卡細節
+        .solution__bottom
+          .solution__flag.solution__flag-1
+            img.flag-img-1(src="@/assets/images/flag-1.png")
+            img.flag-img-2(src="@/assets/images/flag-2.png")
+            img.flag-img-3(src="@/assets/images/flag-3.png")
+            img.flag-img-4(src="@/assets/images/flag-4.png")
+          a.solution__link(href="https://2022.thef2e.com/news/week1" target="_blank")
+            .link__shadow
+            .link__text 查看關卡細節
       li.solution__item.solution__item-2
         .solution__info
           .solution__infoSubTitle.is-cubeFont Week2
           .solution__infoTitle 今晚，我想來點點簽
           .solution__sponsor 凱鈿行動科技
           .solution__tag #canvas
-        .solution__flag.solution__flag-2
-          img.flag-img-1(src="@/assets/images/flag-1.png")
-          img.flag-img-2(src="@/assets/images/flag-2.png")
-          img.flag-img-3(src="@/assets/images/flag-3.png")
-          img.flag-img-4(src="@/assets/images/flag-4.png")
-        a.solution__link(href="https://2022.thef2e.com/news/week2" target="_blank")
-          .link__shadow
-          .link__text 查看關卡細節
+        .solution__bottom
+          .solution__flag.solution__flag-2
+            img.flag-img-1(src="@/assets/images/flag-1.png")
+            img.flag-img-2(src="@/assets/images/flag-2.png")
+            img.flag-img-3(src="@/assets/images/flag-3.png")
+            img.flag-img-4(src="@/assets/images/flag-4.png")
+          a.solution__link(href="https://2022.thef2e.com/news/week2" target="_blank")
+            .link__shadow
+            .link__text 查看關卡細節
       li.solution__item.solution__item-3
         .solution__info
           .solution__infoSubTitle.is-cubeFont Week3
           .solution__infoTitle Scrum 新手村
           .solution__sponsor 鈦坦科技
           .solution__tag #JS draggable
-        .solution__flag.solution__flag-3
-          img.flag-img-1(src="@/assets/images/flag-1.png")
-          img.flag-img-2(src="@/assets/images/flag-2.png")
-          img.flag-img-3(src="@/assets/images/flag-3.png")
-          img.flag-img-4(src="@/assets/images/flag-4.png")
-        a.solution__link(href="https://2022.thef2e.com/news/week3" target="_blank")
-          .link__shadow
-          .link__text 查看關卡細節
+        .solution__bottom
+          .solution__flag.solution__flag-3
+            img.flag-img-1(src="@/assets/images/flag-1.png")
+            img.flag-img-2(src="@/assets/images/flag-2.png")
+            img.flag-img-3(src="@/assets/images/flag-3.png")
+            img.flag-img-4(src="@/assets/images/flag-4.png")
+          a.solution__link(href="https://2022.thef2e.com/news/week3" target="_blank")
+            .link__shadow
+            .link__text 查看關卡細節
     .solution__car
       img(src="@/assets/images/car-right.gif")
 </template>
 
 <script>
-import { gsap, ScrollTrigger, EasePack } from "gsap/all";
+import { gsap, ScrollTrigger } from "gsap/all";
 
 export default {
   name: "section_4_solution",
@@ -63,7 +66,7 @@ export default {
       scrollTrigger: {
         trigger: ".solution__titleGroup",
         start: "top top",
-        end: "bottom top",
+        end: "200% top",
         pin: true,
         scrub: true,
       },
@@ -110,35 +113,36 @@ export default {
         end: "170% top",
         pin: true,
         scrub: true,
-        markers: true,
       },
+    });
+    gsap.set(".solution__content", {
+      opacity: 0,
+    });
+    s4TL2.to(".solution__content", {
+      opacity: 1,
+      duration: 4,
     });
     s4TL2.to(".solution__flag-1 .flag-img-2", {
       display: "block",
       duration: 1,
-      ease: "power2.out",
     });
     s4TL2
       .to(".solution__flag-1 .flag-img-2", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-1 .flag-img-3", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
     s4TL2
       .to(".solution__flag-1 .flag-img-3", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-1 .flag-img-4", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
     gsap.set(".solution__lists", {
       xPercent: "0",
@@ -151,29 +155,24 @@ export default {
     s4TL2.to(".solution__flag-2 .flag-img-2", {
       display: "block",
       duration: 1,
-      ease: "power2.out",
     });
     s4TL2
       .to(".solution__flag-2 .flag-img-2", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-2 .flag-img-3", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
     s4TL2
       .to(".solution__flag-2 .flag-img-3", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-2 .flag-img-4", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
     s4TL2.to(".solution__lists", {
       xPercent: "-200",
@@ -183,29 +182,24 @@ export default {
     s4TL2.to(".solution__flag-3 .flag-img-2", {
       display: "block",
       duration: 1,
-      ease: "power2.out",
     });
     s4TL2
       .to(".solution__flag-3 .flag-img-2", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-3 .flag-img-3", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
     s4TL2
       .to(".solution__flag-3 .flag-img-3", {
         display: "none",
         duration: 1,
-        ease: "power2.out",
       })
       .to(".solution__flag-3 .flag-img-4", {
         display: "block",
         duration: 1,
-        ease: "power2.out",
       });
   },
 };
@@ -215,8 +209,6 @@ export default {
 #solution {
   margin-top: -50vh;
   margin-top: calc(var(--vh, 1vh) * -50);
-  padding-bottom: 50vh;
-  padding-bottom: calc(var(--vh, 1vh) * 50);
 }
 .solution {
   &__titleGroup {
@@ -224,8 +216,6 @@ export default {
     height: calc(var(--vh, 1vh) * 100);
     @include flex;
     overflow: hidden;
-    margin-bottom: 100vh;
-    margin-bottom: calc(var(--vh, 1vh) * 100);
   }
   &__title {
     @include rect;
@@ -248,11 +238,15 @@ export default {
     @include rect(100%, calc(100% / 2));
     @include flex(row, flex-start, flex-start);
   }
+  &__bottom {
+    @include flex(column);
+  }
   &__item {
     flex: 0 0 100vw;
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
-    @include flex(column);
+    @include flex(column, space-between);
+    padding: 6rem 0;
     &-1 {
       background: $c-brand1;
       .solution__infoSubTitle {
@@ -344,8 +338,8 @@ export default {
     }
   }
   &__car {
-    @include img(207px, 83px);
-    @include poa(0, t, 0, 27vh);
+    @include img(12.9325rem, 5.1875rem);
+    @include poa(0, t, 0, calc(6rem + 8rem));
     animation: solution-car 0.5s linear infinite alternate;
     img {
       transform: translateX(18%);
@@ -363,7 +357,7 @@ export default {
     }
   }
   &__flag {
-    @include img(140px, 229px);
+    @include img(8.75rem, 14.3125rem);
     margin-top: $space-xxl;
     margin-bottom: $space-l;
     @include flex(row, flex-end);

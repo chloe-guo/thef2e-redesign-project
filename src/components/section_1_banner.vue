@@ -9,11 +9,9 @@
           a.banner__link(href="https://2022.thef2e.com/works" target="_blank")  2 Sign Up
   p.banner__info 互動式網頁設計
       span.is-cubeFont Interactive And Responsive Web Design.
-  #canvas-wrap
 </template>
 <script>
 import $ from "jquery";
-import p5 from "p5";
 
 export default {
   name: "section_1_banner",
@@ -24,13 +22,12 @@ export default {
       el.addClass("is-actived");
     });
 
-    const canvas = (cnv) => {
-      cnv.setup = () => {
-        cnv.createCanvas(0, 0).parent("canvas-wrap");
-      };
-      cnv.keyPressed = (e) => {
-        switch (cnv.keyCode) {
-          case cnv.UP_ARROW: {
+    window.addEventListener(
+      "keydown",
+      function (e) {
+        switch (e.code) {
+          case "ArrowUp": {
+            e.preventDefault();
             $(".banner__item").each(function () {
               if ($(this).hasClass("is-actived")) {
                 $(this).removeClass("is-actived");
@@ -40,7 +37,8 @@ export default {
             });
             break;
           }
-          case cnv.DOWN_ARROW: {
+          case "ArrowDown": {
+            e.preventDefault();
             $(".banner__item").each(function () {
               if ($(this).hasClass("is-actived")) {
                 $(this).removeClass("is-actived");
@@ -50,7 +48,8 @@ export default {
             });
             break;
           }
-          case cnv.ENTER: {
+          case "Enter": {
+            e.preventDefault();
             if ($(".banner__item.is-actived .banner__link").data("action")) {
               $("html, body").animate(
                 { scrollTop: $(".issue__item-1").offset().top + 50 },
@@ -65,9 +64,9 @@ export default {
             break;
           }
         }
-      };
-    };
-    const p5canvas = new p5(canvas);
+      },
+      false
+    );
   },
 };
 </script>
@@ -79,7 +78,7 @@ export default {
 }
 .banner {
   &__logo {
-    @include img(76.6vw, auto);
+    @include img(74.9vw, auto);
     max-width: 1048px;
     margin: 20vh auto 10vh auto;
   }
@@ -119,9 +118,5 @@ export default {
       text-transform: uppercase;
     }
   }
-}
-
-#canvas-wrap {
-  display: none;
 }
 </style>

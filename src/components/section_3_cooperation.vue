@@ -103,14 +103,14 @@ export default {
     );
     s3TL.to(".cooperation__layer-4", {
       bottom: "100%",
-      duration: 60,
+      duration: 50,
       delay: 10,
     });
     s3TL.to(
       ".cooperation__overlay",
       {
         bottom: "100%",
-        duration: 60,
+        duration: 50,
       },
       "<"
     );

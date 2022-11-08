@@ -95,32 +95,60 @@ export default {
     @include poa;
     pointer-events: none;
     .icon {
+      animation-name: diamond;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+      @keyframes diamond {
+        0% {
+          scale: 1;
+        }
+        100% {
+          scale: 0.85;
+        }
+      }
       &-s {
         @include rect(2.7vw, 2vw);
         &.icon {
           &-1 {
             @include poa(2%, 15%, r, b);
+            animation-delay: -0.3s;
+            animation-duration: 1.2s;
           }
           &-2 {
             @include poa(1.5%, t, r, 8%);
+            animation-delay: -0.4s;
+            animation-duration: 1.5s;
           }
           &-3 {
             @include poa(l, 25%, 4%, b);
+            animation-delay: -0.2s;
+            animation-duration: 1s;
           }
           &-4 {
             @include poa(l, t, 16%, 4%);
+            animation-delay: -0.5s;
+            animation-duration: 1.1s;
           }
           &-5 {
             @include poa(l, t, 3%, 24%);
+            animation-delay: -0.3s;
+            animation-duration: 1.4s;
           }
           &-6 {
             @include poa(l, t, 8%, 34%);
+            animation-delay: -0.3s;
+            animation-duration: 1.6s;
           }
           &-7 {
             @include poa(l, t, 20%, 54%);
+            animation-delay: -0.2s;
+            animation-duration: 1.2s;
           }
           &-8 {
             @include poa(28%, t, r, 45%);
+            animation-delay: -0.5s;
+            animation-duration: 1.2s;
           }
         }
       }
@@ -129,21 +157,33 @@ export default {
         &.icon {
           &-1 {
             @include poa(5%, 10%, r, b);
+            animation-delay: -0.3s;
+            animation-duration: 1.2s;
           }
           &-2 {
             @include poa(5%, t, r, 14%);
+            animation-delay: -0.2s;
+            animation-duration: 1.3s;
           }
           &-3 {
             @include poa(l, 10%, 7%, b);
+            animation-delay: -0.4s;
+            animation-duration: 1.6s;
           }
           &-4 {
             @include poa(l, t, 10%, 6%);
+            animation-delay: -0.6s;
+            animation-duration: 1.3s;
           }
           &-5 {
             @include poa(l, t, 24%, 49%);
+            animation-delay: -0.3s;
+            animation-duration: 1.3s;
           }
           &-6 {
             @include poa(30%, t, r, 2%);
+            animation-delay: -0.5s;
+            animation-duration: 1.2s;
           }
         }
       }
@@ -152,15 +192,23 @@ export default {
         &.icon {
           &-1 {
             @include poa(2.5%, t, r, 31%);
+            animation-delay: -0.3s;
+            animation-duration: 1.8s;
           }
           &-2 {
             @include poa(24%, 12%, r, b);
+            animation-delay: -0.3s;
+            animation-duration: 1.6s;
           }
           &-3 {
             @include poa(l, 4%, 24%, b);
+            animation-delay: -0.3s;
+            animation-duration: 1.9s;
           }
           &-4 {
             @include poa(l, t, 36%, 5.4%);
+            animation-delay: -0.3s;
+            animation-duration: 1.5s;
           }
         }
       }

@@ -56,6 +56,7 @@ export default {
     s1TL.to(".transitions__top", {
       yPercent: "100",
       duration: 20,
+      delay: 20,
     });
     s1TL.to(
       ".transitions__bottom",

@@ -64,38 +64,60 @@ export default {
         start: "20% top",
         end: "bottom top",
         scrub: true,
+        markers: true,
       },
     });
     s6TL.to(".awards__car-img", {
       display: "none",
       duration: 1,
     });
+    s6TL.to(
+      ".awards__car-gif",
+      {
+        display: "block",
+        duration: 1,
+      },
+      "<"
+    );
     s6TL
       .to(".awards__car-main", {
-        xPercent: "30",
+        left: "15vw",
         duration: 3,
       })
       .to(".awards__car-main", {
-        xPercent: "200",
-        yPercent: "8",
+        left: "40vw",
+        bottom: "5.9vw",
         rotate: "6",
-        duration: 3,
+        duration: 4,
       })
       .to(".awards__car-main", {
-        xPercent: "300",
-        rotate: "-5",
-        duration: 3,
+        left: "42vw",
+        bottom: "5.3vw",
+        rotate: "3",
+        duration: 5,
       })
       .to(".awards__car-main", {
-        xPercent: "400",
-        yPercent: "-4",
-        rotate: "-3",
-        duration: 6,
+        left: "46vw",
+        bottom: "4.4vw",
+        rotate: "-2",
+        duration: 2,
       })
       .to(".awards__car-main", {
-        xPercent: "800",
-        rotate: "0",
-        duration: 12,
+        left: "56vw",
+        bottom: "4.8vw",
+        rotate: "-4",
+        duration: 4,
+      })
+      .to(".awards__car-main", {
+        left: "100vw",
+        bottom: "6.2vw",
+        rotate: "-1",
+        duration: 10,
+      })
+      .to(".awards__car-main", {
+        left: "150vw",
+        rotate: "3",
+        duration: 20,
       });
 
     let titleStr = [];
@@ -104,12 +126,12 @@ export default {
     });
     $(".awards__titleGroup").html("");
     let typed;
-    $(window).on("scroll", function () {
+    function scrollfunc() {
       if (
         $(window).scrollTop() >=
           $(".awards__kv").offset().top - ($(".awards__kv").height() / 3) * 2 &&
         $(window).scrollTop() <=
-          $(".awards__kv").offset().top + ($(".awards__kv").height() / 3) * 5
+          $(".awards__kv").offset().top + $(".awards__kv").height()
       ) {
         if (!$(".awards__titleGroup").hasClass("js-typed")) {
           $(".awards__titleGroup").addClass("js-typed");
@@ -129,13 +151,14 @@ export default {
           typed.destroy();
         }
       }
+
       if (
         $(window).scrollTop() >=
-          $(".awards__content-1").offset().top -
-            $(".awards__content-1").height() &&
+          $(".awards__content-1").offset().top - $(window).height() &&
         $(window).scrollTop() <=
           $(".awards__content-2").offset().top +
-            $(".awards__content-2").height()
+            $(".awards__content-2").height() +
+            $(window).height() / 2
       ) {
         if (!$(".awards__content-1").hasClass("js-typed")) {
           $(".awards__content-1").addClass("js-typed");
@@ -144,9 +167,13 @@ export default {
       } else {
         if ($(".awards__content-1").hasClass("js-typed")) {
           $(".awards__content-1").removeClass("js-typed");
-          typingText();
+          $(".awards__content span").css("opacity", "0");
         }
       }
+    }
+    scrollfunc();
+    $(window).on("scroll", function () {
+      scrollfunc();
     });
 
     $(".js-awards-fadeText").each(function () {
@@ -159,15 +186,15 @@ export default {
         thisEl.append(span);
       });
     });
-
+    let timer;
     function typingText() {
       $(".js-awards-fadeText").each(function (i) {
         $(this)
           .children("span")
           .each(function (j) {
-            setTimeout(() => {
+            timer = setTimeout(() => {
               $(this).css("opacity", "1");
-            }, (i * 20 + j) * 10);
+            }, (i * 12 + j) * 5);
           });
       });
     }
@@ -320,7 +347,7 @@ export default {
     @include font(56);
   }
   &__content {
-    max-width: 635px;
+    max-width: 39.675rem;
     margin: auto;
     margin-top: calc($space-xxl * 5);
     h4 {
@@ -344,7 +371,7 @@ export default {
     }
     ul {
       margin-top: $space-xl;
-      margin-left: calc(12px + 20px);
+      margin-left: calc(0.75rem + 1.25rem);
     }
     li {
       & + li {
@@ -355,14 +382,14 @@ export default {
       }
       &::before {
         @include beaf;
-        @include rect(12px, 12px);
-        @include poa(calc((12px + 20px) * -1), 0, r, 0);
+        @include rect(0.75rem, 0.75rem);
+        @include poa(calc((0.75rem + 1.25rem) * -1), 0, r, 0);
         background: $c-text-primary;
       }
     }
   }
   &__btnGroup {
-    @include rect(100%, auto);
+    @include rect(88vw, auto);
     max-width: 1370px;
     @include flex(column);
     margin-top: calc($space-m * 10);
@@ -430,24 +457,28 @@ export default {
       @include poa(l, t, 6vw, 17.3vw);
     }
     &-main {
-      @include img(19.3vw, auto);
+      @include img(19.3vw, 6.9vw);
       @include poa(9.4vw, t, r, 6.3vw);
       transform-origin: left bottom;
       transform: rotate(-2.5deg);
       img {
+        @include poa;
         animation: awards-car 0.5s linear infinite alternate;
         @keyframes awards-car {
           0%,
           50%,
           70%,
           100% {
-            transform: translateY(-1px);
+            transform: translateY(-1.5px);
           }
           60% {
             transform: translateY(0);
           }
         }
       }
+    }
+    &-gif {
+      display: none;
     }
   }
 }
