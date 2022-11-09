@@ -175,15 +175,17 @@ export default {
 }
 .tab {
   &__wrap {
-    margin: calc($space-xl * 2) auto;
-    max-width: 1370px;
+    @include rect(88vw, auto);
+    max-width: 85.625rem;
+    margin: auto;
+    margin-top: calc($space-m * 5);
   }
   &__menu {
     @include flex;
-    margin-bottom: calc($space-xxl * 2);
+    margin-bottom: calc($space-s * 5);
   }
   &__item {
-    @include rect(calc((100% - $space-s * 3) / 4), 65px);
+    @include rect(calc((100% - $space-s * 3) / 4), 4.0625rem);
     & + .tab__item {
       margin-left: $space-s;
     }
@@ -196,6 +198,8 @@ export default {
       .link {
         &__text {
           background: $c-brand1-dark;
+          transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+            background 0.3s 0.2s cubic-bezier(0.33, 1, 0.68, 1);
         }
       }
     }
@@ -204,7 +208,7 @@ export default {
         &__shadow {
           &::before,
           &::after {
-            @include rect(calc($space-xs + 1px), calc($space-xs + 1px));
+            @include rect(100%, $space-xs);
           }
         }
         &__text {
@@ -217,24 +221,24 @@ export default {
         @include rect;
         @include poa;
         background: $c-brand1-lighter;
-        transition: all 0.2s linear;
-        &::before {
-          @include beaf;
-          @include rect(0, 0);
-          background: $c-brand1-lighter;
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-          @include poa(0, t, r, 0);
-          transform: translate(-5%, 90%);
-          transition: all 0.2s linear;
-        }
+        transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
         &::after {
           @include beaf;
-          @include rect(0, 0);
+          @include rect(100%, 0);
           background: $c-brand1-lighter;
-          clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-          @include poa(l, 0, 0, b);
-          transform: translate(90%, -5%);
-          transition: all 0.2s linear;
+          @include poa(0, 0, r, b);
+          transform-origin: left top;
+          transform: skewX(45deg);
+          transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        &::before {
+          @include beaf;
+          @include rect(100%, 0);
+          background: $c-brand1-lighter;
+          @include poa(l, t, 0, 0);
+          transform-origin: right top;
+          transform: translateY(100%) skewX(45deg);
+          transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
         }
       }
       &__text {
@@ -243,7 +247,7 @@ export default {
         background: white;
         @include font(36);
         color: $c-brand1;
-        transition: all 0.2s linear;
+        transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
       }
     }
   }
@@ -251,12 +255,12 @@ export default {
   }
   &__pane {
     @include poa(0, 0, r, b);
-    padding-bottom: calc($space-m * 5);
+    padding-bottom: calc($space-l * 5);
     display: none;
     li {
       @include font(24);
       & + li {
-        margin-top: calc($space-xl * 2);
+        margin-top: calc($space-s * 5);
       }
       h6 {
         @include font(24);

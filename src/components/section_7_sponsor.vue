@@ -60,6 +60,7 @@ export default {
 #sponsor {
   background: $c-brand1;
   padding: calc($space-m * 5);
+  z-index: 2;
 }
 .sponsor {
   &__wrap {
@@ -95,21 +96,23 @@ export default {
     @include poa;
     pointer-events: none;
     .icon {
-      animation-name: diamond;
-      animation-direction: alternate;
-      animation-iteration-count: infinite;
-      animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
-      @keyframes diamond {
-        0% {
-          scale: 1;
-        }
-        100% {
-          scale: 0.85;
-        }
-      }
       &-s {
         @include rect(2.7vw, 2vw);
         &.icon {
+          animation-name: diamond-s;
+          animation-direction: alternate;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+          @keyframes diamond-s {
+            0% {
+              scale: 1;
+              filter: brightness(100%) drop-shadow(0 0 0.4vw rgba(white, 0.8));
+            }
+            100% {
+              scale: 0.85;
+              filter: brightness(90%) drop-shadow(0 0 0 rgba(white, 0));
+            }
+          }
           &-1 {
             @include poa(2%, 15%, r, b);
             animation-delay: -0.3s;
@@ -155,6 +158,20 @@ export default {
       &-m {
         @include rect(4.8vw, 3.7vw);
         &.icon {
+          animation-name: diamond-m;
+          animation-direction: alternate;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+          @keyframes diamond-m {
+            0% {
+              scale: 1;
+              filter: brightness(100%) drop-shadow(0 0 0.6vw rgba(white, 0.8));
+            }
+            100% {
+              scale: 0.85;
+              filter: brightness(90%) drop-shadow(0 0 0 rgba(white, 0));
+            }
+          }
           &-1 {
             @include poa(5%, 10%, r, b);
             animation-delay: -0.3s;
@@ -189,6 +206,20 @@ export default {
       }
       &-l {
         @include rect(8.4vw, 6.2vw);
+        animation-name: diamond-l;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+        @keyframes diamond-l {
+          0% {
+            scale: 1;
+            filter: brightness(100%) drop-shadow(0 0 9vw rgba(white, 0.8));
+          }
+          100% {
+            scale: 0.85;
+            filter: brightness(90%) drop-shadow(0 0 0 rgba(white, 0));
+          }
+        }
         &.icon {
           &-1 {
             @include poa(2.5%, t, r, 31%);

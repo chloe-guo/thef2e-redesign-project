@@ -297,6 +297,9 @@ export default {
 </script>
 
 <style lang="scss">
+#awards {
+  background: $c-bg;
+}
 .awards {
   &__content {
     .js-awards-fadeText {
@@ -390,7 +393,7 @@ export default {
   }
   &__btnGroup {
     @include rect(88vw, auto);
-    max-width: 1370px;
+    max-width: 85.625rem;
     @include flex(column);
     margin-top: calc($space-m * 10);
     margin-bottom: calc($space-xl * 5);

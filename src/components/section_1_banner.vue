@@ -79,7 +79,7 @@ export default {
 .banner {
   &__logo {
     @include img(74.9vw, auto);
-    max-width: 1048px;
+    max-width: 65.5rem;
     margin: 20vh auto 10vh auto;
   }
   &__item {
