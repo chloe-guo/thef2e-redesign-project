@@ -75,6 +75,7 @@ export default {
   @include rect(100vw, 100vh);
   height: calc(var(--vh, 1vh) * 100);
   @include flex(column, flex-start, center);
+  background: $c-bg;
 }
 .banner {
   &__logo {

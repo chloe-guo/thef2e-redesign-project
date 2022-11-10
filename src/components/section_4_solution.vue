@@ -120,11 +120,12 @@ export default {
     });
     s4TL2.to(".solution__content", {
       opacity: 1,
-      duration: 4,
+      duration: 10,
     });
     s4TL2.to(".solution__flag-1 .flag-img-2", {
       display: "block",
-      duration: 1,
+      duration: 3,
+      delay: 10,
     });
     s4TL2
       .to(".solution__flag-1 .flag-img-2", {
@@ -133,7 +134,7 @@ export default {
       })
       .to(".solution__flag-1 .flag-img-3", {
         display: "block",
-        duration: 1,
+        duration: 3,
       });
     s4TL2
       .to(".solution__flag-1 .flag-img-3", {
@@ -142,7 +143,7 @@ export default {
       })
       .to(".solution__flag-1 .flag-img-4", {
         display: "block",
-        duration: 1,
+        duration: 3,
       });
     gsap.set(".solution__lists", {
       xPercent: "0",
@@ -154,7 +155,7 @@ export default {
     });
     s4TL2.to(".solution__flag-2 .flag-img-2", {
       display: "block",
-      duration: 1,
+      duration: 3,
     });
     s4TL2
       .to(".solution__flag-2 .flag-img-2", {
@@ -163,7 +164,7 @@ export default {
       })
       .to(".solution__flag-2 .flag-img-3", {
         display: "block",
-        duration: 1,
+        duration: 3,
       });
     s4TL2
       .to(".solution__flag-2 .flag-img-3", {
@@ -172,7 +173,7 @@ export default {
       })
       .to(".solution__flag-2 .flag-img-4", {
         display: "block",
-        duration: 1,
+        duration: 3,
       });
     s4TL2.to(".solution__lists", {
       xPercent: "-200",
@@ -181,7 +182,7 @@ export default {
     });
     s4TL2.to(".solution__flag-3 .flag-img-2", {
       display: "block",
-      duration: 1,
+      duration: 3,
     });
     s4TL2
       .to(".solution__flag-3 .flag-img-2", {
@@ -190,7 +191,7 @@ export default {
       })
       .to(".solution__flag-3 .flag-img-3", {
         display: "block",
-        duration: 1,
+        duration: 3,
       });
     s4TL2
       .to(".solution__flag-3 .flag-img-3", {
@@ -200,6 +201,11 @@ export default {
       .to(".solution__flag-3 .flag-img-4", {
         display: "block",
         duration: 1,
+      })
+      .to(".solution__flag-3 .flag-img-4", {
+        display: "block",
+        duration: 1,
+        delay: 10,
       });
   },
 };
@@ -209,6 +215,7 @@ export default {
 #solution {
   margin-top: -50vh;
   margin-top: calc(var(--vh, 1vh) * -50);
+  background: $c-bg;
 }
 .solution {
   &__titleGroup {
@@ -289,30 +296,30 @@ export default {
       &__text {
         background: white;
         padding: $space-xs $space-xl;
-        transition: all 0.2s linear;
+        transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
       }
       &__shadow {
         @include rect;
         @include poa;
         background: $c-brand1-lighter;
-        transition: all 0.2s linear;
-        &::before {
-          @include beaf;
-          @include rect(0, 0);
-          background: $c-brand1-lighter;
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-          @include poa(0, t, r, 0);
-          transform: translate(-5%, 90%);
-          transition: all 0.2s linear;
-        }
+        transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
         &::after {
           @include beaf;
-          @include rect(0, 0);
+          @include rect(100%, 0);
           background: $c-brand1-lighter;
-          clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-          @include poa(l, 0, 0, b);
-          transform: translate(90%, -5%);
-          transition: all 0.2s linear;
+          @include poa(0, 0, r, b);
+          transform-origin: left top;
+          transform: skewX(45deg);
+          transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        &::before {
+          @include beaf;
+          @include rect(100%, 0);
+          background: $c-brand1-lighter;
+          @include poa(l, t, 0, 0);
+          transform-origin: right top;
+          transform: translateY(100%) skewX(45deg);
+          transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
         }
       }
     }
@@ -320,6 +327,8 @@ export default {
       .link {
         &__text {
           background: $c-brand1-dark;
+          transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+            background 0.3s 0.2s cubic-bezier(0.33, 1, 0.68, 1);
         }
       }
     }
@@ -328,7 +337,7 @@ export default {
         &__shadow {
           &::before,
           &::after {
-            @include rect(calc($space-xs + 1px), calc($space-xs + 1px));
+            @include rect(100%, $space-xs);
           }
         }
         &__text {

@@ -294,6 +294,7 @@ export default {
   max-width: 85.625rem;
   margin: calc($space-m * 5) auto calc($space-xl * 5) auto;
   z-index: 1;
+  background: $c-bg;
 }
 #CurtainsCanvas {
   @include rect(100%, 120vh);

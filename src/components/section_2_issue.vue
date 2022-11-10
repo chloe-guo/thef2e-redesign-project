@@ -290,6 +290,7 @@ export default {
 <style lang="scss" scoped>
 #issue {
   z-index: 1;
+  background: $c-bg;
 }
 .issue {
   &__list {

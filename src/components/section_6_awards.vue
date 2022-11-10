@@ -46,7 +46,7 @@
         p.js-awards-fadeText 每週主題各一組
   .awards__btnGroup
     a(href="https://2022.thef2e.com" target="_blank").awards__cta#awards-cta
-      .btn__overlay
+      .btn__shadow
       .btn__text 立即註冊報名！
 </template>
 
@@ -64,18 +64,17 @@ export default {
         start: "20% top",
         end: "bottom top",
         scrub: true,
-        markers: true,
       },
     });
     s6TL.to(".awards__car-img", {
       display: "none",
-      duration: 1,
+      duration: 0,
     });
     s6TL.to(
       ".awards__car-gif",
       {
         display: "block",
-        duration: 1,
+        duration: 0,
       },
       "<"
     );
@@ -186,13 +185,12 @@ export default {
         thisEl.append(span);
       });
     });
-    let timer;
     function typingText() {
       $(".js-awards-fadeText").each(function (i) {
         $(this)
           .children("span")
           .each(function (j) {
-            timer = setTimeout(() => {
+            setTimeout(() => {
               $(this).css("opacity", "1");
             }, (i * 12 + j) * 5);
           });
@@ -200,22 +198,24 @@ export default {
     }
 
     //Detect Closest Edge
-    function closestEdge(x, y, w, h) {
-      let topEdgeDist = distMetric(x, y, w / 2, 0);
-      let bottomEdgeDist = distMetric(x, y, w / 2, h);
-      let leftEdgeDist = distMetric(x, y, 0, h / 2);
-      let rightEdgeDist = distMetric(x, y, w, h / 2);
-      let min = Math.min(
-        topEdgeDist,
-        bottomEdgeDist,
-        leftEdgeDist,
-        rightEdgeDist
-      );
+    function closestEdgeX(x, w) {
+      let leftEdgeDist = distMetric(x, 0);
+      let rightEdgeDist = distMetric(x, w);
+      console.log(leftEdgeDist, rightEdgeDist);
+      let min = Math.min(leftEdgeDist, rightEdgeDist);
       switch (min) {
         case leftEdgeDist:
           return "left";
         case rightEdgeDist:
           return "right";
+      }
+    }
+    function closestEdgeY(y, h) {
+      let topEdgeDist = distMetric(y, 0);
+      let bottomEdgeDist = distMetric(y, h);
+      console.log(topEdgeDist, bottomEdgeDist);
+      let min = Math.min(topEdgeDist, bottomEdgeDist);
+      switch (min) {
         case topEdgeDist:
           return "top";
         case bottomEdgeDist:
@@ -224,10 +224,9 @@ export default {
     }
 
     //Distance Formula
-    function distMetric(x, y, x2, y2) {
-      let xDiff = x - x2;
-      let yDiff = y - y2;
-      return xDiff * xDiff + yDiff * yDiff;
+    function distMetric(v, v2) {
+      let diff = v - v2;
+      return diff * diff;
     }
 
     let box = document.getElementById("awards-cta");
@@ -236,59 +235,22 @@ export default {
       let offset = this.getBoundingClientRect();
       let x = e.pageX - offset.left - $(window).scrollLeft();
       let y = e.pageY - offset.top - $(window).scrollTop();
-      let edge = closestEdge(x, y, this.clientWidth, this.clientHeight);
-      let overlay = $(this).find(".btn__overlay");
-      switch (edge) {
-        case "left":
-          overlay.css({
-            top: "0%",
-            left: "-100%",
-          });
-          overlay.animate({ left: "0%" }, 600, "linear");
+      let edgeX = closestEdgeX(x, this.clientWidth);
+      let edgeY = closestEdgeY(y, this.clientHeight);
+      console.log(edgeX, edgeY);
+      let btn = $(this);
+      switch (true) {
+        case edgeX == "left" && edgeY == "top":
+          btn.removeClass("is-tr is-br is-bl").addClass("is-tl");
           break;
-        case "right":
-          overlay.css({
-            top: "0%",
-            left: "100%",
-          });
-          overlay.animate({ left: "0%" }, 600, "linear");
+        case edgeX == "left" && edgeY == "bottom":
+          btn.removeClass("is-tr is-tl is-br").addClass("is-bl");
           break;
-        case "top":
-          overlay.css({
-            top: "-100%",
-            left: "0%",
-          });
-          overlay.animate({ top: "0%" }, 300, "linear");
+        case edgeX == "right" && edgeY == "top":
+          btn.removeClass("is-tl is-br is-bl").addClass("is-tr");
           break;
-        case "bottom":
-          overlay.css({
-            top: "100%",
-            left: "0%",
-          });
-          overlay.animate({ top: "0%" }, 300, "linear");
-          break;
-      }
-    };
-
-    box.onmouseleave = function (e) {
-      let offset = this.getBoundingClientRect();
-      let x = e.pageX - offset.left - $(window).scrollLeft();
-      let y = e.pageY - offset.top - $(window).scrollTop();
-      let edge = closestEdge(x, y, this.clientWidth, this.clientHeight);
-      let overlay = $(this).find(".btn__overlay");
-
-      switch (edge) {
-        case "left":
-          overlay.animate({ left: "-100%" }, 300, "linear");
-          break;
-        case "right":
-          overlay.animate({ left: "100%" }, 300, "linear");
-          break;
-        case "top":
-          overlay.animate({ top: "-100%" }, 300, "linear");
-          break;
-        case "bottom":
-          overlay.animate({ top: "100%" }, 300, "linear");
+        case edgeX == "right" && edgeY == "bottom":
+          btn.removeClass("is-tr is-tl is-bl").addClass("is-br");
           break;
       }
     };
@@ -331,7 +293,8 @@ export default {
         background: $c-text-primary;
         @include poa(l, 0, calc($space-xs * -1), 0);
         transform: translateY(5%);
-        animation: typed__cursor 0.5s linear infinite alternate;
+        animation: typed__cursor 0.5s cubic-bezier(0.33, 1, 0.68, 1) infinite
+          alternate;
         @keyframes typed__cursor {
           0%,
           40% {
@@ -402,18 +365,119 @@ export default {
   }
   &__cta {
     @include rect(100%, auto);
-    display: block;
-    @include font(72, 1.5, $fw-primary, 5);
-    color: $c-brand1;
-    @include flex;
-    background: white;
-    padding: $space-s;
-    overflow: hidden;
-    .btn__overlay {
-      @include rect;
-      @include poa(-100%, 0%, r, b);
-      background: $c-brand1-dark;
-      animation-fill-mode: forwards;
+    .btn {
+      &__shadow {
+        @include rect;
+        @include poa;
+        background: $c-brand1-lighter;
+        transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        &::after {
+          @include beaf;
+          @include rect(100%, 0);
+          background: $c-brand1-lighter;
+          @include poa(0, 0, r, b);
+          transition: height 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        &::before {
+          @include beaf;
+          @include rect(100%, 0);
+          background: $c-brand1-lighter;
+          @include poa(l, t, 0, 0);
+          transition: height 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+      }
+      &__text {
+        @include rect;
+        @include flex;
+        background: white;
+        @include font(72, 1.5, $fw-primary, 5);
+        color: $c-brand1;
+        padding: $space-s;
+        transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+    }
+    &:hover {
+      .btn__shadow {
+        &::before,
+        &::after {
+          @include rect(100%, $space-s);
+        }
+      }
+    }
+    &.is-tl {
+      .btn__shadow {
+        &::after {
+          transform-origin: left top;
+          transform: skewX(45deg);
+        }
+        &::before {
+          transform-origin: right top;
+          transform: translateY(100%) skewX(45deg);
+        }
+      }
+      &:hover {
+        .btn__text {
+          transform: translate($space-s, $space-s);
+        }
+      }
+      &:active {
+        .btn__text {
+          background: $c-brand1-dark;
+          transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+            background 0.3s 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+      }
+    }
+    &.is-bl {
+      .btn__shadow {
+        &::after {
+          transform-origin: left bottom;
+          transform: translateY(-100%) skewX(-45deg);
+        }
+        &::before {
+          transform-origin: right bottom;
+          transform: skewX(-45deg);
+        }
+      }
+      &:hover {
+        .btn__text {
+          transform: translate($space-s, calc($space-s * -1));
+        }
+      }
+    }
+    &.is-tr {
+      .btn__shadow {
+        &::after {
+          transform-origin: left top;
+          transform: skewX(-45deg);
+        }
+        &::before {
+          transform-origin: right top;
+          transform: translateY(100%) skewX(-45deg);
+        }
+      }
+      &:hover {
+        .btn__text {
+          transform: translate(calc($space-s * -1), $space-s);
+        }
+      }
+    }
+    &.is-br {
+      .btn__shadow {
+        &::after {
+          transform-origin: left bottom;
+          transform: translateY(-100%) skewX(45deg);
+        }
+        &::before {
+          transform-origin: left bottom;
+          transform: skewX(45deg);
+        }
+      }
+      &:hover {
+        .btn__text {
+          transform: translate(calc($space-s * -1), calc($space-s * -1));
+        }
+      }
     }
   }
   &__layers {
@@ -466,7 +530,8 @@ export default {
       transform: rotate(-2.5deg);
       img {
         @include poa;
-        animation: awards-car 0.5s linear infinite alternate;
+        animation: awards-car 0.5s cubic-bezier(0.33, 1, 0.68, 1) infinite
+          alternate;
         @keyframes awards-car {
           0%,
           50%,

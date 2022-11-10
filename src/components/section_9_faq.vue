@@ -165,6 +165,9 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+#faq {
+  background: $c-bg;
+}
 .faq {
   &__title {
     @include font(56, 1.5, $fw-primary, 5);
