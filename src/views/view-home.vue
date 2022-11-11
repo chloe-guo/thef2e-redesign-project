@@ -53,11 +53,18 @@ export default {
         scrub: true,
       },
     });
-    s1TL.to(".transitions__top", {
-      yPercent: "100",
+    s1TL.to("#first__view", {
+      opacity: "1",
       duration: 20,
-      delay: 20,
     });
+    s1TL.to(
+      ".transitions__top",
+      {
+        yPercent: "100",
+        duration: 20,
+      },
+      "<"
+    );
     s1TL.to(
       ".transitions__bottom",
       {

@@ -1,6 +1,6 @@
 <template lang="pug">
 #banner
-  .banner__logo.js-cursorHover
+  .banner__logo
       img(src="@/assets/images/s1-banner-logo.png")
   ul.banner__menu
       li.banner__item.is-cubeFont.js-cursorHover.is-actived
@@ -81,7 +81,7 @@ export default {
   &__logo {
     @include img(74.9vw, auto);
     max-width: 65.5rem;
-    margin: 20vh auto 10vh auto;
+    margin: 22.5vh auto 11.5vh auto;
   }
   &__item {
     @include rect(auto, 3.3125rem);

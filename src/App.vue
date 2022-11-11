@@ -248,14 +248,14 @@ body {
   }
 }
 .follow {
-  @include circle($space-xxl);
+  @include circle($space-l * 2);
   position: absolute;
   background-color: rgba($c-brand2, 0.3);
   mix-blend-mode: difference;
   user-select: none;
   pointer-events: none;
   z-index: 98;
-  transform: translate(calc($space-xxl / -2), calc($space-xxl / -2));
+  transform: translate(calc($space-l * 2 / -2), calc($space-l * 2 / -2));
   transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
   &.is-active {
@@ -272,7 +272,7 @@ body {
   z-index: 100;
   .loading {
     &__image {
-      @include img(164px, 66px);
+      @include img(10.35rem, 4.125rem);
       animation: loading-image 1.2s linear infinite alternate;
       @keyframes loading-image {
         0% {

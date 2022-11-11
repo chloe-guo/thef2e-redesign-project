@@ -18,7 +18,7 @@
             img.flag-img-2(src="@/assets/images/flag-2.png")
             img.flag-img-3(src="@/assets/images/flag-3.png")
             img.flag-img-4(src="@/assets/images/flag-4.png")
-          a.solution__link(href="https://2022.thef2e.com/news/week1" target="_blank")
+          a.solution__link.js-cursorHover(href="https://2022.thef2e.com/news/week1" target="_blank")
             .link__shadow
             .link__text 查看關卡細節
       li.solution__item.solution__item-2
@@ -33,7 +33,7 @@
             img.flag-img-2(src="@/assets/images/flag-2.png")
             img.flag-img-3(src="@/assets/images/flag-3.png")
             img.flag-img-4(src="@/assets/images/flag-4.png")
-          a.solution__link(href="https://2022.thef2e.com/news/week2" target="_blank")
+          a.solution__link.js-cursorHover(href="https://2022.thef2e.com/news/week2" target="_blank")
             .link__shadow
             .link__text 查看關卡細節
       li.solution__item.solution__item-3
@@ -48,7 +48,7 @@
             img.flag-img-2(src="@/assets/images/flag-2.png")
             img.flag-img-3(src="@/assets/images/flag-3.png")
             img.flag-img-4(src="@/assets/images/flag-4.png")
-          a.solution__link(href="https://2022.thef2e.com/news/week3" target="_blank")
+          a.solution__link.js-cursorHover(href="https://2022.thef2e.com/news/week3" target="_blank")
             .link__shadow
             .link__text 查看關卡細節
     .solution__car

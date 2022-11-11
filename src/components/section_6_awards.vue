@@ -45,7 +45,7 @@
         h5.is-heightLight.js-awards-fadeText NTD 10,000/組
         p.js-awards-fadeText 每週主題各一組
   .awards__btnGroup
-    a(href="https://2022.thef2e.com" target="_blank").awards__cta#awards-cta
+    a.awards__cta#awards-cta.js-cursorHover(href="https://2022.thef2e.com" target="_blank")
       .btn__shadow
       .btn__text 立即註冊報名！
 </template>

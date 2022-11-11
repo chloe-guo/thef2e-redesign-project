@@ -4,19 +4,19 @@
 	.tab__wrap
 		ul.tab__menu
 			li.tab__item
-				button.tab__link.is-actived(data-target="common")
+				button.tab__link.js-cursorHover.is-actived(data-target="common")
 					.link__shadow
 					.link__text 一般常見問答
 			li.tab__item
-				button.tab__link(data-target="designer")
+				button.tab__link.js-cursorHover(data-target="designer")
 					.link__shadow
 					.link__text UI 設計師
 			li.tab__item
-				button.tab__link(data-target="frontend")
+				button.tab__link.js-cursorHover(data-target="frontend")
 					.link__shadow
 					.link__text 前端工程師
 			li.tab__item
-				button.tab__link(data-target="group")
+				button.tab__link.js-cursorHover(data-target="group")
 					.link__shadow
 					.link__text 團體組
 		.tab__content
