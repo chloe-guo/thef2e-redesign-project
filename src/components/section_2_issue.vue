@@ -323,11 +323,11 @@ export default {
     }
   }
   &__content {
-    @include rect(61.25rem, 46.875rem);
+    @include rect(61.25rem, 35.625rem);
     max-height: 68vh;
     max-height: calc(var(--vh, 1vh) * 68);
     @media (max-width: $sm) {
-      @include rect(100vw, 34.5rem);
+      @include rect(100vw, 35.625rem);
     }
   }
   &__text {

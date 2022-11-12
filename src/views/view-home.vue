@@ -1,8 +1,9 @@
 <template lang="pug">
 #view__home
   #first__view
-    navComponent
-    section_1_banner
+    #first__wrap.is-open
+      navComponent
+      section_1_banner
   section_2_issue
   section_3_cooperation
   section_4_solution
@@ -54,7 +55,7 @@ export default {
       duration: 20,
     });
     s1TL.to(
-      ".transitions__top",
+      "#transitions .transitions__top",
       {
         yPercent: "100",
         duration: 20,
@@ -62,7 +63,7 @@ export default {
       "<"
     );
     s1TL.to(
-      ".transitions__bottom",
+      "#transitions .transitions__bottom",
       {
         yPercent: "-100",
         duration: 20,
@@ -73,12 +74,12 @@ export default {
       opacity: "0",
       duration: 1,
     });
-    s1TL.to(".transitions__top", {
+    s1TL.to("#transitions .transitions__top", {
       yPercent: "-100",
       duration: 20,
     });
     s1TL.to(
-      ".transitions__bottom",
+      "#transitions .transitions__bottom",
       {
         yPercent: "100",
         duration: 20,
@@ -89,6 +90,14 @@ export default {
 };
 </script>
 <style lang="scss">
+#first__wrap {
+  transform: translateY(0);
+  transition: transform 1.8s linear;
+  &.is-open {
+    transform: translateY(100vh);
+    transform: translateY(calc(var(--vh, 1vh) * 100));
+  }
+}
 .pin-spacer {
   height: 100vh !important;
   height: calc(var(--vh, 1vh) * 100) !important;

@@ -5,18 +5,25 @@
       h2.cooperation__title 互動式網頁設計
       h3.cooperation__subTitle  UI、前端接力合作，一同產出完整作品。
     .cooperation__layers
-        img.cooperation__layer.cooperation__layer-1(src="@/assets/images/s3-cooperation-layer-1.png")
-        img.cooperation__layer.cooperation__layer-2(src="@/assets/images/s3-cooperation-layer-2.png")
-        img.cooperation__layer.cooperation__layer-3(src="@/assets/images/s3-cooperation-layer-3.png")
-        img.cooperation__layer.cooperation__layer-4(src="@/assets/images/s3-cooperation-layer-4.png")
-        .cooperation__overlay
+      picture.cooperation__layer.cooperation__layer-1
+        source(srcset="@/assets/images/s3-cooperation-layer-1-mobile.png" media="(max-width: 768px)")
+        img(src="@/assets/images/s3-cooperation-layer-1.png")
+      picture.cooperation__layer.cooperation__layer-2
+        source(srcset="@/assets/images/s3-cooperation-layer-2-mobile.png" media="(max-width: 768px)")
+        img(src="@/assets/images/s3-cooperation-layer-2.png")
+      picture.cooperation__layer.cooperation__layer-3
+        source(srcset="@/assets/images/s3-cooperation-layer-3-mobile.png" media="(max-width: 768px)")
+        img(src="@/assets/images/s3-cooperation-layer-3.png")
+      picture.cooperation__layer.cooperation__layer-4
+        source(srcset="@/assets/images/s3-cooperation-layer-4-mobile.png" media="(max-width: 768px)")
+        img(src="@/assets/images/s3-cooperation-layer-4.png")
+      .cooperation__overlay
 </template>
 
 <script>
 export default {
   name: "section_2_issue",
   mounted: function () {
-
     const s3TL = gsap.timeline({
       scrollTrigger: {
         trigger: "#cooperation",
@@ -107,7 +114,7 @@ export default {
     s3TL.to(
       ".cooperation__overlay",
       {
-        bottom: "100%",
+        bottom: "101%",
         duration: 50,
       },
       "<"
@@ -157,6 +164,10 @@ export default {
   overflow: hidden;
   margin-bottom: 100vh;
   margin-bottom: calc(var(--vh, 1vh) * 100);
+  @media (max-width: $sm) {
+    margin-bottom: 60vh;
+    margin-bottom: calc(var(--vh, 1vh) * 60);
+  }
 }
 .cooperation {
   &__gradient {
@@ -183,6 +194,10 @@ export default {
   &__titleGroup {
     @include poa;
     @include flex(column);
+    @media (max-width: $sm) {
+      margin-top: 10vh;
+      margin-top: calc(var(--vh, 1vh) * 10);
+    }
   }
   &__title {
     @include font(72, 1.5, $fw-primary, 5);
@@ -192,11 +207,18 @@ export default {
   &__subTitle {
     @include font(24);
     padding: $space-s;
+    @media (max-width: $sm) {
+      @include font(32);
+      padding: calc($space-m / 2);
+    }
   }
   &__layers {
     @include rect(100%, 100%);
   }
   &__layer {
+    img {
+      @include rect;
+    }
     &-1 {
       @include rect(100%, auto);
       @include poa(0, t, 0, 0);
@@ -204,10 +226,16 @@ export default {
     &-2 {
       @include rect(67.8%, auto);
       @include poa(l, t, 0, 0);
+      @media (max-width: $sm) {
+        @include rect(100%, auto);
+      }
     }
     &-3 {
       @include rect(86.7%, auto);
       @include poa(0, t, r, 0);
+      @media (max-width: $sm) {
+        @include rect(100%, auto);
+      }
     }
     &-4 {
       @include rect(100%, auto);
@@ -215,9 +243,10 @@ export default {
     }
   }
   &__overlay {
-    @include rect(100%, 100vh);
+    @include rect(100%, 101vh);
     height: calc(var(--vh, 1vh) * 100);
-    @include poa(0, t, 0, 1px);
+    @include poa(0, t, 0, 1vh);
+    bottom: calc(var(--vh, 1vh) * 1);
     background: $c-bg;
     transform: translateY(100%);
   }

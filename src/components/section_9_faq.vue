@@ -153,6 +153,8 @@ export default {
 .tab {
   &__pane {
     .js-faq-fadeText {
+      @include flex(row, flex-start, flex-start);
+      flex-wrap: wrap;
       span {
         opacity: 0;
         transition: opacity 0.6s cubic-bezier(0.11, 0, 0.5, 0);
@@ -187,15 +189,12 @@ export default {
     @media (max-width: $sm) {
       @include rect(90vw, auto);
       max-width: 90vw;
-      margin-top: calc($space-s * 5);
+      margin-top: calc($space-s * 6);
     }
   }
   &__menu {
     @include flex;
     margin-bottom: calc($space-s * 5);
-    @media (max-width: $sm) {
-      margin-bottom: calc($space-s * 4);
-    }
   }
   &__item {
     @include rect(calc((100% - $space-s * 4) / 4), 4.0625rem);
@@ -296,9 +295,6 @@ export default {
       }
       & + li {
         margin-top: calc($space-s * 5);
-        @media (max-width: $sm) {
-          margin-top: calc($space-s * 4);
-        }
       }
       h6 {
         @include font(24);

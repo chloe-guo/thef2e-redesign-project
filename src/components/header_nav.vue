@@ -10,7 +10,7 @@ header
     .navbar__collapse
       ul.navbar__menu
         li.navbar__item
-          router-link.navbar__link.btn.js-cursorHover(to="/")
+          a.navbar__link.btn.js-cursorHover(href="#theme")
             span.btn__line
             span.btn__text.navbar__text(data-text="關卡資訊") 關卡資訊
             span.btn__line
@@ -39,6 +39,11 @@ export default {
       $(".navbar__toggler").toggleClass("is-actived");
       $(".navbar__collapse").toggleClass("is-open");
       $("body").toggleClass("is-fixed");
+    });
+    $(".navbar__link").on("click", function () {
+      $(".navbar__toggler").removeClass("is-actived");
+      $(".navbar__collapse").removeClass("is-open");
+      $("body").removeClass("is-fixed");
     });
   },
 };

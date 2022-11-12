@@ -66,6 +66,9 @@ export default {
   &__wrap {
     & + .sponsor__wrap {
       margin-top: calc($space-m * 5);
+      @media (max-width: $sm) {
+        margin-top: calc($space-m * 4);
+      }
     }
   }
   &__title {
@@ -85,6 +88,12 @@ export default {
     * {
       transform-style: preserve-3d;
     }
+    @media (max-width: $sm) {
+      @include flex(column);
+      perspective: 1500px;
+      transform: translateZ(0);
+      padding: calc($space-s * 5) $space-xl;
+    }
   }
   &__clip {
     @include poa;
@@ -98,6 +107,9 @@ export default {
     .icon {
       &-s {
         @include rect(2.7vw, 2vw);
+        @media (max-width: $sm) {
+          @include rect(5.4vw, 4vw);
+        }
         &.icon {
           animation-name: diamond-s;
           animation-direction: alternate;
@@ -132,6 +144,9 @@ export default {
             @include poa(l, t, 16%, 4%);
             animation-delay: -0.5s;
             animation-duration: 1.1s;
+            @media (max-width: $sm) {
+              @include poa(l, 34%, 16%, b);
+            }
           }
           &-5 {
             @include poa(l, t, 3%, 24%);
@@ -152,11 +167,17 @@ export default {
             @include poa(28%, t, r, 45%);
             animation-delay: -0.5s;
             animation-duration: 1.2s;
+            @media (max-width: $sm) {
+              @include poa(18%, t, r, 45%);
+            }
           }
         }
       }
       &-m {
         @include rect(4.8vw, 3.7vw);
+        @media (max-width: $sm) {
+          @include rect(9.6vw, 7.4vw);
+        }
         &.icon {
           animation-name: diamond-m;
           animation-direction: alternate;
@@ -191,11 +212,17 @@ export default {
             @include poa(l, t, 10%, 6%);
             animation-delay: -0.6s;
             animation-duration: 1.3s;
+            @media (max-width: $sm) {
+              @include poa(5%, 40%, r, b);
+            }
           }
           &-5 {
             @include poa(l, t, 24%, 49%);
             animation-delay: -0.3s;
             animation-duration: 1.3s;
+            @media (max-width: $sm) {
+              @include poa(l, t, 14%, 49%);
+            }
           }
           &-6 {
             @include poa(30%, t, r, 2%);
@@ -206,6 +233,9 @@ export default {
       }
       &-l {
         @include rect(8.4vw, 6.2vw);
+        @media (max-width: $sm) {
+          @include rect(16.8vw, 12.4vw);
+        }
         animation-name: diamond-l;
         animation-direction: alternate;
         animation-iteration-count: infinite;
@@ -230,16 +260,25 @@ export default {
             @include poa(24%, 12%, r, b);
             animation-delay: -0.3s;
             animation-duration: 1.6s;
+            @media (max-width: $sm) {
+              @include poa(12%, 28%, r, b);
+            }
           }
           &-3 {
             @include poa(l, 4%, 24%, b);
             animation-delay: -0.3s;
             animation-duration: 1.9s;
+            @media (max-width: $sm) {
+              @include poa(l, 2%, 10%, b);
+            }
           }
           &-4 {
             @include poa(l, t, 36%, 5.4%);
             animation-delay: -0.3s;
             animation-duration: 1.5s;
+            @media (max-width: $sm) {
+              @include poa(l, t, 8%, 5%);
+            }
           }
         }
       }

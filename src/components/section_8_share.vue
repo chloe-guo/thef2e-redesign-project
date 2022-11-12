@@ -19,17 +19,23 @@ export default {
     card,
   },
   mounted: function () {
-    let timer;
-    timer = setTimeout(() => {
-      randerCurains();
-    }, 1000);
-    $(window).on("resize", function () {
-      clearTimeout(timer);
-      $("#CurtainsCanvas").html("");
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+      navigator.userAgent
+    );
+
+    if (!isMobile) {
+      let timer;
       timer = setTimeout(() => {
         randerCurains();
       }, 1000);
-    });
+      $(window).on("resize", function () {
+        clearTimeout(timer);
+        $("#CurtainsCanvas").html("");
+        timer = setTimeout(() => {
+          randerCurains();
+        }, 1000);
+      });
+    }
 
     function randerCurains() {
       // we will keep track of all our planes in an array
@@ -293,12 +299,18 @@ export default {
   margin: calc($space-m * 5) auto calc($space-xl * 5) auto;
   z-index: 1;
   background: $c-bg;
+  @media (max-width: $sm) {
+    margin: calc($space-m * 5) auto calc($space-s * 5) auto;
+  }
 }
 #CurtainsCanvas {
   @include rect(100%, 120vh);
   @include fixed(0, -10vh, 0, b);
   pointer-events: none;
   z-index: -1;
+  @media (max-width: $sm) {
+    display: none;
+  }
 }
 .share {
   &__title {
@@ -309,11 +321,17 @@ export default {
     span {
       color: $c-text-primary;
     }
+    @media (max-width: $sm) {
+      margin-bottom: calc($space-s * 5);
+    }
   }
   &__lists {
     @include rect(100%, auto);
     @include flex(row, space-between);
     flex-wrap: wrap;
+    @media (max-width: $sm) {
+      @include flex(column);
+    }
   }
 }
 </style>

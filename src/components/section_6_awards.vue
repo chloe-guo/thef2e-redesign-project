@@ -53,7 +53,6 @@
 <script>
 export default {
   mounted: function () {
-
     const s6TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".awards__kv",
@@ -157,11 +156,14 @@ export default {
       ) {
         if (!$(".awards__content-1").hasClass("js-typed")) {
           $(".awards__content-1").addClass("js-typed");
+          setTimeout(() => {
+            $(".awards__content-2").addClass("js-typed");
+          }, 600);
           typingText();
         }
       } else {
         if ($(".awards__content-1").hasClass("js-typed")) {
-          $(".awards__content-1").removeClass("js-typed");
+          $(".awards__content").removeClass("js-typed");
           $(".awards__content span").css("opacity", "0");
         }
       }
@@ -197,7 +199,6 @@ export default {
     function closestEdgeX(x, w) {
       let leftEdgeDist = distMetric(x, 0);
       let rightEdgeDist = distMetric(x, w);
-      console.log(leftEdgeDist, rightEdgeDist);
       let min = Math.min(leftEdgeDist, rightEdgeDist);
       switch (min) {
         case leftEdgeDist:
@@ -209,7 +210,6 @@ export default {
     function closestEdgeY(y, h) {
       let topEdgeDist = distMetric(y, 0);
       let bottomEdgeDist = distMetric(y, h);
-      console.log(topEdgeDist, bottomEdgeDist);
       let min = Math.min(topEdgeDist, bottomEdgeDist);
       switch (min) {
         case topEdgeDist:
@@ -233,7 +233,6 @@ export default {
       let y = e.pageY - offset.top - $(window).scrollTop();
       let edgeX = closestEdgeX(x, this.clientWidth);
       let edgeY = closestEdgeY(y, this.clientHeight);
-      console.log(edgeX, edgeY);
       let btn = $(this);
       switch (true) {
         case edgeX == "left" && edgeY == "top":
@@ -278,6 +277,10 @@ export default {
     @include flex;
     @include font(56);
     overflow: hidden;
+    @media (max-width: $sm) {
+      @include rect(100vw, 50vh);
+      height: calc(var(--vh, 1vh) * 50);
+    }
   }
   &__titleGroup {
     @include rect(auto, 84px);
@@ -307,14 +310,49 @@ export default {
   &__title,
   &__subTitle {
     @include font(56);
+    @media (max-width: $sm) {
+      @include font(48, 1.5, $fw-primary, 5);
+    }
   }
   &__content {
-    max-width: 39.675rem;
+    max-width: calc($space-xxl * 14 + $space-xs * 4);
     margin: auto;
     margin-top: calc($space-xxl * 5);
+    padding-left: calc(4.6rem + $space-xs * 4);
+    @media (max-width: $sm) {
+      margin-top: calc($space-m * 5);
+      padding-left: calc(3.8rem + $space-xs * 4);
+    }
+    &::before {
+      @include beaf;
+      @include poa(0, 0, r, b);
+      @include rect(4.6rem, 4.6rem);
+      background: url("@/assets/images/crown.png");
+      @include bg;
+      opacity: 0;
+      transition: all 0.6s 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+      @media (max-width: $sm) {
+        @include rect(3.8rem, 3.8rem);
+      }
+    }
+    &.js-typed {
+      &::before {
+        opacity: 1;
+        transition: all 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+      }
+      li {
+        &::before {
+          opacity: 1;
+          transition: all 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+      }
+    }
     h4 {
       @include font(56);
       color: $c-brand1-lighter;
+      @media (max-width: $sm) {
+        @include font(48);
+      }
     }
     h6 {
       margin-top: $space-xl;
@@ -322,6 +360,9 @@ export default {
     }
     h5 {
       @include font(36);
+      @media (max-width: $sm) {
+        @include font(32);
+      }
       display: inline-block;
       &.is-heightLight {
         color: $c-brand1;
@@ -344,9 +385,30 @@ export default {
       }
       &::before {
         @include beaf;
-        @include rect(0.75rem, 0.75rem);
-        @include poa(calc((0.75rem + 1.25rem) * -1), 0, r, 0);
-        background: $c-text-primary;
+        @include poa(calc((3rem + 1.25rem) * -1), 0, r, b);
+        @include rect(3rem, 3rem);
+        background: url("@/assets/images/coin-1.png");
+        @include bg;
+        animation: award-coin 1.2s linear infinite alternate;
+        @keyframes award-coin {
+          0%,
+          32.5% {
+            background: url("@/assets/images/coin-1.png");
+            @include bg;
+          }
+          33%,
+          65.5% {
+            background: url("@/assets/images/coin-2.png");
+            @include bg;
+          }
+          66%,
+          100% {
+            background: url("@/assets/images/coin-3.png");
+            @include bg;
+          }
+        }
+        opacity: 0;
+        transition: all 0.6s 0.6s cubic-bezier(0.76, 0, 0.24, 1);
       }
     }
   }
@@ -358,6 +420,10 @@ export default {
     margin-bottom: calc($space-xl * 5);
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: $sm) {
+      margin-top: calc($space-l * 5);
+      margin-bottom: calc($space-l * 5);
+    }
   }
   &__cta {
     @include rect(100%, auto);
@@ -387,6 +453,9 @@ export default {
         @include flex;
         background: white;
         @include font(72, 1.5, $fw-primary, 5);
+        @media (max-width: $sm) {
+          @include font(54, 1.5, $fw-primary, 5);
+        }
         color: $c-brand1;
         padding: $space-s;
         transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);

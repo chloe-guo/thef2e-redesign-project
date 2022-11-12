@@ -14,57 +14,67 @@
 export default {
   name: "section_1_banner",
   mounted: function () {
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+      navigator.userAgent
+    );
+
     $(".banner__link").mouseenter(function () {
       let el = $(this).parent(".banner__item");
       $(".banner__item").not(el).removeClass("is-actived");
       el.addClass("is-actived");
     });
 
-    window.addEventListener(
-      "keydown",
-      function (e) {
-        switch (e.code) {
-          case "ArrowUp": {
-            e.preventDefault();
-            $(".banner__item").each(function () {
-              if ($(this).hasClass("is-actived")) {
-                $(this).removeClass("is-actived");
-              } else {
-                $(this).addClass("is-actived");
-              }
-            });
-            break;
-          }
-          case "ArrowDown": {
-            e.preventDefault();
-            $(".banner__item").each(function () {
-              if ($(this).hasClass("is-actived")) {
-                $(this).removeClass("is-actived");
-              } else {
-                $(this).addClass("is-actived");
-              }
-            });
-            break;
-          }
-          case "Enter": {
-            e.preventDefault();
-            if ($(".banner__item.is-actived .banner__link").data("action")) {
-              $("html, body").animate(
-                { scrollTop: $(".issue__item-1").offset().top + 50 },
-                1000,
-                "swing"
-              );
-            } else {
-              window.open(
-                $(".banner__item.is-actived .banner__link").attr("href")
-              );
+    if (!isMobile) {
+      window.addEventListener(
+        "keydown",
+        function (e) {
+          switch (e.code) {
+            case "ArrowUp": {
+              e.preventDefault();
+              $(".banner__item").each(function () {
+                if ($(this).hasClass("is-actived")) {
+                  $(this).removeClass("is-actived");
+                } else {
+                  $(this).addClass("is-actived");
+                }
+              });
+              break;
             }
-            break;
+            case "ArrowDown": {
+              e.preventDefault();
+              $(".banner__item").each(function () {
+                if ($(this).hasClass("is-actived")) {
+                  $(this).removeClass("is-actived");
+                } else {
+                  $(this).addClass("is-actived");
+                }
+              });
+              break;
+            }
+            case "Enter": {
+              e.preventDefault();
+              if ($(".banner__item.is-actived .banner__link").data("action")) {
+                $("html, body").animate(
+                  {
+                    scrollTop:
+                      $(".issue__item-1").offset().top +
+                      $(".issue__item-1").height() * 2,
+                  },
+                  1000,
+                  "swing"
+                );
+              } else {
+                window.open(
+                  $(".banner__item.is-actived .banner__link").attr("href")
+                );
+              }
+              break;
+            }
           }
-        }
-      },
-      false
-    );
+        },
+        false
+      );
+    }
   },
 };
 </script>

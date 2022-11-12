@@ -55,7 +55,6 @@
 export default {
   name: "section_5_direction",
   mounted: function () {
-
     const s5item1TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".direction__item-1",
@@ -79,20 +78,20 @@ export default {
         duration: 0,
       })
       .to(".direction__car", {
-        top: "13.25%",
+        top: "15.75%",
         duration: 10,
       })
       .to(
         ".direction__bullets",
         {
-          top: "13.25%",
+          top: "15.75%",
           duration: 10,
         },
         "<"
       );
     s5item1TL.to(".direction__bullets", {
       display: "block",
-      top: "20%",
+      top: "24.5%",
       duration: 4,
     });
     s5item1TL
@@ -101,7 +100,7 @@ export default {
         duration: 0,
       })
       .to(".direction__bullets", {
-        top: "26.5%",
+        top: "31.5%",
         duration: 5,
       });
     s5item1TL
@@ -128,7 +127,7 @@ export default {
     s5item1TL.to(
       ".direction__car",
       {
-        top: "26.5%",
+        top: "31.5%",
         duration: 10,
       },
       "<"
@@ -194,24 +193,24 @@ export default {
     });
     s5item2TL
       .to(".direction__car", {
-        top: "26.5%",
+        top: "31.5%",
         duration: 0,
       })
       .to(".direction__car", {
-        top: "38.25%",
+        top: "45.85%",
         duration: 10,
       })
       .to(
         ".direction__bullets",
         {
-          top: "38.25%",
+          top: "45.85%",
           duration: 10,
         },
         "<"
       );
     s5item2TL.to(".direction__bullets", {
       display: "block",
-      top: "43.5%",
+      top: "52.7%",
       duration: 4,
     });
     s5item2TL
@@ -220,7 +219,7 @@ export default {
         duration: 0,
       })
       .to(".direction__bullets", {
-        top: "50%",
+        top: "60.2%",
         duration: 5,
       });
     s5item2TL
@@ -247,7 +246,7 @@ export default {
     s5item2TL.to(
       ".direction__car",
       {
-        top: "50%",
+        top: "60.2%",
         duration: 10,
       },
       "<"
@@ -313,24 +312,24 @@ export default {
     });
     s5item3TL
       .to(".direction__car", {
-        top: "50%",
+        top: "60.2%",
         duration: 0,
       })
       .to(".direction__car", {
-        top: "60%",
+        top: "71.1%",
         duration: 10,
       })
       .to(
         ".direction__bullets",
         {
-          top: "60%",
+          top: "71.1%",
           duration: 10,
         },
         "<"
       );
     s5item3TL.to(".direction__bullets", {
       display: "block",
-      top: "67%",
+      top: "81.4%",
       duration: 4,
     });
     s5item3TL
@@ -362,20 +361,21 @@ export default {
       .to(".direction__item-4 .icon__bom-2", {
         display: "none",
         duration: 1,
+      })
+      .to(".direction__item-4 .icon__box-1", {
+        display: "block",
+        duration: 1,
+        delay: 2,
       });
     s5item3TL.to(
       ".direction__car",
       {
-        top: "68%",
+        top: "82%",
         duration: 10,
       },
       "<"
     );
     s5item3TL
-      .to(".direction__item-4 .icon__box-1", {
-        display: "block",
-        duration: 3,
-      })
       .to(".direction__item-4 .icon__box-1", {
         display: "none",
         duration: 1,
@@ -406,13 +406,13 @@ export default {
 }
 .direction {
   &__lists {
-    max-width: calc($space-xxl * 12 + $space-l * 5);
+    max-width: calc($space-xxl * 13 + $space-l * 5);
   }
   &__item {
     padding-left: calc(7.5rem + $space-xs * 8);
     @include font(24);
     padding-bottom: calc($space-xxl * 10);
-    &:last-child {
+    &-4 {
       padding-bottom: 0;
     }
   }

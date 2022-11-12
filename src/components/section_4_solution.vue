@@ -9,7 +9,7 @@
       li.solution__item.solution__item-1
         .solution__info
           .solution__infoSubTitle.is-cubeFont Week1
-          .solution__infoTitle The F2E 活動網站設計
+          #theme.solution__infoTitle The F2E 活動網站設計
           .solution__sponsor 版塊設計
           .solution__tag #視差滾動
         .solution__bottom
@@ -59,7 +59,6 @@
 export default {
   name: "section_4_solution",
   mounted: function () {
-
     const s4TL1 = gsap.timeline({
       scrollTrigger: {
         trigger: ".solution__titleGroup",
@@ -227,6 +226,9 @@ export default {
     @include font(72, 1.2, $fw-primary, 5);
     @include poa;
     @include flex;
+    @media (max-width: $sm) {
+      @include font(54, 1.5, $fw-primary, 5);
+    }
     span {
       @include rect;
       @include poa;
@@ -251,7 +253,12 @@ export default {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     @include flex(column, space-between);
-    padding: 6rem 0;
+    padding: 12vh 0;
+    padding: calc(var(--vh, 1vh) * 12) 0;
+    @media (max-width: $sm) {
+      padding: 24vh 0;
+      padding: calc(var(--vh, 1vh) * 24) 0;
+    }
     &-1 {
       background: $c-brand1;
       .solution__infoSubTitle {
@@ -276,25 +283,64 @@ export default {
   }
   &__infoSubTitle {
     @include font(52, 1.2);
+    font-size: 5.4vh;
+    font-size: calc(var(--vh, 1vh) * 5.4);
+    @media (max-width: $sm) {
+      font-size: 3.6vh;
+      font-size: calc(var(--vh, 1vh) * 3.6);
+    }
   }
   &__infoTitle {
     @include font(72, 1.2, $fw-primary, 5);
-    margin-bottom: $space-xl;
+    font-size: 7.5vh;
+    font-size: calc(var(--vh, 1vh) * 7.5);
+    margin-bottom: 3vh;
+    margin-bottom: calc(var(--vh, 1vh) * 3);
+    @media (max-width: $sm) {
+      ffont-size: 4.5vh;
+      font-size: calc(var(--vh, 1vh) * 4.5);
+      margin-bottom: 1vh;
+      margin-bottom: calc(var(--vh, 1vh) * 1);
+    }
   }
   &__sponsor {
     @include font(36);
+    font-size: 3.75vh;
+    font-size: calc(var(--vh, 1vh) * 3.75);
+    @media (max-width: $sm) {
+      font-size: 2.5vh;
+      font-size: calc(var(--vh, 1vh) * 2.5);
+    }
   }
   &__tag {
     @include font(36);
+    font-size: 3.75vh;
+    font-size: calc(var(--vh, 1vh) * 3.75);
+    @media (max-width: $sm) {
+      font-size: 2.5vh;
+      font-size: calc(var(--vh, 1vh) * 2.5);
+    }
   }
   &__link {
     @include font(36);
+    font-size: 3.75vh;
+    font-size: calc(var(--vh, 1vh) * 3.75);
     color: $c-brand1;
+    @media (max-width: $sm) {
+      font-size: 2.5vh;
+      font-size: calc(var(--vh, 1vh) * 2.5);
+    }
     .link {
       &__text {
         background: white;
         padding: $space-xs $space-xl;
+        padding: 0.8vh 4.2vh;
+        padding: calc(var(--vh, 1vh) * 0.8) calc(var(--vh, 1vh) * 4.2);
         transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+        @media (max-width: $sm) {
+          padding: 0.53vh 2.8vh;
+          padding: calc(var(--vh, 1vh) * 0.53) calc(var(--vh, 1vh) * 2.8);
+        }
       }
       &__shadow {
         @include rect;
@@ -346,8 +392,21 @@ export default {
   }
   &__car {
     @include img(12.9325rem, 5.1875rem);
-    @include poa(0, t, 0, calc(6rem + 8rem));
+    width: 21.6vh;
+    width: calc(var(--vh, 1vh) * 21.6);
+    height: 8.65vh;
+    height: calc(var(--vh, 1vh) * 8.65);
+    @include poa(0, t, 0, calc(12vh + 4.2vh * 2 + 3.75vh + 0.6vh));
+    @include poa(0, t, 0, calc(var(--vh, 1vh) * (12 + 4.2 * 2 + 3.75 + 0.6)));
     animation: solution-car 0.5s linear infinite alternate;
+    @media (max-width: $sm) {
+      width: 19.44vh;
+      width: calc(var(--vh, 1vh) * 19.44);
+      height: 7.785vh;
+      height: calc(var(--vh, 1vh) * 7.785);
+      @include poa(0, t, 0, calc(24vh + 3.75vh + 1vh));
+      @include poa(0, t, 0, calc(var(--vh, 1vh) * (24 + 3.75 + 1)));
+    }
     img {
       transform: translateX(18%);
     }
@@ -365,8 +424,24 @@ export default {
   }
   &__flag {
     @include img(8.75rem, 14.3125rem);
+    width: 14.6vh;
+    width: calc(var(--vh, 1vh) * 14.6);
+    height: 23.9vh;
+    height: calc(var(--vh, 1vh) * 23.9);
     margin-top: $space-xxl;
+    margin-top: 5vh;
+    margin-top: calc(var(--vh, 1vh) * 5);
     margin-bottom: $space-l;
+    margin-bottom: 3.75vh;
+    margin-bottom: calc(var(--vh, 1vh) * 3.75);
+    @media (max-width: $sm) {
+      margin-top: $space-xxl;
+      margin-top: 6.7vh;
+      margin-top: calc(var(--vh, 1vh) * 6.7);
+      margin-bottom: $space-l;
+      margin-bottom: 5vh;
+      margin-bottom: calc(var(--vh, 1vh) * 5);
+    }
     @include flex(row, flex-end);
     overflow: hidden;
     transform: translateX(-10%);

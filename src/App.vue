@@ -4,21 +4,24 @@
   <!-- The custom cursor elements -->
   .follow
   .cursor
-  //- #loading
-  //-   .loading__text.is-cubeFont
-  //-     span L
-  //-     span o
-  //-     span a
-  //-     span d
-  //-     span i
-  //-     span n
-  //-     span g
-  //-     span .
-  //-     span .
-  //-     span .
-  //-   .loading__image
-  //-     img(src="@/assets/images/car-right.gif")
+  #loading
+    .loading__text.is-cubeFont
+      span L
+      span o
+      span a
+      span d
+      span i
+      span n
+      span g
+      span .
+      span .
+      span .
+    .loading__image
+      img(src="@/assets/images/car-right.gif")
   #transitions
+    .transitions__top
+    .transitions__bottom
+  #layout-transitions
     .transitions__top
     .transitions__bottom
 </template>
@@ -42,30 +45,34 @@ export default {
         img.addEventListener("load", () => {
           imgN++;
           if (imgN == imgID.length) {
-            // $("#transitions").addClass("is-close");
-            // setTimeout(() => {
-            //   $("#loading").addClass("is-hidden");
-            //   $("#transitions").removeClass("is-close");
-            //   setTimeout(() => {
-            //     $("#first-view").addClass("is-enter is-ani");
-            //     $("html, body").animate({ scrollTop: 1 }, 100, "swing");
-            //     setTimeout(() => {
-            //       $("#first-view").removeClass("is-ani");
-            //     }, 2400);
-            //   }, 800);
-            // }, 1200);
+            $("#layout-transitions").addClass("is-close");
+            setTimeout(() => {
+              $("body").removeClass("is-fixed");
+              $("html, body").animate({ scrollTop: -100 }, 100, "swing");
+              setTimeout(() => {
+                $("body").addClass("is-fixed");
+                $("#loading").addClass("is-hidden");
+                $("#layout-transitions").removeClass("is-close");
+              }, 800);
+              setTimeout(() => {
+                $("#first__wrap").removeClass("is-open");
+                setTimeout(() => {
+                  $("body").removeClass("is-fixed");
+                }, 1800);
+              }, 1600);
+            }, 1200);
           }
         });
       });
     }
 
     //-------- 100vh --------//
-    let windowsVH = window.innerHeight / 100;
-    document.documentElement.style.setProperty("--vh", windowsVH + "px");
-    window.addEventListener("resize", function () {
-      windowsVH = window.innerHeight / 100;
-      document.documentElement.style.setProperty("--vh", windowsVH + "px");
-    });
+    // let windowsVH = window.innerHeight / 100;
+    // document.documentElement.style.setProperty("--vh", windowsVH + "px");
+    // window.addEventListener("resize", function () {
+    //   windowsVH = window.innerHeight / 100;
+    //   document.documentElement.style.setProperty("--vh", windowsVH + "px");
+    // });
 
     //-------- custom cursors --------//
     let cursor = $(".cursor"),
@@ -138,10 +145,14 @@ body {
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
   font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  button {
+    font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  }
   @include font;
   color: $c-text-primary;
   -webkit-font-smoothing: antialiased;
   background: $c-bg;
+  scroll-behavior: smooth;
   .is-cubeFont {
     font-family: "cube", "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
@@ -151,9 +162,6 @@ body {
   }
   @media (max-width: $sm) {
     font-size: 2vw;
-  }
-  button {
-    font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
 }
 
@@ -255,6 +263,9 @@ body {
   &.is-active {
     opacity: 0;
   }
+  @media (max-width: $sm) {
+    display: none;
+  }
 }
 .follow {
   @include circle($space-l * 2);
@@ -270,6 +281,9 @@ body {
   &.is-active {
     opacity: 0.7;
     transform: translate(calc($space-xxl / -2), calc($space-xxl / -2)) scale(3);
+  }
+  @media (max-width: $sm) {
+    display: none;
   }
 }
 #loading {
@@ -322,7 +336,8 @@ body {
     }
   }
 }
-#transitions {
+#transitions,
+#layout-transitions {
   @include rect(100vw, 100vh);
   height: calc(var(--vh, 1vh) * 100);
   @include fixed;
@@ -333,7 +348,6 @@ body {
     @include beaf;
     @include rect(100%, 50%);
     background: $c-bg;
-    // transition: all 1.2s linear;
   }
   .transitions__top {
     @include poa(0, 0, 0, b);
@@ -351,6 +365,12 @@ body {
     .transitions__bottom {
       transform: translateY(0);
     }
+  }
+}
+#layout-transitions {
+  .transitions__top,
+  .transitions__bottom {
+    transition: all 1.2s linear;
   }
 }
 </style>

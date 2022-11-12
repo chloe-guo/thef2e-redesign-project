@@ -43,8 +43,16 @@ export default {
   &__item {
     flex: 0 0 37.5rem;
     margin-bottom: calc($space-xxl * 3);
+    @media (max-width: $sm) {
+      width: 84vw;
+      flex: 1;
+      margin-bottom: calc($space-xl * 5);
+    }
     &:nth-child(2n) {
       transform: translateY(calc($space-xxl * 1.5));
+      @media (max-width: $sm) {
+        transform: translateY(0);
+      }
     }
     &.is-actived {
       .share {
@@ -67,11 +75,20 @@ export default {
   }
   &__card {
     @include rect(auto, 19.375rem);
+    @media (max-width: $sm) {
+      @include img(27.375rem, 100%);
+    }
   }
   &__image {
     @include img(20rem, 100%);
+    @media (max-width: $sm) {
+      @include img(28rem, 100%);
+    }
     img {
       display: none;
+      @media (max-width: $sm) {
+        display: block;
+      }
     }
   }
   &__tag {
@@ -80,6 +97,9 @@ export default {
     transform: translateX(25%);
     @include font(18);
     padding: calc($space-xs / 2) $space-s;
+    @media (max-width: $sm) {
+      @include font(28);
+    }
   }
   &__info {
     @include rect(22.5rem, auto);
@@ -87,6 +107,11 @@ export default {
     @include font(16);
     @include poa(l, t, 0, 0);
     transform: translate(-10%, 40%);
+    @media (max-width: $sm) {
+      @include rect(60vw, auto);
+      transform: translate(46%, 45%);
+      @include font(24);
+    }
     .info {
       &__shadow {
         @include rect;
@@ -137,10 +162,16 @@ export default {
     @include font(20);
     color: $c-brand1;
     margin-bottom: $space-xs;
+    @media (max-width: $sm) {
+      @include font(30);
+    }
   }
   &__position {
     opacity: 0.7;
     @include font(14);
+    @media (max-width: $sm) {
+      @include font(20);
+    }
   }
 }
 .plane {
