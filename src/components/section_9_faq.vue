@@ -285,7 +285,6 @@ export default {
   &__content {
   }
   &__pane {
-    @include poa(0, 0, r, b);
     padding-bottom: calc($space-l * 5);
     display: none;
     li {

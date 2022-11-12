@@ -24,6 +24,12 @@
   #layout-transitions
     .transitions__top
     .transitions__bottom
+  footer.footer
+    p.footer__text
+      span Design -&nbsp;
+        a.js-cursorHover(href="https://noarzxcvbnm.github.io/PersonalWebsite/index.html" target="_blank") 小菜
+      span &emsp;Frontend -&nbsp;
+        a.js-cursorHover(href="https://github.com/chloe-guo" target="_blank") Chloe Guo
 </template>
 
 <script>
@@ -372,5 +378,14 @@ body {
   .transitions__bottom {
     transition: all 1.2s linear;
   }
+}
+
+.footer {
+  z-index: 10;
+  @include poa(0, t, 0, 0);
+  background: $c-brand1;
+  @include font(24);
+  padding: $space-xs $space-m;
+  @include flex;
 }
 </style>
