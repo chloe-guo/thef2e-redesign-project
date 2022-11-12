@@ -11,8 +11,6 @@
       span.is-cubeFont Interactive And Responsive Web Design.
 </template>
 <script>
-import $ from "jquery";
-
 export default {
   name: "section_1_banner",
   mounted: function () {

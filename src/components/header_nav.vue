@@ -32,8 +32,6 @@ header
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
   name: "header_nav",
   mounted: function () {

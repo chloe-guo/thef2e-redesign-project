@@ -24,14 +24,13 @@
 </template>
 
 <script>
-import $ from "jquery";
-import { gsap, TweenMax } from "gsap/all";
-// don't forget to register plugins
-gsap.registerPlugin(TweenMax);
-
 export default {
   name: "App",
   mounted: function () {
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+      navigator.userAgent
+    );
+
     imageLoading();
 
     function imageLoading() {
@@ -69,16 +68,29 @@ export default {
     });
 
     //-------- custom cursors --------//
+    let cursor = $(".cursor"),
+      follower = $(".follow");
+    let posX = 0,
+      posY = 0;
+    let mouseX = 0,
+      mouseY = 0;
+    if (!isMobile) {
+      customMouse();
+      $(document).on("mousemove", function (e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+      });
+
+      $(document).on("mouseenter", ".js-cursorHover", function () {
+        cursor.addClass("is-active");
+        follower.addClass("is-active");
+      });
+      $(document).on("mouseleave", ".js-cursorHover", function () {
+        cursor.removeClass("is-active");
+        follower.removeClass("is-active");
+      });
+    }
     function customMouse() {
-      let cursor = $(".cursor"),
-        follower = $(".follow");
-
-      let posX = 0,
-        posY = 0;
-
-      let mouseX = 0,
-        mouseY = 0;
-
       TweenMax.to({}, 0.016, {
         repeat: -1,
         onRepeat: function () {
@@ -100,22 +112,7 @@ export default {
           });
         },
       });
-
-      $(document).on("mousemove", function (e) {
-        mouseX = e.pageX;
-        mouseY = e.pageY;
-      });
-
-      $(document).on("mouseenter", ".js-cursorHover", function () {
-        cursor.addClass("is-active");
-        follower.addClass("is-active");
-      });
-      $(document).on("mouseleave", ".js-cursorHover", function () {
-        cursor.removeClass("is-active");
-        follower.removeClass("is-active");
-      });
     }
-    customMouse();
   },
 };
 </script>
@@ -154,6 +151,9 @@ body {
   }
   @media (max-width: $sm) {
     font-size: 2vw;
+  }
+  button {
+    font-family: "fusion-pixel", "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
 }
 
@@ -231,6 +231,12 @@ body {
     @include rect(100vw, 100vh);
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
+  }
+}
+
+.is-hiddenInMobile {
+  @media (max-width: $sm) {
+    display: none !important;
   }
 }
 </style>

@@ -6,7 +6,7 @@
 			li.tab__item
 				button.tab__link.js-cursorHover.is-actived(data-target="common")
 					.link__shadow
-					.link__text 一般常見問答
+					.link__text 一般<span class="is-hiddenInMobile">常見</span>問答
 			li.tab__item
 				button.tab__link.js-cursorHover(data-target="designer")
 					.link__shadow
@@ -88,8 +88,6 @@
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
   mounted: function () {
     $(".tab__pane").each(function () {
@@ -174,6 +172,10 @@ export default {
     @include flex;
     background: $c-brand1;
     padding: $space-m;
+    @media (max-width: $sm) {
+      padding: $space-s;
+      @include font(48, 1.5, $fw-primary, 5);
+    }
   }
 }
 .tab {
@@ -182,13 +184,21 @@ export default {
     max-width: 85.625rem;
     margin: auto;
     margin-top: calc($space-m * 5);
+    @media (max-width: $sm) {
+      @include rect(90vw, auto);
+      max-width: 90vw;
+      margin-top: calc($space-s * 5);
+    }
   }
   &__menu {
     @include flex;
     margin-bottom: calc($space-s * 5);
+    @media (max-width: $sm) {
+      margin-bottom: calc($space-s * 4);
+    }
   }
   &__item {
-    @include rect(calc((100% - $space-s * 3) / 4), 4.0625rem);
+    @include rect(calc((100% - $space-s * 4) / 4), 4.0625rem);
     & + .tab__item {
       margin-left: $space-s;
     }
@@ -203,6 +213,9 @@ export default {
           background: $c-brand1-dark;
           transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
             background 0.3s 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+          @media (max-width: $sm) {
+            transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+          }
         }
       }
     }
@@ -216,6 +229,19 @@ export default {
         }
         &__text {
           transform: translate($space-xs, $space-xs);
+        }
+      }
+      @media (max-width: $sm) {
+        .link {
+          &__shadow {
+            &::before,
+            &::after {
+              @include rect(100%, 0);
+            }
+          }
+          &__text {
+            transform: translate(0, 0);
+          }
         }
       }
     }
@@ -251,6 +277,9 @@ export default {
         @include font(36);
         color: $c-brand1;
         transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+        @media (max-width: $sm) {
+          @include font(28);
+        }
       }
     }
   }
@@ -262,12 +291,21 @@ export default {
     display: none;
     li {
       @include font(24);
+      @media (max-width: $sm) {
+        @include font(26);
+      }
       & + li {
         margin-top: calc($space-s * 5);
+        @media (max-width: $sm) {
+          margin-top: calc($space-s * 4);
+        }
       }
       h6 {
         @include font(24);
         color: $c-brand1-lighter;
+        @media (max-width: $sm) {
+          @include font(26);
+        }
       }
     }
     &.is-actived {

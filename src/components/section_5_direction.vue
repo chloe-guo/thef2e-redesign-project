@@ -52,12 +52,10 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger } from "gsap/all";
-
 export default {
   name: "section_5_direction",
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
+
     const s5item1TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".direction__item-1",

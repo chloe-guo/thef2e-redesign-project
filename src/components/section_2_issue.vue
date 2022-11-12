@@ -39,12 +39,10 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger, EasePack } from "gsap/all";
-
 export default {
   name: "section_2_issue",
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
+
     //===== issue__item-1 =====
     const s2issue1TL = gsap.timeline({
       scrollTrigger: {
@@ -198,7 +196,7 @@ export default {
       .to(
         ".issue-2-text",
         {
-          xPercent: "-50",
+          xPercent: "0",
           duration: 18,
           delay: 6,
           ease: "power3.out",
@@ -306,13 +304,21 @@ export default {
       .issue__text {
         @include poa(l, 0, 0, 0);
         transform: translateX(50%);
+        @media (max-width: $sm) {
+          @include poa(0, t, 0, 0);
+          transform: translateY(150%);
+        }
       }
     }
     &-2 {
       @include flex(row, flex-end);
       .issue__text {
-        @include poa(0, 0, r, 0);
+        @include poa(-16.5%, 0, r, 0);
         transform: translateX(-50%);
+        @media (max-width: $sm) {
+          @include poa(0, t, 0, 0);
+          transform: translateY(150%);
+        }
       }
     }
   }
@@ -320,10 +326,16 @@ export default {
     @include rect(61.25rem, 46.875rem);
     max-height: 68vh;
     max-height: calc(var(--vh, 1vh) * 68);
+    @media (max-width: $sm) {
+      @include rect(100vw, 34.5rem);
+    }
   }
   &__text {
     display: block;
     @include textstroke(6, $c-brand1-dark, 36, 1.5, $fw-primary, 2);
+    @media (max-width: $sm) {
+      @include textstroke(8, $c-brand1-dark, 44, 1.5, $fw-primary, 2);
+    }
   }
   &__background {
     @include rect;
@@ -354,6 +366,9 @@ export default {
       @include poa(58%, t, r, 86.5%);
       @include flex;
       transform-origin: 10% bottom;
+      @media (max-width: $sm) {
+        @include poa(48%, t, r, 86.5%);
+      }
       .dialog__text {
         color: $c-brand1-dark;
         @include font(32);
@@ -391,6 +406,9 @@ export default {
       overflow: hidden;
       @include poa(0, t, 0, 0);
       transform: translateX(5%);
+      @media (max-width: $sm) {
+        transform: translateX(15%);
+      }
       img {
         @include rect(76.25rem, 36.75rem);
         @include poa(0, 0, r, 0);
@@ -414,6 +432,10 @@ export default {
       @include poa(l, t, 72%, 76%);
       @include flex;
       transform-origin: 90% bottom;
+      @media (max-width: $sm) {
+        @include rect(18.1rem, 10.15rem);
+        @include poa(l, t, 63%, 86%);
+      }
       .dialog__text {
         @include flex;
         transform: translateY(-6%);
@@ -445,6 +467,9 @@ export default {
       @include img(41.5rem, 41.5rem);
       @include poa(l, t, 14%, 0);
       overflow: hidden;
+      @media (max-width: $sm) {
+        @include poa(l, t, 10%, 0);
+      }
       img {
         @include rect(auto, 100%);
         @include poa(0, 0, r, 0);
@@ -464,6 +489,9 @@ export default {
     &-soldier {
       @include img(16.625rem, 14.75rem);
       @include poa(28%, t, r, 0);
+      @media (max-width: $sm) {
+        @include poa(24%, t, r, 0);
+      }
     }
   }
 }

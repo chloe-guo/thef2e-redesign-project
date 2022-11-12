@@ -51,13 +51,9 @@
 </template>
 
 <script>
-import $ from "jquery";
-import Typed from "typed.js";
-import { gsap, ScrollTrigger, EasePack } from "gsap/all";
-
 export default {
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
+
     const s6TL = gsap.timeline({
       scrollTrigger: {
         trigger: ".awards__kv",

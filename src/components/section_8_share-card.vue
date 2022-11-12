@@ -14,8 +14,6 @@ li.share__item.plane-wrapper
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
   name: "section_8_share-card",
   props: {

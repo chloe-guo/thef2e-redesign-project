@@ -56,12 +56,10 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger } from "gsap/all";
-
 export default {
   name: "section_4_solution",
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
+
     const s4TL1 = gsap.timeline({
       scrollTrigger: {
         trigger: ".solution__titleGroup",

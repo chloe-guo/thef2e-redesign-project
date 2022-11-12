@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import $ from "jquery";
-import { Curtains, RenderTarget, Plane, ShaderPass } from "curtainsjs";
 import card from "@/components/section_8_share-card.vue";
 
 export default {

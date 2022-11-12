@@ -25,8 +25,6 @@ import section_7_sponsor from "@/components/section_7_sponsor.vue";
 import section_8_share from "@/components/section_8_share.vue";
 import section_9_faq from "@/components/section_9_faq.vue";
 
-import { gsap, ScrollTrigger } from "gsap/all";
-
 export default {
   name: "view_home",
   components: {
@@ -40,10 +38,8 @@ export default {
     section_7_sponsor,
     section_8_share,
     section_9_faq,
-    // section_4_solution,
   },
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
     const s1TL = gsap.timeline({
       scrollTrigger: {
         trigger: "#first__view",

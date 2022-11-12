@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger } from "gsap/all";
-
 export default {
   name: "section_2_issue",
   mounted: function () {
-    gsap.registerPlugin(ScrollTrigger);
+
     const s3TL = gsap.timeline({
       scrollTrigger: {
         trigger: "#cooperation",
