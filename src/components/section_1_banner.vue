@@ -82,6 +82,10 @@ export default {
     @include img(74.9vw, auto);
     max-width: 65.5rem;
     margin: 22.5vh auto 11.5vh auto;
+    @media (max-width: $sm) {
+      @include img(88vw, auto);
+      margin: 27.5vh auto 8vh auto;
+    }
   }
   &__item {
     @include rect(auto, 3.3125rem);
@@ -114,9 +118,15 @@ export default {
   &__info {
     margin-top: 9vh;
     @include font(32, 1.5, $fw-primary, 3);
+    @media (max-width: $sm) {
+      @include flex(column);
+    }
     span {
       margin-left: $space-s;
       text-transform: uppercase;
+      @media (max-width: $sm) {
+        display: block;
+      }
     }
   }
 }

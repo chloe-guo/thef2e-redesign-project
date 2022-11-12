@@ -152,6 +152,9 @@ body {
   @media (max-width: $xl) {
     font-size: 1vw;
   }
+  @media (max-width: $sm) {
+    font-size: 2vw;
+  }
 }
 
 html {
