@@ -1,3 +1,5 @@
 # thef2e-redesign-project
-這是一個 可以使用pug, sass，並含有gh-pages功能的vue專案。
+
+比賽資訊：https://2022.thef2e.com/news/week1
+
 [Demo](https://chloe-guo.github.io/thef2e-redesign-project/)
