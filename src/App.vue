@@ -25,11 +25,11 @@
     .transitions__top
     .transitions__bottom
   footer.footer
-    p.footer__text
-      span Design -&nbsp;
-        a.js-cursorHover(href="https://noarzxcvbnm.github.io/PersonalWebsite/index.html" target="_blank") 小菜
+    p.footer__text Copyright © 2022
       span &emsp;Frontend -&nbsp;
         a.js-cursorHover(href="https://github.com/chloe-guo" target="_blank") Chloe Guo
+      span &emsp;Design -&nbsp;
+        a.js-cursorHover(href="https://noarzxcvbnm.github.io/PersonalWebsite/index.html" target="_blank") 小菜
 </template>
 
 <script>
@@ -384,7 +384,7 @@ body {
   z-index: 10;
   @include poa(0, t, 0, 0);
   background: $c-brand1;
-  @include font(24);
+  @include font(18);
   padding: $space-xs $space-m;
   @include flex;
 }
