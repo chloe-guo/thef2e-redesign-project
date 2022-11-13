@@ -92,7 +92,7 @@ export default {
 <style lang="scss">
 #first__wrap {
   transform: translateY(0);
-  transition: transform 1.8s linear;
+  transition: transform 1.2s linear;
   &.is-open {
     transform: translateY(100vh);
     transform: translateY(calc(var(--vh, 1vh) * 100));

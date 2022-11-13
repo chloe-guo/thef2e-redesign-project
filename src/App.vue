@@ -64,8 +64,8 @@ export default {
                 $("#first__wrap").removeClass("is-open");
                 setTimeout(() => {
                   $("body").removeClass("is-fixed");
-                }, 1800);
-              }, 1600);
+                }, 1200);
+              }, 1800);
             }, 1200);
           }
         });
