@@ -34,18 +34,22 @@ export default {
       },
     });
     s3TL.to("#cooperation", {
-      background: "#f4b6a7",
-      duration: 50,
-      delay: 20,
+      background: "#b82a06",
+      duration: 25,
     });
-    s3TL.to(
-      ".cooperation__gradient",
-      {
+    s3TL
+      .to(".cooperation__gradient", {
         opacity: "0",
-        duration: 70,
-      },
-      "<"
-    );
+        duration: 35,
+      })
+      .to(
+        "#cooperation",
+        {
+          background: "#f4b6a7",
+          duration: 25,
+        },
+        "<"
+      );
     gsap.set(".cooperation__layer-4", {
       yPercent: "200",
     });
