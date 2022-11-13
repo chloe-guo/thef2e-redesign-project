@@ -268,6 +268,13 @@ export default {
           transform: translateY(100%) skewX(45deg);
           transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
         }
+        @media (max-width: $sm) {
+          display: none;
+          &::after,
+          &::before {
+            display: none;
+          }
+        }
       }
       &__text {
         @include rect;
