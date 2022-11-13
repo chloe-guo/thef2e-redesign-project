@@ -83,15 +83,12 @@ export default {
     @include flex;
     margin: 0;
     padding: $space-s $space-xl;
-    perspective: 1500px;
-    transform: translateZ(#{$space-xl * 8});
+    perspective: #{$space-xxl * 31.25};
     * {
       transform-style: preserve-3d;
     }
     @media (max-width: $sm) {
       @include flex(column);
-      perspective: 1500px;
-      transform: translateZ(0);
       padding: calc($space-s * 5) $space-xl;
     }
   }

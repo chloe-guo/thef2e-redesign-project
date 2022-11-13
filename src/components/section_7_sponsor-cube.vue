@@ -39,7 +39,7 @@ $c-dottedsign: #586af2;
     transform-style: preserve-3d;
     padding: #{$space-l * 2};
     @media (max-width: $sm) {
-      padding: #{$space-s * 2};
+      padding: #{$space-m * 2};
     }
     * {
       transform-style: preserve-3d;

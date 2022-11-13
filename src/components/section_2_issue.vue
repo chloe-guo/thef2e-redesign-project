@@ -289,6 +289,7 @@ export default {
 #issue {
   z-index: 1;
   background: $c-bg;
+  overflow-x: hidden;
 }
 .issue {
   &__list {

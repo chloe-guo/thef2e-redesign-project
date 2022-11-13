@@ -564,7 +564,7 @@ export default {
     }
     &-4 {
       @include rect(100%, auto);
-      @include poa(0, t, 0, 0);
+      @include poa(0, t, 0, -0.1vw);
     }
   }
   &__car {
