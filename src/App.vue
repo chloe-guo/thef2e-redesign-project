@@ -1,9 +1,5 @@
 <template lang="pug">
 #layout
-  router-view
-  <!-- The custom cursor elements -->
-  .follow
-  .cursor
   #loading
     .loading__text.is-cubeFont
       span L
@@ -18,6 +14,10 @@
       span .
     .loading__image
       img(src="@/assets/images/car-right.gif")
+  router-view
+  <!-- The custom cursor elements -->
+  .follow
+  .cursor
   #transitions
     .transitions__top
     .transitions__bottom
