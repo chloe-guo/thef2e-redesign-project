@@ -1,6 +1,7 @@
 <template lang="pug">
 #cooperation
-    .cooperation__gradient
+    .cooperation__gradient-red
+    .cooperation__gradient-black
     .cooperation__titleGroup
       h2.cooperation__title 互動式網頁設計
       h3.cooperation__subTitle  UI、前端接力合作，一同產出完整作品。
@@ -33,12 +34,29 @@ export default {
         scrub: true,
       },
     });
-    s3TL.to("#cooperation", {
-      background: "#b82a06",
-      duration: 25,
-    });
     s3TL
-      .to(".cooperation__gradient", {
+      .to(".cooperation__gradient-red", {
+        opacity: "1",
+        duration: 35,
+      })
+      .to(
+        ".cooperation__gradient-black",
+        {
+          opacity: "0",
+          duration: 35,
+        },
+        "<"
+      )
+      .to(
+        "#cooperation",
+        {
+          background: "#d67057",
+          duration: 25,
+        },
+        "<"
+      );
+    s3TL
+      .to(".cooperation__gradient-red", {
         opacity: "0",
         duration: 35,
       })
@@ -175,25 +193,49 @@ export default {
 }
 .cooperation {
   &__gradient {
-    @include rect;
-    @include poa;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-    background: -moz-linear-gradient(
-      top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ); /* FF3.6-15 */
-    background: -webkit-linear-gradient(
-      top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    &-red {
+      @include rect;
+      @include poa;
+      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+      background: -moz-linear-gradient(
+        top,
+        rgba($c-brand1, 0.65) 0%,
+        rgba($c-brand1, 0) 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        top,
+        rgba($c-brand1, 0.65) 0%,
+        rgba($c-brand1, 0) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+        to bottom,
+        rgba($c-brand1, 0.65) 0%,
+        rgba($c-brand1, 0) 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#b82a0600',GradientType=0 ); /* IE6-9 */
+      opacity: 0;
+    }
+    &-black {
+      @include rect;
+      @include poa;
+      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+      background: -moz-linear-gradient(
+        top,
+        rgba($c-bg, 0.65) 0%,
+        rgba($c-bg, 0) 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        top,
+        rgba($c-bg, 0.65) 0%,
+        rgba($c-bg, 0) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+        to bottom,
+        rgba($c-bg, 0.65) 0%,
+        rgba($c-bg, 0) 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    }
   }
   &__titleGroup {
     @include poa;
